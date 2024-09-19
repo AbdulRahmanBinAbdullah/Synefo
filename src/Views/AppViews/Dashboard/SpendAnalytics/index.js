@@ -3,6 +3,10 @@ import { Box, Grid, List, ListItem } from "@mui/material";
 import UserIcon from "assets/img/dashboard/user-icon.png";
 import KingIcon from "assets/img/dashboard/kingicon.png";
 import annotationPlugin from "chartjs-plugin-annotation";
+import WAFRDashboard from "../charts/WAFR dashboard";
+import TopServicesTable from "../charts/TopServices";
+import LineChart from "../charts/linechart";
+import RegionWiseResourcesTable from "../charts/Regionresources";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -741,69 +745,74 @@ class SpendAnalytics extends Component {
 
   render() {
     return (
-      <Box className="spend-analytics-container">
-        <Box className="spend-analytics-inner-container">
-          <Box className="analytics-left">
-            {this.renderTotalSpendHtml()}
-            <Box className="wise-spend-progress">
-              <Box className="heading">Cloud Wise Spend</Box>
-              {this.renderTotalCloudWiseSpendHtml()}
-            </Box>
-            <Box className="dashboard-spent">
-              {this.renderTotalBudgetHtml()}
-            </Box>
-          </Box>
-          <Box className="analytics-center">
-            <Box className="analytics-line-chart">
-              <Box id="chart" style={{ height: "320px", width: "100%" }}>
-                {this.renderMonthlyCloudWiseSpendHtml()}
-              </Box>
-            </Box>
-          </Box>
-          <Box className="analytics-right">
-            <Box className="current-spend">
-              <Box className="heading">
-                <label>Current Spend Rate</label>
-              </Box>
-              <Box sx={{ flexGrow: 2 }}>
-                <Grid container spacing={1} className="spend-time">
-                  <Grid className="spend-time-details">
-                    <Box className="user-profile">
-                      <img src={UserIcon} className="red" alt="" />
-                    </Box>
-                    {this.renderCurrentHourSpendRateHtml()}
-                  </Grid>
-                  <Grid className="spend-time-details">
-                    <Box className="user-profile sky-blue">
-                      <img src={KingIcon} alt="" />
-                    </Box>
-                    {this.renderCurrentDaySpendRateHtml()}
-                  </Grid>
-                </Grid>
-              </Box>
-            </Box>
-            <Box className="spend-analytics">
-              <Box className="heading">
-                <label>Spend Analytics</label>
-              </Box>
-              <Grid container spacing={1} className="spend-analytics-time">
-                <Box className="spend-contant">
-                  {this.renderTodaySpendAnalyticsHtml()}
-                </Box>
-                <Box className="spend-contant">
-                  {this.renderYesterdaySpendAnalyticsHtml()}
-                </Box>
-              </Grid>
-            </Box>
-            <Box className="monthly-statistics-card">
-              {this.renderMonthlyStatisticsHtml()}
-            </Box>
-          </Box>
+      
+  //      
+  <Box className="spend-analytics-container" sx={{ position: "relative" }}>
+  <Box className="spend-analytics-inner-container" sx={{ display: "flex" }}>
+    <Box className="analytics-center" sx={{ flex: 1, display: "flex", flexDirection: "column", marginRight: 2}}>
+      {/* First row */}
+      <Box display="flex" justifyContent="space-between" >
+        <Box className="wafr-dashboard" sx={{ flex: 1, marginRight: 2 ,marginTop:30}}>
+          <WAFRDashboard />
+        </Box>
+        <Box className="top-services" sx={{ flex: 1,marginTop:30 }}>
+          <TopServicesTable />
         </Box>
       </Box>
-    );
+      
+      {/* Second row */}
+      <Box display="flex" justifyContent="space-between" sx={{mt: 7}}>
+        <Box className="linechart" sx={{ flex: 1, marginRight: 2 }}>
+          <LineChart />
+        </Box>
+        <Box className="regionresource" sx={{ flex: 1 }}>
+          <RegionWiseResourcesTable />
+        </Box>
+      </Box>
+    </Box>
+
+    <Box className="analytics-right" sx={{ width: "300px" }}>
+      <Box className="current-spend" sx={{ marginBottom: 2 }}>
+        <Box className="heading">
+          <label>Current Spend Rate</label>
+        </Box>
+        <Box>
+          <Grid container spacing={1} className="spend-time">
+            <Grid item className="spend-time-details">
+              <Box className="user-profile">
+                <img src={UserIcon} className="red" alt="" />
+              </Box>
+              {this.renderCurrentHourSpendRateHtml()}
+            </Grid>
+            <Grid item className="spend-time-details">
+              <Box className="user-profile sky-blue">
+                <img src={KingIcon} alt="" />
+              </Box>
+              {this.renderCurrentDaySpendRateHtml()}
+            </Grid>
+          </Grid>
+        </Box>
+      </Box>
+      <Box className="spend-analytics">
+        <Box className="heading">
+          <label>Spend Analytics</label>
+        </Box>
+        <Grid container spacing={1} className="spend-analytics-time">
+          <Grid item className="spend-contant">
+            {this.renderTodaySpendAnalyticsHtml()}
+          </Grid>
+          <Grid item className="spend-contant">
+            {this.renderYesterdaySpendAnalyticsHtml()}
+          </Grid>
+        </Grid>
+      </Box>
+    </Box>
+  </Box>
+</Box>
+      );
+    }
   }
-}
+    
 
 function mapStateToProps(state) {
   const {
