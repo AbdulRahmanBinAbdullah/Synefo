@@ -754,9 +754,10 @@ class SpendAnalytics extends Component {
   <Box className="spend-analytics-inner-container" sx={{ display: "flex" }}>
     <Box className="analytics-center" sx={{ flex: 1, display: "flex", flexDirection: "column", marginRight: 2 }}>
       {/* First row */}
-      <Box display="flex" justifyContent="space-between" sx={{mt:30}}>
-        <Box className="wafr-dashboard" sx={{ flex: 1, marginRight: 2 }}>
-          <WAFRDashboard />
+      <Box display="flex" justifyContent="space-between" sx={{mt:45}}>
+        
+        <Box className="linechart"  sx={{marginRight:2}}>
+          <LineChart />
         </Box>
         <Box className="top-services" sx={{ flex: 1, marginRight: 2 }}>
           <TopServicesTable />
@@ -816,11 +817,12 @@ class SpendAnalytics extends Component {
       </Box>
 
       {/* Second row */}
-      <Box display="flex" justifyContent="space-between" sx={{ mt: 7,mr:25 }}>
-        <Box className="linechart" >
-          <LineChart />
+      <Box display="flex" justifyContent="space-between" sx={{ mt: 7,mr:21 }}>
+      <Box className="wafr-dashboard" >
+          <WAFRDashboard />
         </Box>
-        <Box className="regionresource" sx={{ flex: 1 ,marginLeft:3}}>
+       
+        <Box className="regionresource" sx={{ flex: 1 ,marginLeft:2}}>
           <RegionWiseResourcesTable />
         </Box>
       </Box>
