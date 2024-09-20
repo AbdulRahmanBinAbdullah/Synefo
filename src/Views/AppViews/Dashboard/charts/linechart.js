@@ -242,7 +242,7 @@ const LineChart = () => {
   };
 
   return (
-    <Card sx={{ Width: 600, minWidth: 520,minHeight:370}}>
+    <Card sx={{  minWidth: 430,minHeight:370,width: 430,overflowX:'hidden'}}>
       <CardContent>
         <Typography variant="h6" component="div" sx={{ fontWeight: 'bold', marginBottom: 2 }}>
           Cost Spent on Top Services

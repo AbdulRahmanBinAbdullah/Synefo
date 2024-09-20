@@ -33,7 +33,7 @@ class RegionWiseResourcesTable extends React.Component {
         <Typography variant="h5" component="h2" gutterBottom sx={{ fontWeight: 'bold', color: '#3f51b5' }}>
           Region Wise Resources
         </Typography>
-        <TableContainer sx={{ maxHeight: 300, width: 500 }}>
+        <TableContainer sx={{ maxHeight: 300, width: 430,overflowX:'hidden' }}>
           <Table sx={{ minWidth: 100 }} aria-label="region-wise resources table">
             <TableHead>
               <TableRow>

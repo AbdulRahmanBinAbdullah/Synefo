@@ -29,7 +29,7 @@ class TopServicesTable extends React.Component {
         <Typography variant="h5" component="h2" gutterBottom sx={{ fontWeight: 'bold', color: '#3f51b5' }}>
           Top 4 Services
         </Typography>
-        <TableContainer TableContainer sx={{ maxHeight: 300,width:500 }}>
+        <TableContainer TableContainer sx={{ maxHeight: 300,width: 430,overflowX:'hidden' }}>
           <Table sx={{ minWidth: 100 }} aria-label="top services table">
             <TableHead>
               <TableRow>

@@ -106,7 +106,7 @@ class WAFRDashboard extends React.Component {
         <Typography variant="h5" component="h2" gutterBottom sx={{ fontWeight: 'bold', color: '#3f51b5' }}>
           WAFR
         </Typography>
-        <TableContainer sx={{ maxHeight: 300, width: 500 }}>
+        <TableContainer sx={{ maxHeight: 300, width: 410,overflowX:'hidden' }}>
           <Table sx={{ minWidth: 100 }} stickyHeader aria-label="WAFR table">
             <TableHead>
               <TableRow>

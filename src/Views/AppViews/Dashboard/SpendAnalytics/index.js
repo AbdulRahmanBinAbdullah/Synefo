@@ -749,7 +749,7 @@ class SpendAnalytics extends Component {
   render() {
     return (
       
-  //      
+
 <Box className="spend-analytics-container" sx={{ position: "relative" }}>
   <Box className="spend-analytics-inner-container" sx={{ display: "flex" }}>
     <Box className="analytics-center" sx={{ flex: 1, display: "flex", flexDirection: "column", marginRight: 2 }}>
