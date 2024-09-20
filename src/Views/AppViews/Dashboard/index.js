@@ -4,7 +4,7 @@ import CostAnalysis from "./CostAnalysis";
 import SLAMetrics from "./SlaMetrics";
 import ProcessCentral from "./ProcessCentral";
 import Planet from "assets/img/dashboard/planet2.png";
-import { Box, List, ListItem } from "@mui/material";
+import { Box, List, ListItem,Typography,Grid ,Breadcrumbs,Link} from "@mui/material";
 import { v4 } from "uuid";
 
 class Dashboard extends Component {
@@ -17,14 +17,14 @@ class Dashboard extends Component {
       name: "Cost Analysis",
       dataKey: "cost",
     },
-    {
-      name: "SLA Metrics",
-      dataKey: "metrics",
-    },
-    {
-      name: "Process Central",
-      dataKey: "process",
-    },
+    // {
+    //   name: "SLA Metrics",
+    //   dataKey: "metrics",
+    // },
+    // {
+    //   name: "Process Central",
+    //   dataKey: "process",
+    // },
   ];
   constructor(props) {
     super(props);
@@ -47,9 +47,43 @@ class Dashboard extends Component {
             </Box>
           </Box>
         </Box>
+        {/* <Box sx={{marginTop:10}}>
+        <Typography variant="h4">Dashboard</Typography>
+
+        <Typography variant="body2 ">Total Spends</Typography>
+              <Typography variant="h4">$150</Typography>
+              </Box> */}
+
+
+   
+
+    <Box sx={{marginTop: 10}}>
+    <Typography variant="h4">Dashboard</Typography>
+
+    <Box display="flex" alignItems="center">
+    <Typography variant="h6" sx={{ marginRight: 2, color: "black", fontWeight: "bold" }}>
+    Total Spends
+</Typography>
+<Breadcrumbs aria-label="breadcrumb" style={{ fontSize: '0.75rem' }}>
+    <Link underline="hover" color="inherit" href="/">
+        Home
+    </Link>
+</Breadcrumbs>
+
+    </Box>
+    <Box display="flex" alignItems="center">
+    <Typography variant="h4">$150</Typography>
+    </Box>
+
+
+</Box>
+
         <Box className="services-panel-tabs">
+         
           <Box className="tabs-head">
-            <h2>Dashboard</h2>
+          
+
+           
             <List>
               {this.tabMapping.map((tabData, index) => {
                 return (
@@ -58,7 +92,9 @@ class Dashboard extends Component {
                     className={index === activeTab ? "active" : ""}
                     onClick={() => this.setActiveTab(index)}
                   >
+                    
                     {tabData.name}
+                    
                   </ListItem>
                 );
               })}
