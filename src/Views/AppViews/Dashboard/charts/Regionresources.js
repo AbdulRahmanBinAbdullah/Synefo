@@ -29,7 +29,7 @@ class RegionWiseResourcesTable extends React.Component {
 
   render() {
     return (
-      <Paper sx={{ width: '100%', overflow: 'hidden', padding: 2 }}>
+      <Paper sx={{ width: '100%', overflow: 'hidden', p:2}}>
         <Typography variant="h5" component="h2" gutterBottom sx={{ fontWeight: 'bold', color: '#3f51b5' }}>
           Region Wise Resources
         </Typography>
@@ -37,10 +37,10 @@ class RegionWiseResourcesTable extends React.Component {
           <Table sx={{ minWidth: 100 }} aria-label="region-wise resources table">
             <TableHead>
               <TableRow>
-                <TableCell sx={{ fontWeight: 'bold', color: '#757575' }}>REGION</TableCell>
-                <TableCell align="right" sx={{ fontWeight: 'bold', color: '#757575' }}>NO. OF RESOURCES</TableCell>
-                <TableCell align="right" sx={{ fontWeight: 'bold', color: '#757575' }}>TOTAL COST</TableCell>
-                <TableCell align="right" sx={{ fontWeight: 'bold', color: '#757575' }}>RESOURCE TYPES</TableCell>
+                <TableCell sx={{ fontWeight: 'bold', color: '#757575',fontFamily:'poppins' }}>REGION</TableCell>
+                <TableCell align="right" sx={{ fontWeight: 'bold', color: '#757575',fontFamily:'poppins' }}>NO. OF RESOURCES</TableCell>
+                <TableCell align="right" sx={{ fontWeight: 'bold', color: '#757575',fontFamily:'poppins' }}>TOTAL COST</TableCell>
+                <TableCell align="right" sx={{ fontWeight: 'bold', color: '#757575',fontFamily:'poppins' }}>RESOURCE TYPES</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -49,12 +49,12 @@ class RegionWiseResourcesTable extends React.Component {
                   key={region.region}
                   sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                 >
-                  <TableCell component="th" scope="row">
+                  <TableCell component="th" scope="row"  sx={{ color: '#757575',fontFamily:'poppins' }}>
                     {region.region}
                   </TableCell>
-                  <TableCell align="right">{region.resources}</TableCell>
-                  <TableCell align="right">{`$${region.cost.toLocaleString()}`}</TableCell>
-                  <TableCell align="right">{region.types}</TableCell>
+                  <TableCell sx={{ color: '#757575',fontFamily:'poppins' }} align="middle">{region.resources}</TableCell>
+                  <TableCell sx={{ color: '#757575',fontFamily:'poppins' }} align="middle">{`$${region.cost.toLocaleString()}`}</TableCell>
+                  <TableCell sx={{ color: '#757575',fontFamily:'poppins' }} align="middle">{region.types}</TableCell>
                 </TableRow>
               ))}
             </TableBody>

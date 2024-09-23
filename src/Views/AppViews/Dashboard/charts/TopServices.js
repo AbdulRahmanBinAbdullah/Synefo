@@ -45,12 +45,12 @@ class TopServicesTable extends React.Component {
                   key={service.name}
                   sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                 >
-                  <TableCell component="th" scope="row">
+                  <TableCell component="th" sx={{ color: '#757575',fontFamily:'poppins' }} scope="row">
                     {service.name}
                   </TableCell>
-                  <TableCell align="right">{`${service.cpuUtilization}%`}</TableCell>
-                  <TableCell align="right">{`${service.memoryUtilization}%`}</TableCell>
-                  <TableCell align="right">{`$${service.cost.toLocaleString()}`}</TableCell>
+                  <TableCell align="right" sx={{ color: '#757575',fontFamily:'poppins' }}>{`${service.cpuUtilization}%`}</TableCell>
+                  <TableCell align="right" sx={{ color: '#757575',fontFamily:'poppins' }}>{`${service.memoryUtilization}%`}</TableCell>
+                  <TableCell align="right" sx={{ color: '#757575',fontFamily:'poppins' }}>{`$${service.cost.toLocaleString()}`}</TableCell>
                 </TableRow>
               ))}
             </TableBody>

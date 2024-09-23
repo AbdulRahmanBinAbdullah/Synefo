@@ -171,7 +171,7 @@
 
 import React from 'react';
 import { Line } from 'react-chartjs-2';
-import { Card, CardContent, Typography } from '@mui/material';
+import { Card, CardContent, Typography,Paper } from '@mui/material';
 import {
   Chart as ChartJS,
   LineElement,
@@ -242,14 +242,14 @@ const LineChart = () => {
   };
 
   return (
-    <Card sx={{  minWidth: 400,minHeight:370,width: 430,overflowX:'hidden'}}>
+    <Paper sx={{  minWidth: 400,minHeight:370,width: 450,overflowX:'hidden'}}>
       <CardContent>
         <Typography variant="h6" component="div" sx={{ fontWeight: 'bold', marginBottom: 2 }}>
           Cost Spent on Top Services
         </Typography>
         <Line data={data} options={options} />
       </CardContent>
-    </Card>
+    </Paper>
   );
 };
 

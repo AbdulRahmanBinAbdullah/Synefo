@@ -4,31 +4,31 @@ import Vector from "assets/img/assetmanagement/Vector.png"
 import Subtract from "assets/img/assetmanagement/Subtract.png"
 const TableRowItem = ({ row }) => (
   <TableRow>
-    <TableCell>{row.name}</TableCell>
-    <TableCell>{row.landingZone}</TableCell>
-    <TableCell>{row.productEnclave}</TableCell>
-    <TableCell>
+    <TableCell >{row.name}</TableCell>
+    <TableCell >{row.landingZone}</TableCell>
+    <TableCell >{row.productEnclave}</TableCell>
+    <TableCell >
         <img
           src={Subtract}
           alt="Log"
-          style={{ width: '20px', height: '20px' }} // Adjust size accordingly
+          style={{ width: '20px', height: '15px' }} // Adjust size accordingly
+        />
+      </TableCell>
+      <TableCell >
+        <img
+          src={Vector}
+          alt="Log"
+          style={{ width: '17px', height: '15px'}} // Adjust size accordingly
         />
       </TableCell>
       <TableCell>
         <img
           src={Vector}
           alt="Log"
-          style={{ width: '20px', height: '20px' }} // Adjust size accordingly
+          style={{ width: '17px', height: '15px' }} // Adjust size accordingly
         />
       </TableCell>
-      <TableCell>
-        <img
-          src={Vector}
-          alt="Log"
-          style={{ width: '20px', height: '20px' }} // Adjust size accordingly
-        />
-      </TableCell>
-      <TableCell>{row.name}</TableCell>
+      <TableCell >{row.name}</TableCell>
 
     
   </TableRow>

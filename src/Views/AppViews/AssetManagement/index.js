@@ -2,13 +2,27 @@
 
 
 
+
+
+
 import React, { useState } from 'react'
 import { Container, Grid } from '@mui/material'
 import AppBarComponent from './components/Appbarcomponent'
 import PlatformButtons from './components/platformbuttons'
 import InstanceTable from './components/Instancetable'
+import DiscoveredAssets from './components/Discoveredasset'
+import aws from "assets/img/assetmanagement/aws.png";
+import azure from "assets/img/assetmanagement/azure.png";
+import gcloud from "assets/img/assetmanagement/gcloud.png";
 
 const platforms = ['Amazon Web Services', 'Google Cloud Platform', 'Azure Cloud']
+const platformImages = {
+  'Amazon Web Services': aws,
+  'Google Cloud Platform': gcloud,
+  'Azure Cloud': azure
+}
+
+
 
 const mockData = {
   'EC2 Instances': [
@@ -52,6 +66,7 @@ export default function Component() {
   return (
     <Container maxWidth="lg">
       <AppBarComponent />
+      <DiscoveredAssets/>
       <PlatformButtons
         platforms={platforms}
         activePlatform={activePlatform}

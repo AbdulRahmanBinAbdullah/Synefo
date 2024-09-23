@@ -102,24 +102,24 @@ class WAFRDashboard extends React.Component {
 
   render() {
     return (
-      <Paper sx={{ width: '100%', overflow: 'hidden', padding: 2 }}>
+      <Paper sx={{ width: '100%', overflow: 'hidden', padding: 2}}>
         <Typography variant="h5" component="h2" gutterBottom sx={{ fontWeight: 'bold', color: '#3f51b5' }}>
           WAFR
         </Typography>
-        <TableContainer sx={{ maxHeight: 300, width: 410,overflowX:'hidden' }}>
+        <TableContainer sx={{ maxHeight: 300, width: 421,overflowX:'hidden' }}>
           <Table sx={{ minWidth: 100 }} stickyHeader aria-label="WAFR table">
             <TableHead>
               <TableRow>
-                <TableCell sx={{ fontWeight: 'bold', color: '#757575' }}>WORKLOADS</TableCell>
-                <TableCell sx={{ fontWeight: 'bold', color: '#757575' }}>STATUS</TableCell>
-                <TableCell sx={{ fontWeight: 'bold', color: '#757575' }}>WORKLOAD TYPE</TableCell>
-                <TableCell sx={{ fontWeight: 'bold', color: '#757575' }}>UPDATED</TableCell>
+                <TableCell sx={{ fontWeight: 'bold', color: '#757575' ,textAlign:'left'}}>WORKLOADS</TableCell>
+                <TableCell sx={{ fontWeight: 'bold', color: '#757575',textAlign:'left' }}>STATUS</TableCell>
+                <TableCell sx={{ fontWeight: 'bold', color: '#757575', textAlign:'left'}}>WORKLOAD TYPE</TableCell>
+                <TableCell sx={{ fontWeight: 'bold', color: '#757575' ,textAlign:'left'}}>UPDATED</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {this.state.workloads.map((workload) => (
                 <TableRow key={workload.id}>
-                  <TableCell component="th" scope="row">
+                  <TableCell component="th" scope="row"  sx={{ color: '#757575',fontFamily:'poppins' }}>
                     {workload.id}
                   </TableCell>
                   <TableCell>
@@ -134,8 +134,8 @@ class WAFRDashboard extends React.Component {
                       }} 
                     />
                   </TableCell>
-                  <TableCell>{workload.workloadType}</TableCell>
-                  <TableCell>{workload.updated}</TableCell>
+                  <TableCell  sx={{ color: '#757575',fontFamily:'poppins' }}>{workload.workloadType}</TableCell>
+                  <TableCell  sx={{ color: '#757575',fontFamily:'poppins' }}>{workload.updated}</TableCell>
                 </TableRow>
               ))}
             </TableBody>

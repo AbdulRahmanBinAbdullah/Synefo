@@ -7,10 +7,11 @@ import RegionWiseResourcesTable from "../charts/Regionresources";
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 
 import React, { Component } from "react";
-import { Box, Grid, List, ListItem,Typography } from "@mui/material";
+import { Box, Grid, List, ListItem,Typography,Stack } from "@mui/material";
 import UserIcon from "assets/img/dashboard/user-icon.png";
 import KingIcon from "assets/img/dashboard/kingicon.png";
 import annotationPlugin from "chartjs-plugin-annotation";
+
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -253,11 +254,17 @@ class SpendAnalytics extends Component {
     ) : (
       <Box className="spend-contant">
         <label>Per Hour</label>
-        <Box className="spend-price">
+        {/* <Box className="spend-price">
           {hourStatus === status.FAILURE
             ?  <Box className="error-message">{API_ERROR_MESSAGE}</Box> 
             : this.currentHourSpendRate()}
-        </Box>
+        </Box> */}
+           <Box display="flex" alignItems="center" >
+      <Typography variant="h6" sx={{ marginRight: 1 }}>$150</Typography>
+      <ArrowDropUpIcon color="success" />
+      <Typography variant="h6" sx={{ marginRight: 1 ,}} style={{ fontSize: '0.75rem'}}>10%</Typography>
+
+    </Box>
       
       </Box>
     );
@@ -280,11 +287,17 @@ class SpendAnalytics extends Component {
     ) : (
       <Box className="spend-contant">
         <label>Per Day</label>
-        <Box className="spend-price">
+        {/* <Box className="spend-price">
           {dayStatus === status.FAILURE
             ? <Box className="error-message"> {API_ERROR_MESSAGE}</Box> 
             : this.getCurrentDaySpendRate()}
-        </Box>
+        </Box> */}
+           <Box display="flex" alignItems="center" >
+      <Typography variant="h6" sx={{ marginRight: 1 }}>$150</Typography>
+      <ArrowDropUpIcon color="success" />
+      <Typography variant="h6" sx={{ marginRight: 1 ,}} style={{ fontSize: '0.75rem'}}>10%</Typography>
+
+    </Box>
       </Box>
     );
   };
@@ -399,14 +412,18 @@ class SpendAnalytics extends Component {
     return totalSpendStatus === status.IN_PROGRESS ? (
       <Loader />
     ) : (
-      <Box className="total-spend">
+      <Box className="total-spend" >
         <Box className="heading">
           <label>Total Spend</label>
-          <span>
+          {/* <span>
             DETAIL <i className="fas fa-angle-right"></i>
-          </span>
+          </span> */}
         </Box>
-        {this.getTotalSpend()}
+        {/* {this.getTotalSpend()} */}
+<Typography variant="h4">$150</Typography>
+          
+
+  
       </Box>
     );
   };
@@ -746,36 +763,36 @@ class SpendAnalytics extends Component {
       );
     }
   }
+ 
+  
   render() {
     return (
-      
-
-<Box className="spend-analytics-container" sx={{ position: "relative" }}>
-  <Box className="spend-analytics-inner-container" sx={{ display: "flex" }}>
-    <Box className="analytics-center" sx={{ flex: 1, display: "flex", flexDirection: "column", marginRight: 2 }}>
-      {/* First row */}
-      <Box display="flex" justifyContent="space-between" sx={{mt:45}}>
+      <Box className="spend-analytics-container">
+      <Box className="spend-analytics-inner-container">
         
-        <Box className="linechart"  sx={{marginRight:2}}>
-          <LineChart />
+        
+        <Box className="analytics-right">
+          <Box className="current-spend">
+          <Grid container spacing={1} >
+          <Box className="analytics-left" sx={{flex:'auto',mb:2}}>
+          {this.renderTotalSpendHtml()}
+         
+          
         </Box>
-        <Box className="top-services" sx={{ flex: 1, marginRight: 2 }}>
-          <TopServicesTable />
-        </Box>
-        <Box className="analytics-right" sx={{ }}>
-          <Box className="current-spend" >
+        </Grid> 
             <Box className="heading">
               <label>Current Spend Rate</label>
             </Box>
-            <Box>
+            <Box sx={{ flexGrow: 2 }}>
               <Grid container spacing={1} className="spend-time">
-                <Grid item className="spend-time-details">
+                <Grid className="spend-time-details">
                   <Box className="user-profile">
                     <img src={UserIcon} className="red" alt="" />
                   </Box>
                   {this.renderCurrentHourSpendRateHtml()}
+               
                 </Grid>
-                <Grid item className="spend-time-details">
+                <Grid className="spend-time-details">
                   <Box className="user-profile sky-blue">
                     <img src={KingIcon} alt="" />
                   </Box>
@@ -789,46 +806,102 @@ class SpendAnalytics extends Component {
               <label>Spend Analytics</label>
             </Box>
             <Grid container spacing={1} className="spend-analytics-time">
-              <Grid item className="spend-contant">
-              {/* <Typography variant="body2 ">Spends Today</Typography>
-              <Typography variant="h4">$150</Typography>
-              <ArrowDropUpIcon color="success" /> */}
-               <Typography variant="body">Spends Today</Typography>
-    <Box display="flex" alignItems="center">
+              <Box className="spend-contant">
+                {/* {this.renderTodaySpendAnalyticsHtml()} */}
+                <Box className="heading">
+              <label>Spends Today</label>
+            </Box>
+
+                <Box display="flex" alignItems="center">
       <Typography variant="h4" sx={{ marginRight: 1 }}>$150</Typography>
       <ArrowDropUpIcon color="success" />
       <Typography variant="h6" sx={{ marginRight: 1 ,}} style={{ fontSize: '0.75rem'}}>10%</Typography>
 
     </Box>
-
-              </Grid>
-              <Grid item className="spend-contant">
-              <Typography variant="body2 ">Spends Yesterday</Typography>
-              <Box display="flex" alignItems="center">
+              </Box>
+              <Box className="spend-contant">
+                {/* {this.renderYesterdaySpendAnalyticsHtml()} */}
+                <Box className="heading">
+              <label>Spends Yesterday</label>
+            </Box>
+                <Box display="flex" alignItems="center">
       <Typography variant="h4" sx={{ marginRight: 1 }}>$150</Typography>
       <ArrowDropUpIcon color="success" />
       <Typography variant="h6" sx={{ marginRight: 1 ,}} style={{ fontSize: '0.75rem'}}>10%</Typography>
 
     </Box>
-              </Grid>
+              </Box>
             </Grid>
           </Box>
-        </Box>
-      </Box>
 
-      {/* Second row */}
-      <Box display="flex" justifyContent="space-between" sx={{ mt: 7,mr:21 }}>
-      <Box className="wafr-dashboard" >
-          <WAFRDashboard />
         </Box>
        
-        <Box className="regionresource" sx={{ flex: 1 ,marginLeft:2}}>
+<Stack
+      className="analytics-center"
+      sx={{
+        p: { xs: 2, sm: 3, md: 0},
+        mt: { xs: 13, sm: '500px', md: 13 ,l:10},
+        ml: { xs: 7, sm: 7, md: 13,l:10},
+
+        // width: '100%',
+        // maxWidth: '1200px',
+        // margin: '0 auto',
+      }}
+    >
+      <Stack
+        direction={{ xs: 'column', md: 'row' }}
+        spacing={3}
+        sx={{ mt:7}}
+
+      >
+        <Box
+          className="linechart"
+          sx={{
+            flex: 1,
+         
+          }}
+        >
+          <LineChart />
+        </Box>
+        <Box
+          className="resourcewise"
+          // sx={{
+          //   flex: 1,
+          
+          // }}
+        >
           <RegionWiseResourcesTable />
         </Box>
+      </Stack>
+      
+      <Stack
+        direction={{ xs: 'column', md: 'row' }}
+        spacing={3}
+        sx={{ mt:5}}
+      >
+        <Box
+          className="wafr"
+          sx={{
+            flex: 1,
+           
+          }}
+        >
+          <WAFRDashboard />
+        </Box>
+        <Box
+          className="top4services"
+          sx={{
+            flex: 1,
+          }}
+        >
+        <TopServicesTable />
+        </Box>
+      </Stack>
+    </Stack>
       </Box>
     </Box>
-  </Box>
-</Box>
+    
+
 
       );
     }
