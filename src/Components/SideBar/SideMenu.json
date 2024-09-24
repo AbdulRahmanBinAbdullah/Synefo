@@ -24,6 +24,10 @@
           "name": "Discovered Assets"
         },
         {
+          "link": "/assets/cost-optimization",
+          "name": "Cost Optimization"
+        },
+        {
           "link": "#",
           "name": "Dept Wise Product"
         },
@@ -62,6 +66,11 @@
       "name": "Preference"
     },
     {
+      "link": "/wafr",
+      "icon": "wafr",
+      "name": "WAFR"
+    },
+    {
       "link": "/setting",
       "icon": "setting",
       "name": "Setting"
@@ -70,6 +79,11 @@
       "link": "/new-reports/over-view-dashboard",
       "icon": "report",
       "name": "Reports"
+    },
+    {
+      "link": "/llm",
+      "icon": "llm",
+      "name": "LLM"
     }
     
   ]
