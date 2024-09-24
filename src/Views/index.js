@@ -83,7 +83,7 @@ import AlertPercentage from "./AppViews/Alerts/AlertPercentage";
 import AlertRules from "./AppViews/Alerts/AlertRules";
 import NewAlertRules from "./AppViews/Alerts/NewAlertRules";
 import AlarmList from "./AppViews/DiscoveredAssets/AlarmList";
-import AllSERVICESSComponent from "./AppViews/AssetManagement";
+import AssetManagement from "./AppViews/AssetManagement";
 export function withRouter(Component) {
   function ComponentWithRouterProp(props) {
     const location = useLocation();
@@ -228,8 +228,8 @@ export const Views = (props) => {
             element={<EcsCluster />}
           />
           <Route
-            path={`${APP_PREFIX_PATH}/assets/all-services`}
-            element={<AllSERVICESSComponent />}
+            path={`${APP_PREFIX_PATH}/assets/assetmanagement`}
+            element={<AssetManagement />}
           />
           <Route
             path={`${APP_PREFIX_PATH}/assets/environments/associatechartapp`}
