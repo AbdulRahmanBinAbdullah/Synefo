@@ -90,7 +90,7 @@ import Wafr from "./AppViews/Wafr";
 import CreateWorkloadForm from "./AppViews/Wafr/CreateWorkLoad";
 import WorkLoad from "./AppViews/Wafr/workLoad"
 import WafrAssesssment from "./AppViews/Wafr/WafrAssesssment"
-
+import AssetManagement from "./AppViews/AssetManagement";
 export function withRouter(Component) {
   function ComponentWithRouterProp(props) {
     const location = useLocation();
@@ -253,6 +253,10 @@ export const Views = (props) => {
           <Route
             path={`${APP_PREFIX_PATH}/assets/environments/ecscluster`}
             element={<EcsCluster />}
+          />
+          <Route
+            path={`${APP_PREFIX_PATH}/assets/assetmanagement`}
+            element={<AssetManagement />}
           />
           <Route
             path={`${APP_PREFIX_PATH}/assets/environments/associatechartapp`}

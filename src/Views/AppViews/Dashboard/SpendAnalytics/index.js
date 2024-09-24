@@ -1,8 +1,17 @@
+
+
+import WAFRDashboard from "../charts/WAFR dashboard";
+import TopServicesTable from "../charts/TopServices";
+import LineChart from "../charts/linechart";
+import RegionWiseResourcesTable from "../charts/Regionresources";
+import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
+
 import React, { Component } from "react";
-import { Box, Grid, List, ListItem } from "@mui/material";
+import { Box, Grid, List, ListItem,Typography,Stack } from "@mui/material";
 import UserIcon from "assets/img/dashboard/user-icon.png";
 import KingIcon from "assets/img/dashboard/kingicon.png";
 import annotationPlugin from "chartjs-plugin-annotation";
+
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -245,11 +254,17 @@ class SpendAnalytics extends Component {
     ) : (
       <Box className="spend-contant">
         <label>Per Hour</label>
-        <Box className="spend-price">
+        {/* <Box className="spend-price">
           {hourStatus === status.FAILURE
             ?  <Box className="error-message">{API_ERROR_MESSAGE}</Box> 
             : this.currentHourSpendRate()}
-        </Box>
+        </Box> */}
+           <Box display="flex" alignItems="center" >
+      <Typography variant="h6" sx={{ marginRight: 1 }}>$150</Typography>
+      <ArrowDropUpIcon color="success" />
+      <Typography variant="h6" sx={{ marginRight: 1 ,}} style={{ fontSize: '0.75rem'}}>10%</Typography>
+
+    </Box>
       
       </Box>
     );
@@ -272,11 +287,17 @@ class SpendAnalytics extends Component {
     ) : (
       <Box className="spend-contant">
         <label>Per Day</label>
-        <Box className="spend-price">
+        {/* <Box className="spend-price">
           {dayStatus === status.FAILURE
             ? <Box className="error-message"> {API_ERROR_MESSAGE}</Box> 
             : this.getCurrentDaySpendRate()}
-        </Box>
+        </Box> */}
+           <Box display="flex" alignItems="center" >
+      <Typography variant="h6" sx={{ marginRight: 1 }}>$150</Typography>
+      <ArrowDropUpIcon color="success" />
+      <Typography variant="h6" sx={{ marginRight: 1 ,}} style={{ fontSize: '0.75rem'}}>10%</Typography>
+
+    </Box>
       </Box>
     );
   };
@@ -391,14 +412,18 @@ class SpendAnalytics extends Component {
     return totalSpendStatus === status.IN_PROGRESS ? (
       <Loader />
     ) : (
-      <Box className="total-spend">
+      <Box className="total-spend" >
         <Box className="heading">
           <label>Total Spend</label>
-          <span>
+          {/* <span>
             DETAIL <i className="fas fa-angle-right"></i>
-          </span>
+          </span> */}
         </Box>
-        {this.getTotalSpend()}
+        {/* {this.getTotalSpend()} */}
+<Typography variant="h4">$150</Typography>
+          
+
+  
       </Box>
     );
   };
@@ -738,72 +763,154 @@ class SpendAnalytics extends Component {
       );
     }
   }
-
+ 
+  
   render() {
     return (
-      <Box className="spend-analytics-container">
-        <Box className="spend-analytics-inner-container">
-          <Box className="analytics-left">
-            {this.renderTotalSpendHtml()}
-            <Box className="wise-spend-progress">
-              <Box className="heading">Cloud Wise Spend</Box>
-              {this.renderTotalCloudWiseSpendHtml()}
+      
+      <Box className="spend-analytics-container" >
+                <Box className="analytics-left"  sx={{display:"flex",justifyContent:"flex-start",mt:{md:-4}}}>
+          {this.renderTotalSpendHtml()}
+         
+          
+        </Box>
+
+      <Box className="spend-analytics-inner-container">
+        
+      <Stack
+      className="analytics-center"
+      sx={{
+        p: { xs: 2, sm: 3, md: 0},
+        mt: { xs: 13, sm: '550px', md: 10 ,l:10},
+        ml: { xs: 7, sm: 7, md: 13,l:10},
+
+        // width: '100%',
+        // maxWidth: '1200px',
+        // margin: '0 auto',
+      }}
+    >
+      <Stack
+        direction={{ xs: 'column', md: 'row' }}
+        spacing={3}
+        sx={{ mt:7}}
+
+      >
+        <Box
+          className="linechart"
+          sx={{
+            flex: 1,
+         
+          }}
+        >
+          <LineChart />
+        </Box>
+        <Box
+          className="resourcewise"
+          // sx={{
+          //   flex: 1,
+          
+          // }}
+        >
+          <RegionWiseResourcesTable />
+        </Box>
+      </Stack>
+      
+      <Stack
+        direction={{ xs: 'column', md: 'row' }}
+        spacing={3}
+        sx={{ mt:5}}
+      >
+        <Box
+          className="wafr"
+          sx={{
+            flex: 1,
+           
+          }}
+        >
+          <WAFRDashboard />
+        </Box>
+        <Box
+          className="top4services"
+          sx={{
+            flex: 1,
+          }}
+        >
+        <TopServicesTable />
+        </Box>
+      </Stack>
+    </Stack>
+
+        
+        <Box className="analytics-right">
+          <Box className="current-spend" sx={{ml:20}}>
+          <Grid container spacing={1} >
+          
+        </Grid> 
+            <Box className="heading" >
+              <label>Current Spend Rate</label>
             </Box>
-            <Box className="dashboard-spent">
-              {this.renderTotalBudgetHtml()}
-            </Box>
-          </Box>
-          <Box className="analytics-center">
-            <Box className="analytics-line-chart">
-              <Box id="chart" style={{ height: "320px", width: "100%" }}>
-                {this.renderMonthlyCloudWiseSpendHtml()}
-              </Box>
-            </Box>
-          </Box>
-          <Box className="analytics-right">
-            <Box className="current-spend">
-              <Box className="heading">
-                <label>Current Spend Rate</label>
-              </Box>
-              <Box sx={{ flexGrow: 2 }}>
-                <Grid container spacing={1} className="spend-time">
-                  <Grid className="spend-time-details">
-                    <Box className="user-profile">
-                      <img src={UserIcon} className="red" alt="" />
-                    </Box>
-                    {this.renderCurrentHourSpendRateHtml()}
-                  </Grid>
-                  <Grid className="spend-time-details">
-                    <Box className="user-profile sky-blue">
-                      <img src={KingIcon} alt="" />
-                    </Box>
-                    {this.renderCurrentDaySpendRateHtml()}
-                  </Grid>
+            <Box sx={{ flexGrow: 2 }}>
+              <Grid container spacing={1} className="spend-time">
+                <Grid className="spend-time-details">
+                  <Box className="user-profile">
+                    <img src={UserIcon} className="red" alt="" />
+                  </Box>
+                  {this.renderCurrentHourSpendRateHtml()}
+               
                 </Grid>
-              </Box>
-            </Box>
-            <Box className="spend-analytics">
-              <Box className="heading">
-                <label>Spend Analytics</label>
-              </Box>
-              <Grid container spacing={1} className="spend-analytics-time">
-                <Box className="spend-contant">
-                  {this.renderTodaySpendAnalyticsHtml()}
-                </Box>
-                <Box className="spend-contant">
-                  {this.renderYesterdaySpendAnalyticsHtml()}
-                </Box>
+                <Grid className="spend-time-details">
+                  <Box className="user-profile sky-blue">
+                    <img src={KingIcon} alt="" />
+                  </Box>
+                  {this.renderCurrentDaySpendRateHtml()}
+                </Grid>
               </Grid>
             </Box>
-            <Box className="monthly-statistics-card">
-              {this.renderMonthlyStatisticsHtml()}
-            </Box>
           </Box>
+          <Box className="spend-analytics" sx={{ml:20}}>
+            <Box className="heading">
+              <label>Spend Analytics</label>
+            </Box>
+            <Grid container spacing={1} className="spend-analytics-time">
+              <Box className="spend-contant">
+                {/* {this.renderTodaySpendAnalyticsHtml()} */}
+                <Box className="heading">
+              <label>Spends Today</label>
+            </Box>
+
+                <Box display="flex" alignItems="center">
+      <Typography variant="h4" sx={{ marginRight: 1 }}>$150</Typography>
+      <ArrowDropUpIcon color="success" />
+      <Typography variant="h6" sx={{ marginRight: 1 ,}} style={{ fontSize: '0.75rem'}}>10%</Typography>
+
+    </Box>
+              </Box>
+              <Box className="spend-contant">
+                {/* {this.renderYesterdaySpendAnalyticsHtml()} */}
+                <Box className="heading">
+              <label>Spends Yesterday</label>
+            </Box>
+                <Box display="flex" alignItems="center">
+      <Typography variant="h4" sx={{ marginRight: 1 }}>$150</Typography>
+      <ArrowDropUpIcon color="success" />
+      <Typography variant="h6" sx={{ marginRight: 1 ,}} style={{ fontSize: '0.75rem'}}>10%</Typography>
+
+    </Box>
+              </Box>
+            </Grid>
+          </Box>
+
         </Box>
+       
       </Box>
-    );
+    </Box>
+    
+
+
+      );
+    }
   }
-}
+    
 
 function mapStateToProps(state) {
   const {
