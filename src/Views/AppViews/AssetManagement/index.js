@@ -37,7 +37,6 @@ const mockData = {
 
 
 
-    // Other mock instances...
   ],
   'Batch Instances': [
     { name: 'Batch-123', landingZone: 'AWS (ID123)', productEnclave: 'VPC-dsf441', event: 'success' },
@@ -45,7 +44,6 @@ const mockData = {
     { name: 'Batch-123', landingZone: 'AWS (ID123)', productEnclave: 'VPC-dsf441', event: 'success' },
 
 
-    // Other mock instances...
   ],
   'EBS': [
     { name: 'Batch-123', landingZone: 'AWS (ID123)', productEnclave: 'VPC-dsf441', event: 'success' },
@@ -53,7 +51,6 @@ const mockData = {
     { name: 'Batch-123', landingZone: 'AWS (ID123)', productEnclave: 'VPC-dsf441', event: 'success' },
 
 
-    // Other mock instances...
   ],
 }
 
