@@ -11,16 +11,9 @@ import AppBarComponent from './components/Appbarcomponent'
 import PlatformButtons from './components/platformbuttons'
 import InstanceTable from './components/Instancetable'
 import DiscoveredAssets from './components/Discoveredasset'
-import aws from "assets/img/assetmanagement/aws.png";
-import azure from "assets/img/assetmanagement/azure.png";
-import gcloud from "assets/img/assetmanagement/gcloud.png";
+
 
 const platforms = ['Amazon Web Services', 'Google Cloud Platform', 'Azure Cloud']
-const platformImages = {
-  'Amazon Web Services': aws,
-  'Google Cloud Platform': gcloud,
-  'Azure Cloud': azure
-}
 
 
 
@@ -47,6 +40,14 @@ const mockData = {
     // Other mock instances...
   ],
   'Batch Instances': [
+    { name: 'Batch-123', landingZone: 'AWS (ID123)', productEnclave: 'VPC-dsf441', event: 'success' },
+    { name: 'Batch-123', landingZone: 'AWS (ID123)', productEnclave: 'VPC-dsf441', event: 'success' },
+    { name: 'Batch-123', landingZone: 'AWS (ID123)', productEnclave: 'VPC-dsf441', event: 'success' },
+
+
+    // Other mock instances...
+  ],
+  'EBS': [
     { name: 'Batch-123', landingZone: 'AWS (ID123)', productEnclave: 'VPC-dsf441', event: 'success' },
     { name: 'Batch-123', landingZone: 'AWS (ID123)', productEnclave: 'VPC-dsf441', event: 'success' },
     { name: 'Batch-123', landingZone: 'AWS (ID123)', productEnclave: 'VPC-dsf441', event: 'success' },

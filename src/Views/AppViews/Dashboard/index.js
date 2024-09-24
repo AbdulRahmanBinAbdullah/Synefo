@@ -160,7 +160,7 @@ class Dashboard extends Component {
         <Box className="services-panel-tabs">
           <Box className="tabs-head">
             <h2>Dashboard</h2>
-            <List sx={{mt:3}}>
+            <List >
               {this.tabMapping.map((tabData, index) => {
                 return (
                   <ListItem

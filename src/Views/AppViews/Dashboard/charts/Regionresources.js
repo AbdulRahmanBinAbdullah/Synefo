@@ -37,10 +37,10 @@ class RegionWiseResourcesTable extends React.Component {
           <Table sx={{ minWidth: 100 }} aria-label="region-wise resources table">
             <TableHead>
               <TableRow>
-                <TableCell sx={{ fontWeight: 'bold', color: '#757575',fontFamily:'poppins' }}>REGION</TableCell>
-                <TableCell align="right" sx={{ fontWeight: 'bold', color: '#757575',fontFamily:'poppins' }}>NO. OF RESOURCES</TableCell>
-                <TableCell align="right" sx={{ fontWeight: 'bold', color: '#757575',fontFamily:'poppins' }}>TOTAL COST</TableCell>
-                <TableCell align="right" sx={{ fontWeight: 'bold', color: '#757575',fontFamily:'poppins' }}>RESOURCE TYPES</TableCell>
+                <TableCell sx={{ fontWeight: 'bold', color: '#757575'}}>REGION</TableCell>
+                <TableCell align="left" sx={{ fontWeight: 'bold', color: '#757575' }}>NO. OF RESOURCES</TableCell>
+                <TableCell align="left" sx={{ fontWeight: 'bold', color: '#757575'}}>TOTAL COST</TableCell>
+                <TableCell align="left" sx={{ fontWeight: 'bold', color: '#757575'}}>RESOURCE TYPES</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -52,9 +52,9 @@ class RegionWiseResourcesTable extends React.Component {
                   <TableCell component="th" scope="row"  sx={{ color: '#757575',fontFamily:'poppins' }}>
                     {region.region}
                   </TableCell>
-                  <TableCell sx={{ color: '#757575',fontFamily:'poppins' }} align="middle">{region.resources}</TableCell>
-                  <TableCell sx={{ color: '#757575',fontFamily:'poppins' }} align="middle">{`$${region.cost.toLocaleString()}`}</TableCell>
-                  <TableCell sx={{ color: '#757575',fontFamily:'poppins' }} align="middle">{region.types}</TableCell>
+                  <TableCell sx={{ color: '#757575',fontFamily:'poppins' }} align="left">{region.resources}</TableCell>
+                  <TableCell sx={{ color: '#757575',fontFamily:'poppins' }} align="left">{`$${region.cost.toLocaleString()}`}</TableCell>
+                  <TableCell sx={{ color: '#757575',fontFamily:'poppins' }} align="left">{region.types}</TableCell>
                 </TableRow>
               ))}
             </TableBody>

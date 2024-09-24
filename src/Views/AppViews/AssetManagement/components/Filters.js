@@ -113,7 +113,7 @@ export default function PlatformFilters({ open, onClose, onSubmit }) {
             onClick={handleSubmit}
             variant="contained"
             sx={{
-              backgroundColor: '#3B82F6',
+                backgroundColor:"#023AFF",
               color: 'white',
               textTransform: 'none',
               borderRadius: '4px',

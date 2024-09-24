@@ -107,13 +107,13 @@ class WAFRDashboard extends React.Component {
           WAFR
         </Typography>
         <TableContainer sx={{ maxHeight: 300, width: 421,overflowX:'hidden' }}>
-          <Table sx={{ minWidth: 100 }} stickyHeader aria-label="WAFR table">
+          <Table sx={{ minWidth: 100 }}  aria-label="WAFR table">
             <TableHead>
               <TableRow>
-                <TableCell sx={{ fontWeight: 'bold', color: '#757575' ,textAlign:'left'}}>WORKLOADS</TableCell>
-                <TableCell sx={{ fontWeight: 'bold', color: '#757575',textAlign:'left' }}>STATUS</TableCell>
-                <TableCell sx={{ fontWeight: 'bold', color: '#757575', textAlign:'left'}}>WORKLOAD TYPE</TableCell>
-                <TableCell sx={{ fontWeight: 'bold', color: '#757575' ,textAlign:'left'}}>UPDATED</TableCell>
+                <TableCell align="left" sx={{ fontWeight: 'bold', color: '#757575' }}>WORKLOADS</TableCell>
+                <TableCell align="left" sx={{ fontWeight: 'bold', color: '#757575' }}>STATUS</TableCell>
+                <TableCell align="left" sx={{ fontWeight: 'bold', color: '#757575' }}>WORKLOAD TYPE</TableCell>
+                <TableCell align="left" sx={{ fontWeight: 'bold', color: '#757575' }}>UPDATED</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>

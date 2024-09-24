@@ -3,7 +3,7 @@ import { Box, Grid, Paper, Typography } from '@mui/material';
 
 const CurrentSpendRate = () => (
   <Paper sx={{ p: 2, mb: 2 }}>
-    <Typography variant="h6" gutterBottom>Current Spend Rate</Typography>
+    <Typography variant="h6" gutterBottom >Current Spend Rate</Typography>
     <Grid container spacing={2}>
       <Grid item xs={6}>
         <Box display="flex" alignItems="center">
@@ -16,7 +16,7 @@ const CurrentSpendRate = () => (
       </Grid>
       <Grid item xs={6}>
         <Box display="flex" alignItems="center">
-          <Box sx={{ bgcolor: 'info.main', borderRadius: '50%', width: 40, height: 40, mr: 1 }} />
+          <Box sx={{ color: '#3f51b5', borderRadius: '50%', width: 40, height: 40, mr: 1 }} />
           <Box>
             <Typography variant="subtitle2">Per Day</Typography>
             <Typography variant="h6">$103,540</Typography>

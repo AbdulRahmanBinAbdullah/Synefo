@@ -767,80 +767,21 @@ class SpendAnalytics extends Component {
   
   render() {
     return (
-      <Box className="spend-analytics-container">
-      <Box className="spend-analytics-inner-container">
-        
-        
-        <Box className="analytics-right">
-          <Box className="current-spend">
-          <Grid container spacing={1} >
-          <Box className="analytics-left" sx={{flex:'auto',mb:2}}>
+      
+      <Box className="spend-analytics-container" >
+                <Box className="analytics-left"  sx={{display:"flex",justifyContent:"flex-start",mt:{md:-4}}}>
           {this.renderTotalSpendHtml()}
          
           
         </Box>
-        </Grid> 
-            <Box className="heading">
-              <label>Current Spend Rate</label>
-            </Box>
-            <Box sx={{ flexGrow: 2 }}>
-              <Grid container spacing={1} className="spend-time">
-                <Grid className="spend-time-details">
-                  <Box className="user-profile">
-                    <img src={UserIcon} className="red" alt="" />
-                  </Box>
-                  {this.renderCurrentHourSpendRateHtml()}
-               
-                </Grid>
-                <Grid className="spend-time-details">
-                  <Box className="user-profile sky-blue">
-                    <img src={KingIcon} alt="" />
-                  </Box>
-                  {this.renderCurrentDaySpendRateHtml()}
-                </Grid>
-              </Grid>
-            </Box>
-          </Box>
-          <Box className="spend-analytics">
-            <Box className="heading">
-              <label>Spend Analytics</label>
-            </Box>
-            <Grid container spacing={1} className="spend-analytics-time">
-              <Box className="spend-contant">
-                {/* {this.renderTodaySpendAnalyticsHtml()} */}
-                <Box className="heading">
-              <label>Spends Today</label>
-            </Box>
 
-                <Box display="flex" alignItems="center">
-      <Typography variant="h4" sx={{ marginRight: 1 }}>$150</Typography>
-      <ArrowDropUpIcon color="success" />
-      <Typography variant="h6" sx={{ marginRight: 1 ,}} style={{ fontSize: '0.75rem'}}>10%</Typography>
-
-    </Box>
-              </Box>
-              <Box className="spend-contant">
-                {/* {this.renderYesterdaySpendAnalyticsHtml()} */}
-                <Box className="heading">
-              <label>Spends Yesterday</label>
-            </Box>
-                <Box display="flex" alignItems="center">
-      <Typography variant="h4" sx={{ marginRight: 1 }}>$150</Typography>
-      <ArrowDropUpIcon color="success" />
-      <Typography variant="h6" sx={{ marginRight: 1 ,}} style={{ fontSize: '0.75rem'}}>10%</Typography>
-
-    </Box>
-              </Box>
-            </Grid>
-          </Box>
-
-        </Box>
-       
-<Stack
+      <Box className="spend-analytics-inner-container">
+        
+      <Stack
       className="analytics-center"
       sx={{
         p: { xs: 2, sm: 3, md: 0},
-        mt: { xs: 13, sm: '500px', md: 13 ,l:10},
+        mt: { xs: 13, sm: '550px', md: 10 ,l:10},
         ml: { xs: 7, sm: 7, md: 13,l:10},
 
         // width: '100%',
@@ -898,6 +839,69 @@ class SpendAnalytics extends Component {
         </Box>
       </Stack>
     </Stack>
+
+        
+        <Box className="analytics-right">
+          <Box className="current-spend" sx={{ml:20}}>
+          <Grid container spacing={1} >
+          
+        </Grid> 
+            <Box className="heading" >
+              <label>Current Spend Rate</label>
+            </Box>
+            <Box sx={{ flexGrow: 2 }}>
+              <Grid container spacing={1} className="spend-time">
+                <Grid className="spend-time-details">
+                  <Box className="user-profile">
+                    <img src={UserIcon} className="red" alt="" />
+                  </Box>
+                  {this.renderCurrentHourSpendRateHtml()}
+               
+                </Grid>
+                <Grid className="spend-time-details">
+                  <Box className="user-profile sky-blue">
+                    <img src={KingIcon} alt="" />
+                  </Box>
+                  {this.renderCurrentDaySpendRateHtml()}
+                </Grid>
+              </Grid>
+            </Box>
+          </Box>
+          <Box className="spend-analytics" sx={{ml:20}}>
+            <Box className="heading">
+              <label>Spend Analytics</label>
+            </Box>
+            <Grid container spacing={1} className="spend-analytics-time">
+              <Box className="spend-contant">
+                {/* {this.renderTodaySpendAnalyticsHtml()} */}
+                <Box className="heading">
+              <label>Spends Today</label>
+            </Box>
+
+                <Box display="flex" alignItems="center">
+      <Typography variant="h4" sx={{ marginRight: 1 }}>$150</Typography>
+      <ArrowDropUpIcon color="success" />
+      <Typography variant="h6" sx={{ marginRight: 1 ,}} style={{ fontSize: '0.75rem'}}>10%</Typography>
+
+    </Box>
+              </Box>
+              <Box className="spend-contant">
+                {/* {this.renderYesterdaySpendAnalyticsHtml()} */}
+                <Box className="heading">
+              <label>Spends Yesterday</label>
+            </Box>
+                <Box display="flex" alignItems="center">
+      <Typography variant="h4" sx={{ marginRight: 1 }}>$150</Typography>
+      <ArrowDropUpIcon color="success" />
+      <Typography variant="h6" sx={{ marginRight: 1 ,}} style={{ fontSize: '0.75rem'}}>10%</Typography>
+
+    </Box>
+              </Box>
+            </Grid>
+          </Box>
+
+        </Box>
+       
       </Box>
     </Box>
     

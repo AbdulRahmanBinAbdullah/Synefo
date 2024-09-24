@@ -29,14 +29,14 @@ class TopServicesTable extends React.Component {
         <Typography variant="h5" component="h2" gutterBottom sx={{ fontWeight: 'bold', color: '#3f51b5' }}>
           Top 4 Services
         </Typography>
-        <TableContainer TableContainer sx={{ maxHeight: 300,width: 430,overflowX:'hidden' }}>
+        <TableContainer TableContainer sx={{ maxHeight: 300,width: 433,overflowX:'hidden' }}>
           <Table sx={{ minWidth: 100 }} aria-label="top services table">
             <TableHead>
               <TableRow>
                 <TableCell sx={{ fontWeight: 'bold', color: '#757575' }}>SERVICE NAME</TableCell>
-                <TableCell align="right" sx={{ fontWeight: 'bold', color: '#757575' }}>CPU UTILIZATION</TableCell>
-                <TableCell align="right" sx={{ fontWeight: 'bold', color: '#757575' }}>MEMORY UTILIZATION</TableCell>
-                <TableCell align="right" sx={{ fontWeight: 'bold', color: '#757575' }}>COST (MONTHLY)</TableCell>
+                <TableCell align="left" sx={{ fontWeight: 'bold', color: '#757575' }}>CPU UTILIZATION</TableCell>
+                <TableCell align="left" sx={{ fontWeight: 'bold', color: '#757575' }}>MEMORY UTILIZATION</TableCell>
+                <TableCell align="left" sx={{ fontWeight: 'bold', color: '#757575' }}>COST (MONTHLY)</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -48,9 +48,9 @@ class TopServicesTable extends React.Component {
                   <TableCell component="th" sx={{ color: '#757575',fontFamily:'poppins' }} scope="row">
                     {service.name}
                   </TableCell>
-                  <TableCell align="right" sx={{ color: '#757575',fontFamily:'poppins' }}>{`${service.cpuUtilization}%`}</TableCell>
-                  <TableCell align="right" sx={{ color: '#757575',fontFamily:'poppins' }}>{`${service.memoryUtilization}%`}</TableCell>
-                  <TableCell align="right" sx={{ color: '#757575',fontFamily:'poppins' }}>{`$${service.cost.toLocaleString()}`}</TableCell>
+                  <TableCell align="left" sx={{ color: '#757575',fontFamily:'poppins' }}>{`${service.cpuUtilization}%`}</TableCell>
+                  <TableCell align="left" sx={{ color: '#757575',fontFamily:'poppins' }}>{`${service.memoryUtilization}%`}</TableCell>
+                  <TableCell align="left" sx={{ color: '#757575',fontFamily:'poppins' }}>{`$${service.cost.toLocaleString()}`}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
