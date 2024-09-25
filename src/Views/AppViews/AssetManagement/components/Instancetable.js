@@ -15,9 +15,7 @@ const InstanceTable = ({ type, instances }) => (
             <TableCell >Landing Zone</TableCell>
             <TableCell >Product Enclave</TableCell>
             <TableCell >Log</TableCell>
-            <TableCell >Trace</TableCell>
-            <TableCell >Event</TableCell>
-            <TableCell >Action</TableCell>
+            
           </TableRow>
         </TableHead>
         <TableBody>
