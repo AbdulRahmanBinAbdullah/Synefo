@@ -83,6 +83,13 @@ import AlertPercentage from "./AppViews/Alerts/AlertPercentage";
 import AlertRules from "./AppViews/Alerts/AlertRules";
 import NewAlertRules from "./AppViews/Alerts/NewAlertRules";
 import AlarmList from "./AppViews/DiscoveredAssets/AlarmList";
+import CostOptimization from "./AppViews/CostOptimization";
+
+// this are the WAFR routes 
+import Wafr from "./AppViews/Wafr";
+import CreateWorkloadForm from "./AppViews/Wafr/CreateWorkLoad";
+import WorkLoad from "./AppViews/Wafr/workLoad"
+import WafrAssesssment from "./AppViews/Wafr/WafrAssesssment"
 import AssetManagement from "./AppViews/AssetManagement";
 export function withRouter(Component) {
   function ComponentWithRouterProp(props) {
@@ -136,6 +143,26 @@ export const Views = (props) => {
           <Route
             path={`${APP_PREFIX_PATH}/assets/environments`}
             element={<Environments />}
+          />
+          <Route
+            path={`${APP_PREFIX_PATH}/assets/cost-optimization`}
+            element={<CostOptimization />}
+          />
+          <Route
+            path={`${APP_PREFIX_PATH}/wafr`}
+            element={<Wafr />}
+          />
+          <Route
+            path={`${APP_PREFIX_PATH}/wafr/createworkload`}
+            element={<CreateWorkloadForm />}
+          />
+          <Route
+            path={`${APP_PREFIX_PATH}/wafr/workload`}
+            element={<WorkLoad />}
+          />
+          <Route
+            path={`${APP_PREFIX_PATH}/wafr/assignment`}
+            element={<WafrAssesssment />}
           />
           <Route
             path={`${APP_PREFIX_PATH}/assets/environments/environmentlist`}

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import logo from "assets/img/logo.png";
+// import logo from "assets/img/logo1.png";
+import logo from "assets/img/Synefologo.svg";
 import notification from "assets/img/notification.png";
 import avatar from "assets/img/avatar.png";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
@@ -51,7 +52,7 @@ function TopBar() {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
 
-  
+
     if (!role) {
       setShowRbacPopup(true);
     }
@@ -86,7 +87,7 @@ function TopBar() {
         <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
           <Grid item xs={3}>
             <Box className="logo">
-              <img src={logo} alt="" />
+              <img src={logo} alt="website logo" />
             </Box>
           </Grid>
           <Grid item xs={6}>

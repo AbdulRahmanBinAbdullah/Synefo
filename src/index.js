@@ -4,6 +4,7 @@ import "./assets/sass/newstandalone.scss";
 import store from "./Redux/Store";
 import { Provider } from "react-redux";
 import App from "./App";
+import "./index.css"
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
