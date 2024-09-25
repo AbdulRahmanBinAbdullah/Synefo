@@ -11,22 +11,38 @@ class CreateWorkloadForm extends Component {
         super(props);
         this.state = {
             workloadName: '',
-            isWorkloadResources:'',
+            isWorkloadResources: '',
             lens: '',
             awsAccount: '',
             workloadType: '',
             environment: '',
             description: '',
             istoggle: false,
+            tags: [{ key: '', value: '' }],
         };
     }
 
+
+    handleAddTag = () => {
+        this.setState(prevState => ({
+            tags: [...prevState.tags, { key: '', value: '' }]
+        }));
+    };
+
+    handleTagChange = (index, field, value) => {
+        this.setState(prevState => {
+            const newTags = [...prevState.tags];
+            newTags[index][field] = value;
+            return { tags: newTags };
+        });
+    };
+
     handleWorkloadResourcesy = () => {
         this.setState((prevState) => ({
-            isWorkloadResources: !prevState.isWorkloadResources, 
+            isWorkloadResources: !prevState.isWorkloadResources,
         }));
-      };
-    
+    };
+
 
     handleChange = (event) => {
         const { name, value } = event.target;
@@ -54,7 +70,7 @@ class CreateWorkloadForm extends Component {
     };
 
     render() {
-       
+
         const wafrLenses = ['Well-Architected Framework Review (WAFR)', 'Other lens 1', 'Other lens 2'];
         const awsAccounts = ['Account 1', 'Account 2', 'Account 3']; // Add your accounts
         const workloadTypes = ['Type 1', 'Type 2', 'Type 3']; // Add your types
@@ -109,19 +125,19 @@ class CreateWorkloadForm extends Component {
 
                         {/* toggle button  */}
                         <div className='mb-4 flex items-center gap-6'>
-                            <ToggleButton  isOn={istoggle}  onChange={(value) => this.handleToggle(value)}  />
+                            <ToggleButton isOn={istoggle} onChange={(value) => this.handleToggle(value)} />
                             <p className='text-black'>Create workload on your AWS account</p>
                         </div>
 
-                      {istoggle && (
-                        <div className="mb-4">
-                        <SelectComponent
-                            lenses={awsAccounts}
-                            placeholder="nOps-Demo"
-                            label="AWS account to save WAFR progress"
-                            onLensChange={this.handleAwsAccountChange}
-                        />
-                        </div>)
+                        {istoggle && (
+                            <div className="mb-4">
+                                <SelectComponent
+                                    lenses={awsAccounts}
+                                    placeholder="nOps-Demo"
+                                    label="AWS account to save WAFR progress"
+                                    onLensChange={this.handleAwsAccountChange}
+                                />
+                            </div>)
                         }
 
 
@@ -162,7 +178,7 @@ class CreateWorkloadForm extends Component {
                         />
                     </div>
 
-                  
+
                     {/* Specify Workload Resources Button */}
                     <div className="flex mb-6">
                         <button
@@ -171,68 +187,100 @@ class CreateWorkloadForm extends Component {
                             className="bg-[#B5C2FB] text-[#383874] text-lg font-semibold px-6 py-4 rounded-lg flex gap-8 items-center space-x-2"
                         >
                             <span>Specify Workload Resources</span>
-                            {isWorkloadResources ? <KeyboardDoubleArrowUpIcon /> : <KeyboardDoubleArrowDownIcon /> }
-                            
+                            {isWorkloadResources ? <KeyboardDoubleArrowUpIcon /> : <KeyboardDoubleArrowDownIcon />}
+
                         </button>
                     </div>
 
+
+                    {/* this is for the work specify workload resources */}
                     {isWorkloadResources && (
-          <div className="">
-            <div className="w-[450px] ">
-              {/* Regions */}
-              <div className="mb-4">
-                <SelectComponent
-                  lenses={awsAccounts}
-                  placeholder="All Regions"
-                  label="Regions"
-                  onLensChange={this.handleAwsAccountChange}
-                />
-              </div>
+                        <div className="">
+                            <div className="w-[450px] ">
+                                {/* Regions */}
+                                <div className="mb-4">
+                                    <SelectComponent
+                                        lenses={awsAccounts}
+                                        placeholder="All Regions"
+                                        label="Regions"
+                                        onLensChange={this.handleAwsAccountChange}
+                                    />
+                                </div>
 
-              {/* AWS Managed Services */}
-              <div className="mb-4">
-                <SelectComponent
-                  lenses={workloadTypes}
-                  placeholder="All AWS Managed services"
-                  label="AWS Managed Services"
-                  onLensChange={this.handleWorkloadTypeChange}
-                />
-              </div>
+                                {/* AWS Managed Services */}
+                                <div className="mb-4">
+                                    <SelectComponent
+                                        lenses={workloadTypes}
+                                        placeholder="All AWS Managed services"
+                                        label="AWS Managed Services"
+                                        onLensChange={this.handleWorkloadTypeChange}
+                                    />
+                                </div>
 
-              {/* VPC */}
-              <div className="mb-4">
-                <SelectComponent
-                  lenses={environments}
-                  placeholder="All AWS Managed services"
-                  label="VPC"
-                  onLensChange={this.handleEnvironmentChange}
-                />
-              </div>
-            </div>
+                                {/* VPC */}
+                                <div className="mb-4">
+                                    <SelectComponent
+                                        lenses={environments}
+                                        placeholder="All AWS Managed services"
+                                        label="VPC"
+                                        onLensChange={this.handleEnvironmentChange}
+                                    />
+                                </div>
+                            </div>
 
-            <p className="text-lg font-medium text-gray-500 mb-4">SELECT TAGS</p>
+                            <p className="text-lg font-medium text-gray-500 mb-4">SELECT TAGS</p>
 
-            <div className="flex justify-between items-center gap-10 w-2/3">
-              <div className="mb-4 w-full">
-                <SelectComponent
-                  lenses={environments}
-                  placeholder="Select Tag Key"
-                  label="Select Tag Name"
-                  onLensChange={this.handleEnvironmentChange}
-                />
-              </div>
+                            {/* <div className="flex justify-between items-center gap-10 w-2/3">
+                                <div className="mb-2 w-full">
+                                    <SelectComponent
+                                        lenses={environments}
+                                        placeholder="Select Tag Key"
+                                        label="Select Tag Name"
+                                        onLensChange={this.handleEnvironmentChange}
+                                    />
+                                </div>
 
-              <div className="mb-4 w-full">
-                <SelectComponent
-                  lenses={environments}
-                  placeholder="Select Tag Key"
-                  label="Select Tag Value"
-                  onLensChange={this.handleEnvironmentChange}
-                />
-              </div>
-            </div>
-          </div>
-        )}
+                                <div className="mb-4 w-full">
+                                    <SelectComponent
+                                        lenses={environments}
+                                        placeholder="Select Tag Key"
+                                        label="Select Tag Value"
+                                        onLensChange={this.handleEnvironmentChange}
+                                    />
+                                </div>
+                            </div> */}
+
+                            {this.state.tags.map((tag, index) => (
+                                <div key={index} className="flex justify-between items-center gap-10 w-2/3 mb-4">
+                                    <div className="w-full">
+                                        <SelectComponent
+                                            lenses={environments}
+                                            placeholder="Select Tag Key"
+                                            label="Select Tag Name"
+                                            onLensChange={(value) => this.handleTagChange(index, 'key', value)}
+                                        />
+                                    </div>
+                                    <div className="w-full">
+                                        <SelectComponent
+                                            lenses={environments}
+                                            placeholder="Select Tag Value"
+                                            label="Select Tag Value"
+                                            onLensChange={(value) => this.handleTagChange(index, 'value', value)}
+                                        />
+                                    </div>
+                                </div>
+                            ))}
+                            <div>
+                                <button
+                                    className='text-blue-500 font-medium'
+                                    onClick={this.handleAddTag}
+                                    type="button"
+                                >
+                                    + add another Tag
+                                </button>
+                            </div>
+                        </div>
+                    )}
                     {/* Cancel and Save Buttons */}
                     <div className="flex justify-start gap-6 mt-6">
                         <button type="button" className="border border-gray-300 text-gray-700 px-4 py-2 rounded-lg">

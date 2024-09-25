@@ -90,6 +90,8 @@ import Wafr from "./AppViews/Wafr";
 import CreateWorkloadForm from "./AppViews/Wafr/CreateWorkLoad";
 import WorkLoad from "./AppViews/Wafr/workLoad"
 import WafrAssesssment from "./AppViews/Wafr/WafrAssesssment"
+
+
 import AssetManagement from "./AppViews/AssetManagement";
 export function withRouter(Component) {
   function ComponentWithRouterProp(props) {
