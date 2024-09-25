@@ -60,7 +60,7 @@ class RegionWiseResourcesTable extends React.Component {
             </TableBody>
           </Table>
         </TableContainer>
-      </Paper>
+      </Paper> 
     );
   }
 }
