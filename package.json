@@ -19,6 +19,7 @@
     "d3": "^7.8.5",
     "fontawesome-free-6.2.1": "^6.2.1",
     "html-react-parser": "^4.0.0",
+    "lucide-react": "^0.441.0",
     "react": "^18.2.0",
     "react-archer": "^4.2.3",
     "react-chartjs-2": "^5.2.0",
@@ -56,7 +57,8 @@
     "@babel/plugin-transform-modules-commonjs": "^7.22.5",
     "@babel/register": "^7.22.5",
     "babel-plugin-inline-react-svg": "^2.0.2",
-    "babel-preset-react-app-babel-7": "^4.0.2-0"
+    "babel-preset-react-app-babel-7": "^4.0.2-0",
+    "tailwindcss": "^3.4.12"
   },
   "browserslist": {
     "production": [
