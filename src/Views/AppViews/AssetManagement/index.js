@@ -13,7 +13,7 @@ import InstanceTable from './components/Instancetable'
 import DiscoveredAssets from './components/Discoveredasset'
 
 
-const platforms = ['Amazon Web Services', 'Google Cloud Platform', 'Azure Cloud']
+const platforms = ['Amazon Web Services']
 
 
 

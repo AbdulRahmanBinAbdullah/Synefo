@@ -126,8 +126,7 @@ const PlatformButtons = ({ activePlatform, onPlatformClick }) => {
   // Define platforms and their respective images
   const platforms = [
     { name: 'Amazon Web Services', image: aws },
-    { name: 'Google Cloud Platform', image: gcloud },
-    { name: 'Azure Cloud', image: azure },
+  
   ];
 
   const handleFiltersSubmit = (newFilters) => {
@@ -165,7 +164,7 @@ const PlatformButtons = ({ activePlatform, onPlatformClick }) => {
           borderRadius: '8px',
           backgroundColor: 'white',
           boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)',
-          padding: '8px',
+          padding: '9px',
           marginRight: '10px',
         }}
       />
@@ -176,91 +175,13 @@ const PlatformButtons = ({ activePlatform, onPlatformClick }) => {
           color: '#4A4A68',
         }}
       >
-        Aws
+        AWS
       </Box>
     </Box>
   </Grid>
 
-  <Grid item xs={6} sm={3} sx={{ padding: '0 4px' }}>
-    <Box
-      sx={{
-        fontFamily: 'Poppins',
-        textTransform: 'none',
-        textAlign: 'left',
-        display: 'flex',
-        alignItems: 'center',
-        padding: '10px',
-        backgroundColor: 'white',
-        borderRadius: '12px',
-        boxShadow: '0 4px 10px rgba(0, 0, 0, 0.05)',
-        border: '1px solid #e0e0e0',
-      }}
-    >
-      <img
-        src={azure}
-        alt="azure"
-        style={{
-          width: '65px',
-          height: '40px',
-          borderRadius: '8px',
-          backgroundColor: 'white',
-          boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)',
-          padding: '8px',
-          marginRight: '10px',
-        }}
-      />
-      <Box
-        sx={{
-          fontWeight: '500',
-          fontSize: '16px',
-          color: '#4A4A68',
-        }}
-      >
-        Azure
-      </Box>
-    </Box>
-  </Grid>
 
-  {/* Third AWS button */}
-  <Grid item xs={6} sm={3} sx={{ padding: '0 4px' }}>
-    <Box
-      sx={{
-        fontFamily: 'Poppins',
-        textTransform: 'none',
-        textAlign: 'left',
-        display: 'flex',
-        alignItems: 'center',
-        padding: '10px',
-        backgroundColor: 'white',
-        borderRadius: '12px',
-        boxShadow: '0 4px 10px rgba(0, 0, 0, 0.05)',
-        border: '1px solid #e0e0e0',
-      }}
-    >
-      <img
-        src={gcloud}
-        alt="aws"
-        style={{
-          width: '55px',
-          height: '40px',
-          borderRadius: '8px',
-          backgroundColor: 'white',
-          boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)',
-          padding: '8px',
-          marginRight: '10px',
-        }}
-      />
-      <Box
-        sx={{
-          fontWeight: '500',
-          fontSize: '16px',
-          color: '#4A4A68',
-        }}
-      >
-        Gcloud
-      </Box>
-    </Box>
-  </Grid>
+  
 </Grid>
 
       <Grid container mt={2}>
