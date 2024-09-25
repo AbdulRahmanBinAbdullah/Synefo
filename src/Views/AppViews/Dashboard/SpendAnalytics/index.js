@@ -781,8 +781,8 @@ class SpendAnalytics extends Component {
       className="analytics-center"
       sx={{
         p: { xs: 2, sm: 3, md: 0},
-        mt: { xs: 13, sm: '550px', md: 10 ,l:10},
-        ml: { xs: 7, sm: 7, md: 13,l:10},
+        mt: { xs: 13, sm: '550px', md: 18 ,l:10},
+        ml: { xs: 7, sm: 7, md: 23,l:10},
 
         // width: '100%',
         // maxWidth: '1200px',
@@ -842,7 +842,7 @@ class SpendAnalytics extends Component {
 
         
         <Box className="analytics-right">
-          <Box className="current-spend" sx={{ml:20}}>
+          <Box className="current-spend" sx={{ml:24}}>
           <Grid container spacing={1} >
           
         </Grid> 
@@ -867,7 +867,7 @@ class SpendAnalytics extends Component {
               </Grid>
             </Box>
           </Box>
-          <Box className="spend-analytics" sx={{ml:20}}>
+          <Box className="spend-analytics" sx={{ml:24}}>
             <Box className="heading">
               <label>Spend Analytics</label>
             </Box>
