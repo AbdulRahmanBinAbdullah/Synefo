@@ -11,7 +11,7 @@ import { Box, Grid, List, ListItem,Typography,Stack } from "@mui/material";
 import UserIcon from "assets/img/dashboard/user-icon.png";
 import KingIcon from "assets/img/dashboard/kingicon.png";
 import annotationPlugin from "chartjs-plugin-annotation";
-
+import Dashboard from "../charts/Dashboard";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -777,72 +777,11 @@ class SpendAnalytics extends Component {
 
       <Box className="spend-analytics-inner-container">
         
-      <Stack
-      className="analytics-center"
-      sx={{
-        p: { xs: 2, sm: 3, md: 0},
-        mt: { xs: 13, sm: '550px', md: 18 ,l:10},
-        ml: { xs: 7, sm: 7, md: 23,l:10},
-
-        // width: '100%',
-        // maxWidth: '1200px',
-        // margin: '0 auto',
-      }}
-    >
-      <Stack
-        direction={{ xs: 'column', md: 'row' }}
-        spacing={3}
-        sx={{ mt:7}}
-
-      >
-        <Box
-          className="linechart"
-          sx={{
-            flex: 1,
-         
-          }}
-        >
-          <LineChart />
-        </Box>
-        <Box
-          className="resourcewise"
-          // sx={{
-          //   flex: 1,
-          
-          // }}
-        >
-          <RegionWiseResourcesTable />
-        </Box>
-      </Stack>
-      
-      <Stack
-        direction={{ xs: 'column', md: 'row' }}
-        spacing={3}
-        sx={{ mt:5}}
-      >
-        <Box
-          className="wafr"
-          sx={{
-            flex: 1,
-           
-          }}
-        >
-          <WAFRDashboard />
-        </Box>
-        <Box
-          className="top4services"
-          sx={{
-            flex: 1,
-          }}
-        >
-        <TopServicesTable />
-        </Box>
-      </Stack>
-    </Stack>
+      <Dashboard/>
 
         
         <Box className="analytics-right">
-          <Box className="current-spend" sx={{ml:24}}>
+          <Box className="current-spend" >
           <Grid container spacing={1} >
           
         </Grid> 
@@ -853,21 +792,21 @@ class SpendAnalytics extends Component {
               <Grid container spacing={1} className="spend-time">
                 <Grid className="spend-time-details">
                   <Box className="user-profile">
-                    <img src={UserIcon} className="red" alt="" />
+                    <img src={UserIcon} className="red" alt="" style={{width:'25px'}}/>
                   </Box>
                   {this.renderCurrentHourSpendRateHtml()}
                
                 </Grid>
                 <Grid className="spend-time-details">
                   <Box className="user-profile sky-blue">
-                    <img src={KingIcon} alt="" />
+                    <img src={KingIcon} alt=""  style={{width:'25px'}} />
                   </Box>
                   {this.renderCurrentDaySpendRateHtml()}
                 </Grid>
               </Grid>
             </Box>
           </Box>
-          <Box className="spend-analytics" sx={{ml:24}}>
+          <Box className="spend-analytics">
             <Box className="heading">
               <label>Spend Analytics</label>
             </Box>
