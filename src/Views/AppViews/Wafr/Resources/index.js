@@ -28,11 +28,11 @@ class MetricCards extends React.Component {
     ];
 
     return (
-      <div className="flex space-x-4  w-full">
+      <div className="flex space-x-4 w-full">
         {metrics.map((metric, index) => (
           <div
             key={index}
-            className={`flex items-center bg-white py-4 px-4 rounded-lg cursor-pointer transition-all ${
+            className={`flex items-center w-full bg-white py-4 px-4 rounded-lg cursor-pointer transition-all ${
               this.state.selectedCard === index ? 'border-2 border-blue-500' : 'border border-gray-200'
             } `}
             onClick={() => this.handleCardClick(index)}

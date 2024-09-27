@@ -49,9 +49,9 @@ const WAFRAssessment = () => {
   };
 
   return (
-    <div className="p-8">
+    <div className="p-8 w-full">
       {/* Header Section */}
-      <div className="flex justify-between items-center mb-6">
+      <div className="flex justify-between items-center mb-6 w-full">
         <h1 className="text-2xl font-semibold">45sdf28d - WAFR Assessment</h1>
 
         <div className="flex space-x-4">
@@ -64,7 +64,7 @@ const WAFRAssessment = () => {
       </div>
 
       {/* Summary Cards */}
-      <div className='my-4'>
+      <div className='my-4 w-full'>
         <MetricCards />
       </div>
 
@@ -73,7 +73,7 @@ const WAFRAssessment = () => {
       {/* <div className="grid grid-cols-12 gap-4 w-full"> */}
       <div className="flex  gap-4 w-full">
         {/* Left Side: Question List */}
-        <div className="col-span-4 bg-gray-50 p-4 rounded shadow h-[600px] overflow-y-auto">
+        <div className="col-span-4 bg-gray-50 p-4 rounded shadow h-[600px] overflow-y-auto w-full">
           <ul className="space-y-4">
             {questions.map((question, index) => (
               <li key={index} className="flex items-start space-x-4">
@@ -87,7 +87,7 @@ const WAFRAssessment = () => {
         </div>
 
         {/* Right Side: Answer Options */}
-        <div className="col-span-8 bg-white p-4 rounded shadow self-start h-[600px] overflow-y-auto">
+        <div className="col-span-8 bg-white p-4 rounded shadow self-start h-[600px] overflow-y-auto w-full">
           {questions.map((question, index) => (
             <div key={index} className="mb-6">
               <h2 className="text-lg font-semibold mb-2">{index + 1}. {question}</h2>

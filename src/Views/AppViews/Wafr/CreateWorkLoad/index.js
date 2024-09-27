@@ -88,7 +88,7 @@ class CreateWorkloadForm extends Component {
                         {/* Workload Name */}
                         <div className="mb-6">
                             <label htmlFor="workloadName" className="block text-gray-700 text-lg font-medium mb-2">
-                                Workload Name
+                              *  Workload Name
                             </label>
                             <input
                                 type="text"
@@ -156,7 +156,7 @@ class CreateWorkloadForm extends Component {
                             <SelectComponent
                                 lenses={environments}
                                 placeholder="Production"
-                                label="Select Environment"
+                                label="* Select Environment"
                                 onLensChange={this.handleEnvironmentChange}
                             />
                         </div>
@@ -165,7 +165,7 @@ class CreateWorkloadForm extends Component {
                     {/* Description */}
                     <div className="mb-4 w-2/3">
                         <label htmlFor="description" className="block text-gray-700 text-lg font-medium mb-2">
-                            Description
+                          *  Description
                         </label>
                         <textarea
                             id="description"

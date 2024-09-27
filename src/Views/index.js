@@ -91,6 +91,10 @@ import CreateWorkloadForm from "./AppViews/Wafr/CreateWorkLoad";
 import WorkLoad from "./AppViews/Wafr/workLoad"
 import WafrAssesssment from "./AppViews/Wafr/WafrAssesssment"
 
+// this are the routes of Price Estimator
+import PriceEstimator from "./AppViews/PriceEstimator";
+import ConfigureSetup from "./AppViews/PriceEstimator/configure-fields";
+import ConfigureAmazonEC2 from "./AppViews/PriceEstimator/Configure-Amazon-EC2";
 
 import AssetManagement from "./AppViews/AssetManagement";
 export function withRouter(Component) {
@@ -165,6 +169,18 @@ export const Views = (props) => {
           <Route
             path={`${APP_PREFIX_PATH}/wafr/assignment`}
             element={<WafrAssesssment />}
+          />
+          <Route
+            path={`${APP_PREFIX_PATH}/assets/price-estimator`}
+            element={<PriceEstimator />}
+          />
+          <Route
+            path={`${APP_PREFIX_PATH}/assets/price-estimator/configure-setup`}
+            element={<ConfigureSetup />}
+          />
+          <Route
+            path={`${APP_PREFIX_PATH}/assets/price-estimator/configure-amazon-ec2`}
+            element={<ConfigureAmazonEC2 />}
           />
           <Route
             path={`${APP_PREFIX_PATH}/assets/environments/environmentlist`}
