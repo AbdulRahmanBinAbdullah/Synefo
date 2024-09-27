@@ -115,7 +115,7 @@
 import { useState } from 'react';
 import { Button, Grid, Box, Typography } from '@mui/material';
 import PlatformFilters from './Filters';
-import aws from "assets/img/assetmanagement/aws.png";
+import aws from "assets/img/assetmanagement/aws.svg";
 import azure from "assets/img/assetmanagement/azure.svg";
 import gcloud from "assets/img/assetmanagement/gcloud.svg";
 

@@ -2,7 +2,7 @@ import { AppBar, Toolbar, Typography, Button, IconButton, Box } from '@mui/mater
 
 const AppBarComponent = () => (
 
-    <Toolbar>
+    <Toolbar sx={{m:1}}>
       <Typography 
   variant="h6" 
   sx={{ 
@@ -14,6 +14,7 @@ const AppBarComponent = () => (
     letterSpacing: '-0.44px', 
     textAlign: 'left' ,
     color: '#383874',
+    marginLeft:-3
 
   }}
 >
