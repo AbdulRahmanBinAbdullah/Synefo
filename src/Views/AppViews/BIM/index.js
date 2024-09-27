@@ -92,6 +92,12 @@ export default function EC2DashboardHeader() {
     setIsFilterModalOpen(false);
   };
 
+  const handleFilterSubmit = (selectedDepartment) => {
+    console.log('Selected Department:', selectedDepartment);
+    // Add your logic here to handle the selected department
+  };
+
+
   return (
     <div>
       <AppBar position="static" color="transparent" elevation={0}>
@@ -131,6 +137,7 @@ export default function EC2DashboardHeader() {
         <FilterModal
           open={isFilterModalOpen}
           onClose={handleFilterModalClose}
+          onSubmit={handleFilterSubmit}
         />
       )}
     </div>

@@ -206,6 +206,18 @@ const Timerange = () => {
     navigate(`${APP_PREFIX_PATH}/bim/performance`); // Call navigate as a function
   };
 
+
+  const handlecostNavigate = () => {
+    navigate(`${APP_PREFIX_PATH}/bim/cost`); // Call navigate as a function
+  };
+
+
+  const handleautoscale = () => {
+    navigate(`${APP_PREFIX_PATH}/bim/autoscale`); // Call navigate as a function
+  };
+
+
+
   const handleTabChange = (event, newValue) => {
     setSelectedTab(newValue);
   };
@@ -306,7 +318,7 @@ const Timerange = () => {
 
       <Menu anchorEl={anchorEl} open={open} onClose={handleMenuClose}>
         <MenuItem
-          onClick={handleMenuClose}
+         onClick={() => handleNavigate()} 
           sx={{
             backgroundColor: '#EEF2FF',
             '&:hover': { backgroundColor: '#E0E7FF' },
@@ -318,7 +330,7 @@ const Timerange = () => {
           <Typography
             variant="body1"
             sx={{ fontWeight: 'bold', color: '#3730A3' }}
-            onClick={() => handleNavigate()} // Corrected navigation call
+            // Corrected navigation call
           >
             Performance & Reliability
           </Typography>
@@ -331,7 +343,7 @@ const Timerange = () => {
             Availability & End User
           </Typography>
         </MenuItem>
-        <MenuItem onClick={handleMenuClose}>
+        <MenuItem onClick={() => handleautoscale()}>
           <ListItemIcon>
             <img src={menuicon} alt="menu" />
           </ListItemIcon>
@@ -339,11 +351,12 @@ const Timerange = () => {
             Auto Scaling & Security
           </Typography>
         </MenuItem>
-        <MenuItem onClick={handleMenuClose}>
+        <MenuItem onClick={() => handlecostNavigate()}>
           <ListItemIcon>
             <img src={menuicon} alt="menu" />
           </ListItemIcon>
-          <Typography variant="body1" sx={{ color: '#3730A3' }}>
+          <Typography variant="body1" sx={{ color: '#3730A3' }}                // Corrected navigation call
+          >
             Cost
           </Typography>
         </MenuItem>

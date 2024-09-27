@@ -1,3 +1,104 @@
+// import React from 'react';
+// import { Line } from 'react-chartjs-2';
+// import {
+//   Chart as ChartJS,
+//   CategoryScale,
+//   LinearScale,
+//   PointElement,
+//   LineElement,
+//   Title,
+//   Tooltip,
+//   Legend,
+// } from 'chart.js';
+
+// ChartJS.register(
+//   CategoryScale,
+//   LinearScale,
+//   PointElement,
+//   LineElement,
+//   Title,
+//   Tooltip,
+//   Legend
+// );
+
+// const CPUUtilizationChart = () => {
+//   const options = {
+//     responsive: true,
+//     plugins: {
+//       legend: {
+//         position: 'bottom',
+//       },
+//       title: {
+//         display: true,
+//         text: 'CPU Utilization by Instance ID',
+//       },
+//     },
+//     scales: {
+//       y: {
+//         beginAtZero: true,
+//         max: 100,
+//         ticks: {
+//           callback: (value) => `${value}%`,
+//         },
+//       },
+//     },
+//   };
+
+//   const labels = [
+//     '00:00', '00:30', '01:00', '01:30', '02:00', '02:30',
+//     '03:00', '03:30', '04:00', '04:30', '05:00', '05:30', '06:00'
+//   ];
+
+//   const data = {
+//     labels,
+//     datasets: [
+//       {
+//         label: 'i-0fbdfe5f0000fc5d3',
+//         data: [78, 76, 75, 71, 75, 78, 77, 78, 79, 77, 78, 77, 76],
+//         borderColor: 'rgb(255, 99, 132)',
+//         backgroundColor: 'rgba(255, 99, 132, 0.5)',
+//       },
+//       {
+//         label: 'i-0fbdfe5f0000fc5d3',
+//         data: [63, 61, 59, 58, 62, 64, 63, 64, 63, 62, 63, 64, 65],
+//         borderColor: 'rgb(255, 159, 64)',
+//         backgroundColor: 'rgba(255, 159, 64, 0.5)',
+//       },
+//       {
+//         label: 'i-0fbdfe5f0000fc5d3',
+//         data: [52, 44, 43, 45, 47, 48, 46, 47, 49, 52, 55, 50, 47],
+//         borderColor: 'rgb(255, 205, 86)',
+//         backgroundColor: 'rgba(255, 205, 86, 0.5)',
+//       },
+//       {
+//         label: 'i-0fbdfe5f0000fc5d3',
+//         data: [35, 33, 36, 37, 35, 36, 35, 36, 37, 38, 37, 38, 37],
+//         borderColor: 'rgb(75, 192, 192)',
+//         backgroundColor: 'rgba(75, 192, 192, 0.5)',
+//       },
+//       {
+//         label: 'i-0fbdfe5f0000fc5d3',
+//         data: [22, 25, 20, 23, 25, 24, 25, 24, 22, 19, 23, 27, 30],
+//         borderColor: 'rgb(54, 162, 235)',
+//         backgroundColor: 'rgba(54, 162, 235, 0.5)',
+//       },
+//     ],
+//   };
+
+//   return (
+//     <div >
+//       <Line options={options} data={data} />
+//       <p className="text-center text-sm text-gray-500 mt-2">
+//         The average CPU utilization percentage by instance.
+//       </p>
+//     </div>
+//   );
+// };
+
+// export default CPUUtilizationChart;
+
+
+
 import React from 'react';
 import { Line } from 'react-chartjs-2';
 import {

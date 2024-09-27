@@ -7,7 +7,7 @@ import Terminatebuttons from '../components/performance-reliability/Performanceb
 import FilterModal from '../components/Filter';
 import SchedulerModal from '../components/performance-reliability/schedular';
 import SetAlertForm from '../components/performance-reliability/Setalert';
-import EC2Dashboard from '../components/performance-reliability/visualizations';
+import EC2Dashboard from '../components/autoscale/visualization';
 export default function EC2DashboardHeader() {
   const [selectedTab, setSelectedTab] = React.useState(0);
   const [selectedTimeRange, setSelectedTimeRange] = React.useState('1M');
@@ -68,16 +68,7 @@ const handleSetAlertClose = () => {
           </div>
 
           <div className="flex space-x-2">
-            <Button
-              variant='outlined'
-              size="small"
-              className="hover:bg-indigo-200 mx-2"
-              sx={{ borderColor: '#384CFF' }}
-              style={{ backgroundColor: '#FFFFFF', color: '#384CFF', textTransform: 'none' }}
-              onClick={handleSchedularOpen}
-            >
-              Scheduler
-            </Button>
+            
             <Button
           size="small"
           className="hover:bg-indigo-200 mx-2"
@@ -101,7 +92,7 @@ const handleSetAlertClose = () => {
       </AppBar>
       <Timerange />
       <Terminatebuttons />
-    <EC2Dashboard />
+      <EC2Dashboard/>
 
       {isFilterModalOpen && (
         <FilterModal

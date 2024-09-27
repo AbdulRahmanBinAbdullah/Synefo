@@ -34,7 +34,7 @@ const SystemHealth = () => {
   };
 
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex items-center justify-between">
       {/* Donut Chart */}
       <div style={{ width: '200px', height: '300px' }}>
         <Doughnut data={data} options={options} />

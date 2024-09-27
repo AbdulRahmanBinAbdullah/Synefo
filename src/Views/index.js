@@ -86,12 +86,14 @@ import AlarmList from "./AppViews/DiscoveredAssets/AlarmList";
 import CostOptimization from "./AppViews/CostOptimization";
 import Dash from "./AppViews/BIM";
 import Performance from "./AppViews/BIM/performancereliability"
+import Cost from "./AppViews/BIM/cost"
 // this are the WAFR routes 
 import Wafr from "./AppViews/Wafr";
 import CreateWorkloadForm from "./AppViews/Wafr/CreateWorkLoad";
 import WorkLoad from "./AppViews/Wafr/workLoad"
 import WafrAssesssment from "./AppViews/Wafr/WafrAssesssment"
 import AssetManagement from "./AppViews/AssetManagement";
+import Autoscale from "./AppViews/BIM/autoscale"
 export function withRouter(Component) {
   function ComponentWithRouterProp(props) {
     const location = useLocation();
@@ -390,6 +392,20 @@ export const Views = (props) => {
             path={`${APP_PREFIX_PATH}/bim/performance`}
             element={<Performance />}
           />
+
+
+<Route
+            path={`${APP_PREFIX_PATH}/bim/autoscale`}
+            element={<Autoscale />}
+          />
+
+
+
+<Route
+            path={`${APP_PREFIX_PATH}/bim/COST`}
+            element={<Cost />}
+          />
+
 
           <Route path={`${APP_PREFIX_PATH}/bim`} element={<Dash />} />
           <Route
