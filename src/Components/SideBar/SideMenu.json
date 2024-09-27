@@ -20,6 +20,10 @@
           "name": "Environments"
         },
         {
+          "link": "/assets/price-estimator",
+          "name": "priceEstimator"
+        },
+        {
           "link": "/assets/discovered-assets",
           "name": "Discovered Assets"
         },

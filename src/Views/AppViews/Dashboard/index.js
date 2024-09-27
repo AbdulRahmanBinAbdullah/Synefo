@@ -188,6 +188,7 @@ class Dashboard extends Component {
               <ProcessCentral />
             </div>
           </Box>
+          
         </Box>
       </Box>
     );

@@ -144,7 +144,6 @@ class AccountPolicy extends Component {
             }}
             finishPrevious={finishPrevious}
           />
-          
         </Box>
       </Box>
     );
