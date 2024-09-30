@@ -130,6 +130,7 @@ const data = [
     icon: <CircularProgress progress={48.3} size={48} strokeWidth={4} />,
     title: 'Error Rate',
     amount: "48.3%",
+    change: "10%",
     direction: "up",
     showChange: true,
     backgroundColor: "#8676FF"
@@ -146,11 +147,11 @@ const data = [
 
 const CardComponentTailwind = () => {
   return (
-    <div className="flex justify-between items-stretch space-x-4 p-4">
+    <div className="flex start  space-x-4 p-2">
       {data.map((item, index) => (
         <div
           key={index}
-          className="flex items-center bg-white shadow-lg rounded-lg p-3 flex-1"
+          className="flex items-center bg-white  rounded-lg p-1 flex-1"
         >
           <div className="rounded-lg p-2 flex justify-center items-center">
             {typeof item.icon === 'string' ? (
@@ -160,8 +161,7 @@ const CardComponentTailwind = () => {
                 className="w-12 h-12 rounded-lg"
                 style={{
                   backgroundColor: item.backgroundColor,
-                  boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)',
-                  padding: '6px',
+                  padding: '10px',
                 }}
               />
             ) : (

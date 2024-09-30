@@ -32,7 +32,7 @@ const SchedulerModal = ({ open, onClose }) => {
   };
 
   return (
-    <Dialog open={open} onClose={onClose} maxWidth="xs" fullWidth>
+    <Dialog open={open} onClose={onClose} >
       <DialogTitle>
         <Typography variant="h6" component="div" style={{ fontWeight: 'bold' }}>
           Scheduler
@@ -60,67 +60,86 @@ const SchedulerModal = ({ open, onClose }) => {
           />
         </Box>
         <Box display="flex" justifyContent="space-between" mb={2}>
-          <FormControl fullWidth variant="outlined" size="small">
-            <Select
-              value={startDate}
-              onChange={(e) => setStartDate(e.target.value)}
-              displayEmpty
-            >
-              <MenuItem value="" disabled>
-                Select Start Date
-              </MenuItem>
-              {dateOptions.map((day) => (
-                <MenuItem key={day} value={day}>
-                  {day}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-          <FormControl fullWidth variant="outlined" size="small">
-            <Select
-              value={endDate}
-              onChange={(e) => setEndDate(e.target.value)}
-              displayEmpty
-            >
-              <MenuItem value="" disabled>
-                Select End Date
-              </MenuItem>
-              {dateOptions.map((day) => (
-                <MenuItem key={day} value={day}>
-                  {day}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-        </Box>
-        <FormControl component="fieldset">
-          <RadioGroup
-            row
-            aria-label="days"
-            name="days"
-            value={selectedDay}
-            onChange={(e) => setSelectedDay(e.target.value)}
-          >
-            {days.map((day) => (
-              <Box key={day} display="flex" flexDirection="column" alignItems="center" mr={1}>
-                <Radio
-                  value={day}
-                  size="small"
-                  sx={{ padding: '4px' }}
-                />
-                <FormLabel component="legend" sx={{ fontSize: '0.75rem' }}>{day}</FormLabel>
-              </Box>
-            ))}
-          </RadioGroup>
-        </FormControl>
-        <Button
-          fullWidth
-          variant="contained"
-          onClick={handleConfirm}
-          style={{ backgroundColor: '#4318FF', color: 'white', textTransform: 'none', marginTop: '16px' }}
-        >
-          Confirm
-        </Button>
+  <FormControl 
+    variant="outlined" 
+    size="small" 
+     // Adjust the width and add some margin
+  >
+    <Select
+      value={startDate}
+      onChange={(e) => setStartDate(e.target.value)}
+      displayEmpty
+    >
+      <MenuItem value="" disabled>
+        Select Start Date
+      </MenuItem>
+      {dateOptions.map((day) => (
+        <MenuItem key={day} value={day}>
+          {day}
+        </MenuItem>
+      ))}
+    </Select>
+  </FormControl>
+  <FormControl 
+    variant="outlined" 
+    size="small" 
+    sx={{ width: 'calc(50% - 8px)' }}  // Adjust the width and add some margin
+  >
+    <Select
+      value={endDate}
+      onChange={(e) => setEndDate(e.target.value)}
+      displayEmpty
+    >
+      <MenuItem value="" disabled>
+        Select End Date
+      </MenuItem>
+      {dateOptions.map((day) => (
+        <MenuItem key={day} value={day}>
+          {day}
+        </MenuItem>
+      ))}
+    </Select>
+  </FormControl>
+</Box>
+<FormControl component="fieldset">
+  <RadioGroup
+    row
+    aria-label="days"
+    name="days"
+    value={selectedDay}
+    onChange={(e) => setSelectedDay(e.target.value)}
+    sx={{ display: 'flex', justifyContent: 'space-between'}} // Added flex properties here
+  >
+    {days.map((day) => (
+      <Box key={day} display="flex" flexDirection="column" alignItems="center" > 
+        <Radio
+          value={day}
+          size="small"
+          sx={{ padding: '2px' }}
+        />
+        <FormLabel component="legend"  sx={{ fontSize: '0.75rem' ,ml:3,mr:2}}>{day}</FormLabel>
+      </Box>
+    ))}
+  </RadioGroup>
+</FormControl>
+
+        
+        <Box display="flex" justifyContent="center" mt={2}>
+  <Button
+    size='small'
+    variant="contained"
+    onClick={handleConfirm}
+    style={{
+      backgroundColor: '#4318FF',
+      color: 'white',
+      textTransform: 'none',
+      marginTop: '16px',
+    }}
+  >
+    Confirm
+  </Button>
+</Box>
+
       </DialogContent>
     </Dialog>
   );

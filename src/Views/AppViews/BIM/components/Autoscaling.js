@@ -57,6 +57,28 @@ const autoScalingGroups = [
     healthCheckType: 'ELB',
     status: 'Scale Up',
   },
+  {
+    groupName: 'ASG-Group-5',
+    launchConfiguration: 'LaunchConfig-5',
+    instanceType: 'm4.xlarge',
+    availabilityZone: 'us-west-1a',
+    minSize: 2,
+    maxSize: 8,
+    desiredCapacity: 4,
+    healthCheckType: 'ELB',
+    status: 'Scale Up',
+  },
+  {
+    groupName: 'ASG-Group-5',
+    launchConfiguration: 'LaunchConfig-5',
+    instanceType: 'm4.xlarge',
+    availabilityZone: 'us-west-1a',
+    minSize: 2,
+    maxSize: 8,
+    desiredCapacity: 4,
+    healthCheckType: 'ELB',
+    status: 'Scale Up',
+  },
 ];
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   padding: '10px 8px',
@@ -67,8 +89,8 @@ export default function AutoScalingEC2InstanceTable() {
   return (
     <div className="overflow-x-auto overflow-y-auto"> 
       <h2  className="font-bold mb-4" sx={{fontFamily:'poppins'}} style={{color:'#383874'}}>Auto Scaling EC2 Instance</h2>
-      <TableContainer component={Paper} className="min-w-80 h-70 "> 
-        <Table className="min-w-full" size="small"> 
+      <TableContainer className="h-60"  > 
+        <Table  stickyHeader> 
           <TableHead>
             <TableRow >
               <StyledTableCell className="font-bold "  sx={{color:'#383874',fontWeight: 'bold'}}>Group Name</StyledTableCell>

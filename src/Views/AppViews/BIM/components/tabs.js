@@ -5,9 +5,10 @@
 // import { Tabs, Tab, Button, Menu, MenuItem, Popover, ListItemIcon, Typography } from '@mui/material';
 // import SettingsIcon from '@mui/icons-material/Settings';
 // import Calendar from './Calendar';
-// import menuicon from 'assets/img/allservices/menuicon.png'
-// import { Navigate } from 'react-router-dom';
+// import menuicon from 'assets/img/allservices/menuicon.png';
+// import { useNavigate } from 'react-router-dom'; // Corrected import
 // import { APP_PREFIX_PATH } from 'Configs/AppConfig';
+
 // const Timerange = () => {
 //   const [selectedTab, setSelectedTab] = useState(0);
 //   const [anchorEl, setAnchorEl] = useState(null);
@@ -16,9 +17,23 @@
 //   const open = Boolean(anchorEl);
 //   const calendarOpen = Boolean(calendarAnchorEl);
 
-//   function handlenavigate(){
-//     Navigate(`${APP_PREFIX_PATH}/bim/performance`)
-//   }
+//   const navigate = useNavigate(); // Use the hook to navigate
+
+//   const handleNavigate = () => {
+//     navigate(`${APP_PREFIX_PATH}/bim/performance`); // Call navigate as a function
+//   };
+
+
+//   const handlecostNavigate = () => {
+//     navigate(`${APP_PREFIX_PATH}/bim/cost`); // Call navigate as a function
+//   };
+
+
+//   const handleautoscale = () => {
+//     navigate(`${APP_PREFIX_PATH}/bim/autoscale`); // Call navigate as a function
+//   };
+
+
 
 //   const handleTabChange = (event, newValue) => {
 //     setSelectedTab(newValue);
@@ -108,7 +123,7 @@
 //         </div>
 
 //         <Button
-//           className='sla'
+//           className="sla"
 //           variant="contained"
 //           startIcon={<SettingsIcon />}
 //           onClick={handleMenuClick}
@@ -118,43 +133,47 @@
 //         </Button>
 //       </div>
 
-//       {/* Modified SLA Menu */}
 //       <Menu anchorEl={anchorEl} open={open} onClose={handleMenuClose}>
-//         <MenuItem onClick={handleMenuClose} sx={{
-//           backgroundColor: '#EEF2FF', // Light indigo background for selected item
-//           '&:hover': { backgroundColor: '#E0E7FF' }, // Slightly darker on hover
-//         }}>
+//         <MenuItem
+//          onClick={() => handleNavigate()} 
+//           sx={{
+//             backgroundColor: '#EEF2FF',
+//             '&:hover': { backgroundColor: '#E0E7FF' },
+//           }}
+//         >
 //           <ListItemIcon>
-//             <img src={menuicon} alt="menu"/>
+//             <img src={menuicon} alt="menu" />
 //           </ListItemIcon>
-//           <Typography variant="body1" sx={{ fontWeight: 'bold', color: '#3730A3' }} onClick={handlenavigate}>
+//           <Typography
+//             variant="body1"
+//             sx={{ fontWeight: 'bold', color: '#3730A3' }}
+//             // Corrected navigation call
+//           >
 //             Performance & Reliability
 //           </Typography>
 //         </MenuItem>
 //         <MenuItem onClick={handleMenuClose}>
 //           <ListItemIcon>
-//           <img src={menuicon} alt="menu"/>
-
+//             <img src={menuicon} alt="menu" />
 //           </ListItemIcon>
 //           <Typography variant="body1" sx={{ color: '#3730A3' }}>
 //             Availability & End User
 //           </Typography>
 //         </MenuItem>
-//         <MenuItem onClick={handleMenuClose}>
+//         <MenuItem onClick={() => handleautoscale()}>
 //           <ListItemIcon>
-//           <img src={menuicon} alt="menu"/>
-
-//        </ListItemIcon>
+//             <img src={menuicon} alt="menu" />
+//           </ListItemIcon>
 //           <Typography variant="body1" sx={{ color: '#3730A3' }}>
 //             Auto Scaling & Security
 //           </Typography>
 //         </MenuItem>
-//         <MenuItem onClick={handleMenuClose}>
+//         <MenuItem onClick={() => handlecostNavigate()}>
 //           <ListItemIcon>
-//           <img src={menuicon} alt="menu"/>
-
+//             <img src={menuicon} alt="menu" />
 //           </ListItemIcon>
-//           <Typography variant="body1" sx={{ color: '#3730A3' }}>
+//           <Typography variant="body1" sx={{ color: '#3730A3' }}                // Corrected navigation call
+//           >
 //             Cost
 //           </Typography>
 //         </MenuItem>
@@ -179,17 +198,12 @@
 //   );
 // };
 
-// export default Timerange;
-
-
-
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Tabs, Tab, Button, Menu, MenuItem, Popover, ListItemIcon, Typography } from '@mui/material';
 import SettingsIcon from '@mui/icons-material/Settings';
 import Calendar from './Calendar';
 import menuicon from 'assets/img/allservices/menuicon.png';
-import { useNavigate } from 'react-router-dom'; // Corrected import
+import { useNavigate, useLocation } from 'react-router-dom';
 import { APP_PREFIX_PATH } from 'Configs/AppConfig';
 
 const Timerange = () => {
@@ -197,26 +211,40 @@ const Timerange = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [calendarAnchorEl, setCalendarAnchorEl] = useState(null);
   const [selectedDate, setSelectedDate] = useState(new Date());
+  const [selectedMenuItem, setSelectedMenuItem] = useState('SLA');
   const open = Boolean(anchorEl);
   const calendarOpen = Boolean(calendarAnchorEl);
 
-  const navigate = useNavigate(); // Use the hook to navigate
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    switch (location.pathname) {
+      case `${APP_PREFIX_PATH}/bim/performance`:
+        setSelectedMenuItem('Performance & Reliability');
+        break;
+      case `${APP_PREFIX_PATH}/bim/cost`:
+        setSelectedMenuItem('Cost');
+        break;
+      case `${APP_PREFIX_PATH}/bim/autoscale`:
+        setSelectedMenuItem('Auto Scaling & Security');
+        break;
+      default:
+        setSelectedMenuItem('SLA');
+    }
+  }, [location.pathname]);
 
   const handleNavigate = () => {
-    navigate(`${APP_PREFIX_PATH}/bim/performance`); // Call navigate as a function
+    navigate(`${APP_PREFIX_PATH}/bim/performance`);
   };
 
-
-  const handlecostNavigate = () => {
-    navigate(`${APP_PREFIX_PATH}/bim/cost`); // Call navigate as a function
+  const handleCostNavigate = () => {
+    navigate(`${APP_PREFIX_PATH}/bim/cost`);
   };
 
-
-  const handleautoscale = () => {
-    navigate(`${APP_PREFIX_PATH}/bim/autoscale`); // Call navigate as a function
+  const handleAutoScaleNavigate = () => {
+    navigate(`${APP_PREFIX_PATH}/bim/autoscale`);
   };
-
-
 
   const handleTabChange = (event, newValue) => {
     setSelectedTab(newValue);
@@ -226,8 +254,9 @@ const Timerange = () => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleMenuClose = () => {
+  const handleMenuClose = (menuItem) => {
     setAnchorEl(null);
+    setSelectedMenuItem(menuItem);
   };
 
   const handleCustomClick = (event) => {
@@ -312,71 +341,83 @@ const Timerange = () => {
           onClick={handleMenuClick}
           sx={{ backgroundColor: '#DDE1F8', color: '#383874', paddingLeft: '16px', paddingRight: '16px' }}
         >
-          SLA
+          {selectedMenuItem}
         </Button>
-      </div>
 
-      <Menu anchorEl={anchorEl} open={open} onClose={handleMenuClose}>
-        <MenuItem
-         onClick={() => handleNavigate()} 
-          sx={{
-            backgroundColor: '#EEF2FF',
-            '&:hover': { backgroundColor: '#E0E7FF' },
+        <Menu anchorEl={anchorEl} open={open} onClose={() => handleMenuClose('SLA')}>
+          <MenuItem
+            onClick={() => {
+              handleNavigate();
+              handleMenuClose('Performance & Reliability');
+            }}
+            sx={{
+              backgroundColor: '#EEF2FF',
+              '&:hover': { backgroundColor: '#E0E7FF' },
+            }}
+          >
+            <ListItemIcon>
+              <img src={menuicon} alt="menu" />
+            </ListItemIcon>
+            <Typography variant="body1" sx={{ fontWeight: 'bold', color: '#3730A3' }}>
+              Performance & Reliability
+            </Typography>
+          </MenuItem>
+          <MenuItem
+            onClick={() => {
+              handleMenuClose('Availability & End User');
+            }}
+          >
+            <ListItemIcon>
+              <img src={menuicon} alt="menu" />
+            </ListItemIcon>
+            <Typography variant="body1" sx={{ color: '#3730A3' }}>
+              Availability & End User
+            </Typography>
+          </MenuItem>
+          <MenuItem
+            onClick={() => {
+              handleAutoScaleNavigate();
+              handleMenuClose('Auto Scaling & Security');
+            }}
+          >
+            <ListItemIcon>
+              <img src={menuicon} alt="menu" />
+            </ListItemIcon>
+            <Typography variant="body1" sx={{ color: '#3730A3' }}>
+              Auto Scaling & Security
+            </Typography>
+          </MenuItem>
+          <MenuItem
+            onClick={() => {
+              handleCostNavigate();
+              handleMenuClose('Cost');
+            }}
+          >
+            <ListItemIcon>
+              <img src={menuicon} alt="menu" />
+            </ListItemIcon>
+            <Typography variant="body1" sx={{ color: '#3730A3' }}>
+              Cost
+            </Typography>
+          </MenuItem>
+        </Menu>
+
+        <Popover
+          open={calendarOpen}
+          anchorEl={calendarAnchorEl}
+          onClose={handleCalendarClose}
+          anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'left',
+          }}
+          transformOrigin={{
+            vertical: 'top',
+            horizontal: 'left',
           }}
         >
-          <ListItemIcon>
-            <img src={menuicon} alt="menu" />
-          </ListItemIcon>
-          <Typography
-            variant="body1"
-            sx={{ fontWeight: 'bold', color: '#3730A3' }}
-            // Corrected navigation call
-          >
-            Performance & Reliability
-          </Typography>
-        </MenuItem>
-        <MenuItem onClick={handleMenuClose}>
-          <ListItemIcon>
-            <img src={menuicon} alt="menu" />
-          </ListItemIcon>
-          <Typography variant="body1" sx={{ color: '#3730A3' }}>
-            Availability & End User
-          </Typography>
-        </MenuItem>
-        <MenuItem onClick={() => handleautoscale()}>
-          <ListItemIcon>
-            <img src={menuicon} alt="menu" />
-          </ListItemIcon>
-          <Typography variant="body1" sx={{ color: '#3730A3' }}>
-            Auto Scaling & Security
-          </Typography>
-        </MenuItem>
-        <MenuItem onClick={() => handlecostNavigate()}>
-          <ListItemIcon>
-            <img src={menuicon} alt="menu" />
-          </ListItemIcon>
-          <Typography variant="body1" sx={{ color: '#3730A3' }}                // Corrected navigation call
-          >
-            Cost
-          </Typography>
-        </MenuItem>
-      </Menu>
-
-      <Popover
-        open={calendarOpen}
-        anchorEl={calendarAnchorEl}
-        onClose={handleCalendarClose}
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'left',
-        }}
-        transformOrigin={{
-          vertical: 'top',
-          horizontal: 'left',
-        }}
-      >
-        <Calendar selectedDate={selectedDate} onSelectDate={handleDateSelect} />
-      </Popover>
+          <Calendar selectedDate={selectedDate} onSelectDate={handleDateSelect} />
+        </Popover>
+      </div>
     </div>
   );
 };
