@@ -97,7 +97,7 @@ import WafrAssesssment from "./AppViews/Wafr/WafrAssesssment"
 import PriceEstimator from "./AppViews/PriceEstimator";
 import ConfigureSetup from "./AppViews/PriceEstimator/configure-fields";
 import ConfigureAmazonEC2 from "./AppViews/PriceEstimator/Configure-Amazon-EC2";
-
+import Availability from "./AppViews/BIM/availabilityandenduser"
 import AssetManagement from "./AppViews/AssetManagement";
 import Autoscale from "./AppViews/BIM/autoscale"
 export function withRouter(Component) {
@@ -416,8 +416,9 @@ export const Views = (props) => {
             path={`${APP_PREFIX_PATH}/bim/autoscale`}
             element={<Autoscale />}
           />
-
-
+<Route path={`${APP_PREFIX_PATH}/bim/availability`}
+            element={<Availability />}
+          />
 
 <Route
             path={`${APP_PREFIX_PATH}/bim/COST`}

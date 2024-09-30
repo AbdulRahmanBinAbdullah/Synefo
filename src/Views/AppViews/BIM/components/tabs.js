@@ -229,6 +229,10 @@ const Timerange = () => {
       case `${APP_PREFIX_PATH}/bim/autoscale`:
         setSelectedMenuItem('Auto Scaling & Security');
         break;
+
+        case `${APP_PREFIX_PATH}/bim/availability`:
+          setSelectedMenuItem('Availability & End User');
+          break;
       default:
         setSelectedMenuItem('SLA');
     }
@@ -237,6 +241,11 @@ const Timerange = () => {
   const handleNavigate = () => {
     navigate(`${APP_PREFIX_PATH}/bim/performance`);
   };
+
+  const handleavailability=()=>{
+    navigate(`${APP_PREFIX_PATH}/bim/availability`);
+
+  }
 
   const handleCostNavigate = () => {
     navigate(`${APP_PREFIX_PATH}/bim/cost`);
@@ -364,6 +373,7 @@ const Timerange = () => {
           </MenuItem>
           <MenuItem
             onClick={() => {
+              handleavailability();
               handleMenuClose('Availability & End User');
             }}
           >
