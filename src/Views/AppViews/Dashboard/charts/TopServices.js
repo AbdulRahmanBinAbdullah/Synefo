@@ -6,8 +6,7 @@ import {
   TableContainer, 
   TableHead, 
   TableRow, 
-  Paper, 
-  Typography 
+  Chip 
 } from '@mui/material';
 
 class TopServicesTable extends React.Component {
@@ -24,39 +23,38 @@ class TopServicesTable extends React.Component {
   }
 
   render() {
+    const cellStyle = {
+      padding: '8px 2px',
+      color: '#383874',
+    };
+
     return (
-      <Paper sx={{ width: '100%', overflow: 'hidden', padding: 2 }}>
-        <Typography variant="h5" component="h2" gutterBottom sx={{ fontWeight: 'bold', color: '#3f51b5' }}>
-          Top 4 Services
-        </Typography>
-        <TableContainer TableContainer sx={{ maxHeight: 300,width: 433,overflowX:'hidden' }}>
-          <Table sx={{ minWidth: 100 }} aria-label="top services table">
+      <div className="p-1">
+        <TableContainer sx={{ overflowX: 'hidden' }}>
+          <Table size="small" stickyHeader aria-label="top services table">
             <TableHead>
               <TableRow>
-                <TableCell sx={{ fontWeight: 'bold', color: '#757575' }}>SERVICE NAME</TableCell>
-                <TableCell align="left" sx={{ fontWeight: 'bold', color: '#757575' }}>CPU UTILIZATION</TableCell>
-                <TableCell align="left" sx={{ fontWeight: 'bold', color: '#757575' }}>MEMORY UTILIZATION</TableCell>
-                <TableCell align="left" sx={{ fontWeight: 'bold', color: '#757575' }}>COST (MONTHLY)</TableCell>
+                <TableCell sx={{ ...cellStyle, fontWeight: '700' ,textTransform:'uppercase'  ,fontFamily: 'Roboto, sans-serif'}}>Service Name</TableCell>
+                <TableCell align="left" sx={{ ...cellStyle, fontWeight: '700',textTransform:'uppercase',fontFamily: 'Roboto, sans-serif' }}>CPU Utilization</TableCell>
+                <TableCell align="left" sx={{ ...cellStyle, fontWeight: '700' ,textTransform:'uppercase',fontFamily: 'Roboto, sans-serif'}}>Memory Utilization</TableCell>
+                <TableCell align="left" sx={{ ...cellStyle, fontWeight: '700',textTransform:'uppercase',fontFamily: 'Roboto, sans-serif' }}>Cost (Monthly)</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {this.state.services.map((service) => (
-                <TableRow
-                  key={service.name}
-                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                >
-                  <TableCell component="th" sx={{ color: '#757575',fontFamily:'poppins' }} scope="row">
+                <TableRow key={service.name}>
+                  <TableCell component="th" scope="row" sx={cellStyle}>
                     {service.name}
                   </TableCell>
-                  <TableCell align="left" sx={{ color: '#757575',fontFamily:'poppins' }}>{`${service.cpuUtilization}%`}</TableCell>
-                  <TableCell align="left" sx={{ color: '#757575',fontFamily:'poppins' }}>{`${service.memoryUtilization}%`}</TableCell>
-                  <TableCell align="left" sx={{ color: '#757575',fontFamily:'poppins' }}>{`$${service.cost.toLocaleString()}`}</TableCell>
+                  <TableCell align="left" sx={cellStyle}>{`${service.cpuUtilization}%`}</TableCell>
+                  <TableCell align="left" sx={cellStyle}>{`${service.memoryUtilization}%`}</TableCell>
+                  <TableCell align="left" sx={cellStyle}>{`$${service.cost.toLocaleString()}`}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
           </Table>
         </TableContainer>
-      </Paper>
+      </div>
     );
   }
 }
