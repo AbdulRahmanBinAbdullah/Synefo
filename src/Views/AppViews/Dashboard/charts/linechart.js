@@ -224,6 +224,7 @@ const LineChart = () => {
 
   const options = {
     responsive: true,
+    
     scales: {
       y: {
         beginAtZero: true,
@@ -238,18 +239,16 @@ const LineChart = () => {
       legend: {
         position: 'bottom',
       },
+      
     },
   };
 
   return (
-    <Paper sx={{  minWidth:440,minHeight:370,width: 440,overflowX:'hidden'}}>
+    
       <CardContent>
-        <Typography variant="h5" component="div" sx={{ fontWeight: 'bold', marginBottom: 2,color:'#3f51b5' }}>
-          Cost Spent on Top Services
-        </Typography>
         <Line data={data} options={options} />
       </CardContent>
-    </Paper>
+    
   );
 };
 

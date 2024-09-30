@@ -84,13 +84,22 @@ import AlertRules from "./AppViews/Alerts/AlertRules";
 import NewAlertRules from "./AppViews/Alerts/NewAlertRules";
 import AlarmList from "./AppViews/DiscoveredAssets/AlarmList";
 import CostOptimization from "./AppViews/CostOptimization";
-
+import Dash from "./AppViews/BIM";
+import Performance from "./AppViews/BIM/performancereliability"
+import Cost from "./AppViews/BIM/cost"
 // this are the WAFR routes 
 import Wafr from "./AppViews/Wafr";
 import CreateWorkloadForm from "./AppViews/Wafr/CreateWorkLoad";
 import WorkLoad from "./AppViews/Wafr/workLoad"
 import WafrAssesssment from "./AppViews/Wafr/WafrAssesssment"
+
+// this are the routes of Price Estimator
+import PriceEstimator from "./AppViews/PriceEstimator";
+import ConfigureSetup from "./AppViews/PriceEstimator/configure-fields";
+import ConfigureAmazonEC2 from "./AppViews/PriceEstimator/Configure-Amazon-EC2";
+
 import AssetManagement from "./AppViews/AssetManagement";
+import Autoscale from "./AppViews/BIM/autoscale"
 export function withRouter(Component) {
   function ComponentWithRouterProp(props) {
     const location = useLocation();
@@ -140,6 +149,9 @@ export const Views = (props) => {
             path={`${APP_PREFIX_PATH}`}
             element={<Navigate to={`${APP_PREFIX_PATH}/dashboard`} />}
           />
+
+
+          
           <Route
             path={`${APP_PREFIX_PATH}/assets/environments`}
             element={<Environments />}
@@ -163,6 +175,18 @@ export const Views = (props) => {
           <Route
             path={`${APP_PREFIX_PATH}/wafr/assignment`}
             element={<WafrAssesssment />}
+          />
+          <Route
+            path={`${APP_PREFIX_PATH}/assets/price-estimator`}
+            element={<PriceEstimator />}
+          />
+          <Route
+            path={`${APP_PREFIX_PATH}/assets/price-estimator/configure-setup`}
+            element={<ConfigureSetup />}
+          />
+          <Route
+            path={`${APP_PREFIX_PATH}/assets/price-estimator/configure-amazon-ec2`}
+            element={<ConfigureAmazonEC2 />}
           />
           <Route
             path={`${APP_PREFIX_PATH}/assets/environments/environmentlist`}
@@ -196,6 +220,7 @@ export const Views = (props) => {
             path={`${APP_PREFIX_PATH}/assets/environments/kubernetes/newaccountsetup`}
             element={<NewAccountSetup />}
           />
+          
           <Route
             path={`${APP_PREFIX_PATH}/assets/environments/procurifylogisticstools`}
             element={<ProcurifyLogisticsTools />}
@@ -380,8 +405,27 @@ export const Views = (props) => {
             path={`${APP_PREFIX_PATH}/new-reports/central-dashboard/cost-central-top-internal/cost-central-services-internal/cost-central-services-internal-details`}
             element={<CostCentralServicesInternalDetails />}
           />
+                    <Route path={`${APP_PREFIX_PATH}/bim`} element={<Dash />} />
+          <Route
+            path={`${APP_PREFIX_PATH}/bim/performance`}
+            element={<Performance />}
+          />
 
-          <Route path={`${APP_PREFIX_PATH}/bim`} element={<BIMapping />} />
+
+<Route
+            path={`${APP_PREFIX_PATH}/bim/autoscale`}
+            element={<Autoscale />}
+          />
+
+
+
+<Route
+            path={`${APP_PREFIX_PATH}/bim/COST`}
+            element={<Cost />}
+          />
+
+
+          <Route path={`${APP_PREFIX_PATH}/bim`} element={<Dash />} />
           <Route
             path={`${APP_PREFIX_PATH}/bim/add-product/:name?/:id/:landingZoneId/:cloud/product-category`}
             element={<ProductCategory />}

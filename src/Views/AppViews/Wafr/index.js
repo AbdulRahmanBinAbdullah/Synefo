@@ -5,6 +5,7 @@ import {
 import { MoreVert } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 import { APP_PREFIX_PATH } from 'Configs/AppConfig';
+import axios from 'axios';
 
 
 
@@ -21,6 +22,17 @@ class WorkloadsTable extends Component {
       ],
     };
   }
+
+  // Axios function to fetch API data
+  // fetchWorkloads = async () => {
+  //   try {
+  //     const response = await axios.get('YOUR_API_URL'); // Replace with your actual API endpoint
+  //     this.setState({ workloads: response.data }); // Update the state with fetched data
+  //   } catch (error) {
+  //     this.setState({ error: 'Failed to fetch workloads' }); // Handle error
+  //     console.error('Error fetching workloads:', error);
+  //   }
+  // };
 
   renderStatusBadge(status) {
     const styles = {
