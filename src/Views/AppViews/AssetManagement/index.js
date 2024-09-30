@@ -22,6 +22,8 @@ const mockData = {
     { name: '4c2dfss4', landingZone: 'AWS (ID123)', productEnclave: 'VPC-dsf141', event: 'success' },
     { name: '4c2dfss4', landingZone: 'AWS (ID123)', productEnclave: 'VPC-dsf141', event: 'success' },
     { name: '4c2dfss4', landingZone: 'AWS (ID123)', productEnclave: 'VPC-dsf141', event: 'success' },
+        { name: '4c2dfss4', landingZone: 'AWS (ID123)', productEnclave: 'VPC-dsf141', event: 'success' },
+
   ],
   'EKS Instances': [
     { name: 'EKS-dsfd3', landingZone: 'AWS (ID123)', productEnclave: 'VPC-dsf251', event: 'warning' },
