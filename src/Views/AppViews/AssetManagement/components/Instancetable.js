@@ -7,7 +7,7 @@ const InstanceTable = ({ type, instances }) => (
       {type} ({instances.length})
     </Typography>
     <TableContainer>
-      <Table >
+      <Table stickyHeader>
         <TableHead sx={{backgroundColor:'#F2F3F7','& th': { fontFamily: 'Poppins', color: '#383874' }}}>
 
           <TableRow>
