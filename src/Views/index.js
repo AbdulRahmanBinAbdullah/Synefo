@@ -91,6 +91,15 @@ import CreateWorkloadForm from "./AppViews/Wafr/CreateWorkLoad";
 import WorkLoad from "./AppViews/Wafr/workLoad"
 import WafrAssesssment from "./AppViews/Wafr/WafrAssesssment"
 
+//These are the Cost Optimization Routes
+import Costoptimization from './AppViews/CostOptimization/index';  // Main resource dashboard
+import EC2Page from './AppViews/CostOptimization/Recommendations/EC2Page';  // Page for EC2 instances
+import EBSPage from './AppViews/CostOptimization/Recommendations/EBSPage';  // Page for EBS volumes
+import RDSPage from './AppViews/CostOptimization/Recommendations/RDSPage';  // Page for RDS instances
+import LambdaPage from './AppViews/CostOptimization/Recommendations/LambdaPage';
+import ASGPage from './AppViews/CostOptimization/Recommendations/ASGPage';
+
+
 // this are the routes of Price Estimator
 import PriceEstimator from "./AppViews/PriceEstimator";
 import ConfigureSetup from "./AppViews/PriceEstimator/configure-fields";
@@ -170,6 +179,34 @@ export const Views = (props) => {
             path={`${APP_PREFIX_PATH}/wafr/assignment`}
             element={<WafrAssesssment />}
           />
+
+          <Route
+            path={`${APP_PREFIX_PATH}/assets/cost-optimization`}
+            element={<Costoptimization />}
+          />
+          <Route
+            path={`${APP_PREFIX_PATH}/assets/cost-optimization/ec2`}
+            element={<EC2Page />}
+          />
+          <Route
+            path={`${APP_PREFIX_PATH}/assets/cost-optimization/ebs`}
+            element={<EBSPage />}
+          />
+          <Route
+            path={`${APP_PREFIX_PATH}/assets/cost-optimization/rds`}
+            element={<RDSPage />}
+          />
+          <Route
+            path={`${APP_PREFIX_PATH}/assets/cost-optimization/lambda`}
+            element={<LambdaPage />}
+          />
+          <Route
+            path={`${APP_PREFIX_PATH}/assets/cost-optimization/asg`}
+            element={<ASGPage />}
+          />
+
+
+
           <Route
             path={`${APP_PREFIX_PATH}/assets/price-estimator`}
             element={<PriceEstimator />}
