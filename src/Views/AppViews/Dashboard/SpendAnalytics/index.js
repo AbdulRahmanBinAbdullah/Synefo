@@ -417,7 +417,7 @@ class SpendAnalytics extends Component {
         <label
               style={{
                 fontFamily: 'Poppins',
-                fontSize: '20px',
+                fontSize: '18px',
                 lineHeight: '32px',
                 letterSpacing: '0.15px',
                 fontWeight: 450,
