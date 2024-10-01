@@ -9,6 +9,7 @@ import SchedulerModal from '../components/performance-reliability/schedular';
 import SetAlertForm from '../components/performance-reliability/Setalert';
 import EC2Dashboard from '../components/availabilityandenduser/visualization';
 import map from 'assets/img/cost/map.png'
+
 export default function EC2DashboardHeader() {
   const [selectedTab, setSelectedTab] = React.useState(0);
   const [selectedTimeRange, setSelectedTimeRange] = React.useState('1M');

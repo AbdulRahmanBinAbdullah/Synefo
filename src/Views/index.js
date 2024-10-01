@@ -84,9 +84,9 @@ import AlertRules from "./AppViews/Alerts/AlertRules";
 import NewAlertRules from "./AppViews/Alerts/NewAlertRules";
 import AlarmList from "./AppViews/DiscoveredAssets/AlarmList";
 import CostOptimization from "./AppViews/CostOptimization";
-import Dash from "./AppViews/BIM";
-import Performance from "./AppViews/BIM/performancereliability"
-import Cost from "./AppViews/BIM/cost"
+import Dash from "./AppViews/AllServices";
+import Performance from "./AppViews/AllServices/performancereliability"
+import Cost from "./AppViews/AllServices/cost"
 // this are the WAFR routes 
 import Wafr from "./AppViews/Wafr";
 import CreateWorkloadForm from "./AppViews/Wafr/CreateWorkLoad";
@@ -97,9 +97,10 @@ import WafrAssesssment from "./AppViews/Wafr/WafrAssesssment"
 import PriceEstimator from "./AppViews/PriceEstimator";
 import ConfigureSetup from "./AppViews/PriceEstimator/configure-fields";
 import ConfigureAmazonEC2 from "./AppViews/PriceEstimator/Configure-Amazon-EC2";
-import Availability from "./AppViews/BIM/availabilityandenduser"
+import Availability from "./AppViews/AllServices/availabilityandenduser"
 import AssetManagement from "./AppViews/AssetManagement";
-import Autoscale from "./AppViews/BIM/autoscale"
+import Autoscale from "./AppViews/AllServices/autoscale"
+import EC2cost from "./AppViews/CostOptimization/Ec2"
 export function withRouter(Component) {
   function ComponentWithRouterProp(props) {
     const location = useLocation();
@@ -155,6 +156,12 @@ export const Views = (props) => {
           <Route
             path={`${APP_PREFIX_PATH}/assets/environments`}
             element={<Environments />}
+          />
+
+
+<Route
+            path={`${APP_PREFIX_PATH}/assets/AllServices`}
+            element={<Dash />}
           />
           <Route
             path={`${APP_PREFIX_PATH}/assets/cost-optimization`}
@@ -407,26 +414,30 @@ export const Views = (props) => {
           />
                     <Route path={`${APP_PREFIX_PATH}/bim`} element={<Dash />} />
           <Route
-            path={`${APP_PREFIX_PATH}/bim/performance`}
+            path={`${APP_PREFIX_PATH}/assets/AllServices/performance`}
             element={<Performance />}
           />
 
-
 <Route
-            path={`${APP_PREFIX_PATH}/bim/autoscale`}
-            element={<Autoscale />}
-          />
-<Route path={`${APP_PREFIX_PATH}/bim/availability`}
-            element={<Availability />}
-          />
-
-<Route
-            path={`${APP_PREFIX_PATH}/bim/COST`}
+            path={`${APP_PREFIX_PATH}/assets/AllServices/cost`}
             element={<Cost />}
           />
 
 
-          <Route path={`${APP_PREFIX_PATH}/bim`} element={<Dash />} />
+<Route
+            path={`${APP_PREFIX_PATH}/assets/AllServices/autoscale`}
+            element={<Autoscale />}
+          />
+<Route path={`${APP_PREFIX_PATH}/assets/AllServices/availability`}
+            element={<Availability />}
+          />
+
+<Route path={`${APP_PREFIX_PATH}/CostOptimization/Ec2`} element={<EC2cost/>}/>
+<Route
+            path={`${APP_PREFIX_PATH}/cost/autoscale`}
+            element={<Autoscale />}
+          />
+          <Route path={`${APP_PREFIX_PATH}/bimapping`} element={<BIMapping />} />
           <Route
             path={`${APP_PREFIX_PATH}/bim/add-product/:name?/:id/:landingZoneId/:cloud/product-category`}
             element={<ProductCategory />}
