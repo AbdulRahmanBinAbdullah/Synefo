@@ -40,7 +40,7 @@ import {
 } from "Redux/Dashboard/DashboardThunk";
 import Loader from "Components/Loader";
 import { API_ERROR_MESSAGE } from "CommonData";
-
+import ChatBotGreeting from "../chatbot";
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -260,7 +260,7 @@ class SpendAnalytics extends Component {
             : this.currentHourSpendRate()}
         </Box> */}
            <Box display="flex" alignItems="center" >
-      <Typography variant="h6" sx={{ marginRight: 1 }}>$150</Typography>
+      <Typography  sx={{ marginRight: 1 ,fontSize:'20px',fontWeight:600,color:'#383874'}}>$154</Typography>
       <ArrowDropUpIcon color="success" />
       <Typography variant="h6" sx={{ marginRight: 1 ,}} style={{ fontSize: '0.75rem'}}>10%</Typography>
 
@@ -293,7 +293,7 @@ class SpendAnalytics extends Component {
             : this.getCurrentDaySpendRate()}
         </Box> */}
            <Box display="flex" alignItems="center" >
-      <Typography variant="h6" sx={{ marginRight: 1 }}>$150</Typography>
+      <Typography variant="h6" sx={{ marginRight: 1,fontSize:'20px',fontWeight:600,color:'#383874' }}>$150</Typography>
       <ArrowDropUpIcon color="success" />
       <Typography variant="h6" sx={{ marginRight: 1 ,}} style={{ fontSize: '0.75rem'}}>10%</Typography>
 
@@ -818,7 +818,8 @@ class SpendAnalytics extends Component {
             </Box>
 
                 <Box display="flex" alignItems="center">
-      <Typography variant="h4" sx={{ marginRight: 1 }}>$150</Typography>
+      <Typography  sx={{ marginRight: 1,fontSize:'34px' ,color:'#383874'
+}} >$150</Typography>
       <ArrowDropUpIcon color="success" />
       <Typography variant="h6" sx={{ marginRight: 1 ,}} style={{ fontSize: '0.75rem'}}>10%</Typography>
 
@@ -830,11 +831,13 @@ class SpendAnalytics extends Component {
               <label>Spends Yesterday</label>
             </Box>
                 <Box display="flex" alignItems="center">
-      <Typography variant="h4" sx={{ marginRight: 1 }}>$150</Typography>
+      <Typography variant="h4" sx={{ marginRight: 1 ,fontSize:'34px' ,color:'#383874'
+}}>$150</Typography>
       <ArrowDropUpIcon color="success" />
       <Typography variant="h6" sx={{ marginRight: 1 ,}} style={{ fontSize: '0.75rem'}}>10%</Typography>
 
     </Box>
+    <ChatBotGreeting/>
               </Box>
             </Grid>
           </Box>

@@ -220,30 +220,39 @@ const Timerange = () => {
 
   useEffect(() => {
     switch (location.pathname) {
-      case `${APP_PREFIX_PATH}/bim/performance`:
+      case `${APP_PREFIX_PATH}/assets/AllServices/performance`:
         setSelectedMenuItem('Performance & Reliability');
         break;
-      case `${APP_PREFIX_PATH}/bim/cost`:
+      case `${APP_PREFIX_PATH}/assets/AllServices/cost`:
         setSelectedMenuItem('Cost');
         break;
-      case `${APP_PREFIX_PATH}/bim/autoscale`:
+      case `${APP_PREFIX_PATH}/assets/AllServices/autoscale`:
         setSelectedMenuItem('Auto Scaling & Security');
         break;
+
+        case `${APP_PREFIX_PATH}}}/assets/AllServices/availability`:
+          setSelectedMenuItem('Availability & End User');
+          break;
       default:
         setSelectedMenuItem('SLA');
     }
   }, [location.pathname]);
 
   const handleNavigate = () => {
-    navigate(`${APP_PREFIX_PATH}/bim/performance`);
+    navigate(`${APP_PREFIX_PATH}/assets/AllServices/performance`);
   };
 
+  const handleavailability=()=>{
+    navigate(`${APP_PREFIX_PATH}/assets/AllServices/availability`);
+
+  }
+
   const handleCostNavigate = () => {
-    navigate(`${APP_PREFIX_PATH}/bim/cost`);
+    navigate(`${APP_PREFIX_PATH}/assets/AllServices/cost`);
   };
 
   const handleAutoScaleNavigate = () => {
-    navigate(`${APP_PREFIX_PATH}/bim/autoscale`);
+    navigate(`${APP_PREFIX_PATH}/assets/AllServices/autoscale`);
   };
 
   const handleTabChange = (event, newValue) => {
@@ -364,6 +373,7 @@ const Timerange = () => {
           </MenuItem>
           <MenuItem
             onClick={() => {
+              handleavailability();
               handleMenuClose('Availability & End User');
             }}
           >
