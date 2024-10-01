@@ -4,7 +4,7 @@ import SelectComponent from '../SelectComponent';
 import { ToastMessage } from "Toast/ToastMessage";
 import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
 import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
-import ToggleButton from '../components/ToggleButton';
+import ToggleButton from '../components/ToggleBtn';
 import { createWorkload } from '../apis';
 import { getRecentVisitedEnvironments } from 'Utils';
 
