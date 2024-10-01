@@ -312,7 +312,7 @@ class SignUp extends Component {
         <Box className="sign-step">
           <Box className="sign-left">
             <Box className="sign-left-content">
-              <span className="d-flex width-100">Appkube</span>
+              <span className="d-flex width-100">Synefo</span>
               <h2 className="d-flex width-100 m-t-0 m-b-0">
                 Manage your project and team in easy way
               </h2>
@@ -364,7 +364,7 @@ class SignUp extends Component {
                     <i className="fa-solid fa-chevron-left"></i>
                   </Button>
                 )}
-                <span>Appkube</span>
+                <span>Synefo</span>
               </Box>
               <List className="steps-container">
                 <ListItem
@@ -400,7 +400,7 @@ class SignUp extends Component {
               <Box className="d-flex width-100 heading">
                 {activeStep === this.steps.STEP1 && (
                   <>
-                    Sign up to <strong>Appkube</strong>
+                    Sign up to <strong>Synefo</strong>
                   </>
                 )}
                 {activeStep === this.steps.STEP2 && (
