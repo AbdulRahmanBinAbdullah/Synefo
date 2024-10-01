@@ -173,7 +173,7 @@ export const Views = (props) => {
             element={<Dash />}
           />
           <Route
-            path={`${APP_PREFIX_PATH}/assets/cost-optimization`}
+            path={`${APP_PREFIX_PATH}/cost-optimization`}
             element={<CostOptimization />}
           />
           <Route
@@ -482,7 +482,7 @@ export const Views = (props) => {
             path={`${APP_PREFIX_PATH}/cost/autoscale`}
             element={<Autoscale />}
           />
-          <Route path={`${APP_PREFIX_PATH}/bimapping`} element={<BIMapping />} />
+          <Route path={`${APP_PREFIX_PATH}/assets/bimapping`} element={<BIMapping />} />
           <Route
             path={`${APP_PREFIX_PATH}/bim/add-product/:name?/:id/:landingZoneId/:cloud/product-category`}
             element={<ProductCategory />}

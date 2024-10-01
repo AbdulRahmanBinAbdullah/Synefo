@@ -6,18 +6,17 @@
       "name": "Dashboard"
     },
     {
-      "link": "/bimapping",
-      "icon": "bimapping",
-      "name": "BIMapping"
-    },
-    {
       "link": "/assets",
-      "icon": "asset",
+      "icon": "bimapping",
       "name": "Assets",
       "subMenu": [
         {
           "link": "/assets/environments",
           "name": "Environments"
+        },
+        {
+          "link": "/assets/bimapping",
+          "name": "BIMapping"
         },
         {
           "link": "/assets/AllServices",
@@ -29,54 +28,24 @@
           "name": "priceEstimator"
         },
         {
-          "link": "/assets/discovered-assets",
-          "name": "Discovered Assets"
-        },
-        {
           "link": "/assets/cost-optimization",
           "name": "Cost Optimization"
         },
         {
-          "link": "#",
-          "name": "Dept Wise Product"
-        },
-        {
           "link": "/assets/assetmanagement",
-          "name": "Asset Management"
-        },
-        {
-          "link": "#",
-          "name": "Monitored Assets"
-        },
-        {
-          "link": "#",
-          "name": "Org Unit"
-        },
-        {
-          "link": "#",
-          "name": "Custom Resources"
+          "name": "Discovered Assets"
         }
       ]
     },
     {
-      "link": "/alerts",
-      "icon": "alert",
-      "name": "Alerts"
-    },
-    {
-      "link": "#",
-      "icon": "preferences",
-      "name": "Preference"
+      "link": "/cost-optimization",
+      "icon": "asset",
+      "name": "Cost-optimization"
     },
     {
       "link": "/wafr",
       "icon": "wafr",
       "name": "WAFR"
-    },
-    {
-      "link": "/setting",
-      "icon": "setting",
-      "name": "Setting"
     },
     {
       "link": "/new-reports/over-view-dashboard",
@@ -87,7 +56,13 @@
       "link": "/llm",
       "icon": "llm",
       "name": "LLM"
+    },
+    {
+      "link": "/setting",
+      "icon": "setting",
+      "name": "Setting"
     }
     
   ]
 }
+
