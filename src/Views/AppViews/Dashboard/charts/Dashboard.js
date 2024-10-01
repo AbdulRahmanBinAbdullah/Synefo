@@ -19,7 +19,7 @@ const Dashboard = () => {
           <h2 className="font-bold mb-4" sx={{fontFamily:'poppins'}} style={{color:'#383874'}}>Cost Spent on Top Services</h2>
           <LineChart />
         </div>
-        <div className="bg-white p-4 rounded-lg " > {/* Reduced card size */}
+        <div className="bg-white p-4 rounded-lg shadow-md h-96" > {/* Reduced card size */}
          
         <h2 className="font-bold mb-4" sx={{fontFamily:'poppins'}} style={{color:'#383874'}}>Top 4 Services</h2>
 

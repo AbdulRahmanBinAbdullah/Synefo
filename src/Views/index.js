@@ -87,7 +87,7 @@ import CostOptimization from "./AppViews/CostOptimization";
 import Dash from "./AppViews/AllServices";
 import Performance from "./AppViews/AllServices/performancereliability"
 import Cost from "./AppViews/AllServices/cost"
-import EC2cost from './AppViews/AllServices/EC2/index';
+import EC2cost from './AppViews/AllServices/EC2';
 // this are the WAFR routes 
 import Wafr from "./AppViews/Wafr";
 import CreateWorkloadForm from "./AppViews/Wafr/CreateWorkLoad";
@@ -111,6 +111,7 @@ import ConfigureAmazonEC2 from "./AppViews/PriceEstimator/Configure-Amazon-EC2";
 import Availability from "./AppViews/AllServices/availabilityandenduser"
 import AssetManagement from "./AppViews/AssetManagement";
 import Autoscale from "./AppViews/AllServices/autoscale"
+import EC2 from "./AppViews/CostOptimization/EC2"
 // import EC2cost from "./AppViews/CostOptimization/Ec2"
 import EC2DashboardHeader from "./AppViews/AllServices/EC2";
 export function withRouter(Component) {
@@ -488,7 +489,7 @@ export const Views = (props) => {
             element={<Availability />}
           />
 
-<Route path={`${APP_PREFIX_PATH}/CostOptimization/Ec2`} element={<EC2cost/>}/>
+<Route path={`${APP_PREFIX_PATH}/CostOptimization/Ec2`} element={<EC2/>}/>
 <Route
             path={`${APP_PREFIX_PATH}/cost/autoscale`}
             element={<Autoscale />}

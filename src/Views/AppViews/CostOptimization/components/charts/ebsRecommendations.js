@@ -1,46 +1,31 @@
-import React, { useState } from 'react';
+
+import React, { useEffect, useState } from 'react';
 import RemediatePopup from '../remediate'; // Adjust the import path as necessary
 
-const volumes = [
-  {
-    id: 'vol-098765fd4321a91827',
-    currentType: 'General Purpose SSD (gp3)',
-    currentSize: '8 GiB',
-    recommendedType: 'General Purpose SSD (gp3)',
-    recommendedSize: '8 GiB',
-  },
-  {
-    id: 'vol-098765fd4321a91828',
-    currentType: 'General Purpose SSD (gp3)',
-    currentSize: '2 GiB',
-    recommendedType: 'General Purpose SSD (gp3)',
-    recommendedSize: '2 GiB',
-  },
-  {
-    id: 'vol-098765fd4321a91829',
-    currentType: 'General Purpose SSD (gp3)',
-    currentSize: '10 GiB',
-    recommendedType: 'General Purpose SSD (gp3)',
-    recommendedSize: '8 GiB',
-  },
-  {
-    id: 'vol-098765fd4321a91830',
-    currentType: 'General Purpose SSD (gp3)',
-    currentSize: '20 GiB',
-    recommendedType: 'General Purpose SSD (gp3)',
-    recommendedSize: '20 GiB',
-  },
-  {
-    id: 'vol-098765fd4321a91831',
-    currentType: 'General Purpose SSD (gp3)',
-    currentSize: '20 GiB',
-    recommendedType: 'General Purpose SSD (gp3)',
-    recommendedSize: '20 GiB',
-  },
-];
-
 export default function EBS() {
+  const [volumes, setVolumes] = useState([]);
   const [showRemediatePopup, setShowRemediatePopup] = useState(false);
+
+  useEffect(() => {
+    const requestOptions = {
+      method: "GET",
+      redirect: "follow",
+    };
+
+    fetch("http://localhost:3000/dev/recommendations/ebs?accountId=657907747545&region=us-east-1", requestOptions) // Replace with your actual API endpoint
+      .then(response => response.json())
+      .then(result => {
+        const formattedVolumes = result.map(volume => ({
+          id: volume.volumeId,
+          currentType: volume.currentVolumeType,
+          currentSize: volume.currentVolumeSize,
+          recommendedType: volume.recommendedVolumeType,
+          recommendedSize: volume.recommendedVolumeSize,
+        }));
+        setVolumes(formattedVolumes);
+      })
+      .catch(error => console.error('Error fetching data:', error));
+  }, []);
 
   const handleRemediationClick = () => {
     setShowRemediatePopup(true);
@@ -55,7 +40,7 @@ export default function EBS() {
       <div className="bg-white rounded-lg shadow overflow-hidden">
         <div className="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
           <h2 className="text-lg font-semibold text-gray-800">
-            Recommendations for EBS volumes (5)
+            Recommendations for EBS volumes ({volumes.length})
           </h2>
           <div className="space-x-2">
             <button
