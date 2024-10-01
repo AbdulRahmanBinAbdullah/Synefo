@@ -87,6 +87,7 @@ import CostOptimization from "./AppViews/CostOptimization";
 import Dash from "./AppViews/BIM";
 import Performance from "./AppViews/BIM/performancereliability"
 import Cost from "./AppViews/BIM/cost"
+
 // this are the WAFR routes 
 import Wafr from "./AppViews/Wafr";
 import CreateWorkloadForm from "./AppViews/Wafr/CreateWorkLoad";
@@ -169,11 +170,11 @@ export const Views = (props) => {
             element={<CreateWorkloadForm />}
           />
           <Route
-            path={`${APP_PREFIX_PATH}/wafr/workload`}
+            path={`${APP_PREFIX_PATH}/wafr/workload/:workloadId`}
             element={<WorkLoad />}
           />
           <Route
-            path={`${APP_PREFIX_PATH}/wafr/assignment`}
+            path={`${APP_PREFIX_PATH}/wafr/assignment/:workloadId`}
             element={<WafrAssesssment />}
           />
           <Route

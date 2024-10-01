@@ -54,12 +54,6 @@
       ]
     },
     {
-      "link": "#",
-      "icon": "appcatalogue",
-      "name": "App Catalogue"
-      
-    },
-    {
       "link": "/alerts",
       "icon": "alert",
       "name": "Alerts"

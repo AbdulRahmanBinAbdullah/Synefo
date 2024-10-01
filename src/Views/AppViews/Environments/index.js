@@ -499,7 +499,7 @@ class Environments extends Component {
   };
 
   renderRecentVisitedMenu = () => {
-    const recentEnvs = getRecentVisitedEnvironments();
+    const recentEnvs = getRecentVisitedEnvironments();    
     if (recentEnvs) {
       return recentEnvs.map((item) => {
         return (
