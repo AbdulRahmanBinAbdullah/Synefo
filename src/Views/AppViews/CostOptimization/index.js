@@ -1,21 +1,3 @@
-<<<<<<< HEAD
-import React, { Component } from 'react';
-import StatCard from 'Components/statCard/statCard';
-import {
-    Card,
-    CardContent,
-    Button,
-    Grid,
-    Box,
-    Table,
-    TableHead,
-    TableRow,
-    TableCell,
-    TableBody,
-    TableContainer,
-    Paper
-} from '@mui/material';
-=======
 // import StatCard from 'Components/statCard/statCard';
 // import {
 //     Card,
@@ -31,7 +13,6 @@ import {
 //     TableContainer,
 //     Paper
 // } from '@mui/material';
->>>>>>> 504122ae095067e0511a57bea3fff846233e94c2
 // import aws from "../../../assets/img/wafr/aws-icon.png"
 
 // const data = [
@@ -72,52 +53,6 @@ import {
 //                 </div>
                 
 
-<<<<<<< HEAD
-                <TableContainer component={Paper}>
-                    <Table>
-                        <TableHead>
-                            <TableRow>
-                                <TableCell>Instance ID</TableCell>
-                                <TableCell>Instance Name</TableCell>
-                                <TableCell>Finding</TableCell>
-                                <TableCell>Finding Reason</TableCell>
-                                <TableCell>Recommendation Instance State</TableCell>
-                                <TableCell>Current Instance Type</TableCell>
-                                <TableCell>Recommended Instance Type</TableCell>
-                            </TableRow>
-                        </TableHead>
-                        <TableBody>
-                            {data.map((row, idx) => (
-                                <TableRow key={idx}>
-                                    <TableCell>{row.id}</TableCell>
-                                    <TableCell>{row.name}</TableCell>
-                                    <TableCell>{row.finding}</TableCell>
-                                    <TableCell>{row.reason}</TableCell>
-                                    <TableCell>{row.state}</TableCell>
-                                    <TableCell>{row.currentType}</TableCell>
-                                    <TableCell>{row.recommendedType}</TableCell>
-                                </TableRow>
-                            ))}
-                        </TableBody>
-                    </Table>
-                </TableContainer>
-                {/* <iframe src='https://api.synectiks.net/d/Xg2f3ExSk/ec2-performance?orgId=1&var-elementId=101&from=1711360249015&to=1727257849015' 
-                        title="Grafana Dashboard"
-                        style={{width: '100%', height: '500px', border: 'none'}}
-                        sandbox="allow-scripts allow-same-origin" /> */}
-            </div>
-        );
-    }
-}
-
-// const StatCard = ({ title, value, percentage }) => (
-//     <Card className="shadow-lg">
-//         <CardContent>
-//             <h3 className="text-xl font-semibold">{title}</h3>
-//             <div className="flex items-center">
-//                 <p className="text-2xl font-bold mr-2">{value}</p>
-//                 {percentage && <span className="text-green-500">▲ {percentage}</span>}
-=======
 //                 <TableContainer component={Paper}>
 //                     <Table>
 //                         <TableHead>
@@ -146,7 +81,6 @@ import {
 //                         </TableBody>
 //                     </Table>
 //                 </TableContainer>
->>>>>>> 504122ae095067e0511a57bea3fff846233e94c2
 //             </div>
 //         );
 //     }

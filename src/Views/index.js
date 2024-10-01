@@ -84,9 +84,10 @@ import AlertRules from "./AppViews/Alerts/AlertRules";
 import NewAlertRules from "./AppViews/Alerts/NewAlertRules";
 import AlarmList from "./AppViews/DiscoveredAssets/AlarmList";
 import CostOptimization from "./AppViews/CostOptimization";
-import Dash from "./AppViews/BIM";
-import Performance from "./AppViews/BIM/performancereliability"
-import Cost from "./AppViews/BIM/cost"
+import Dash from "./AppViews/AllServices";
+import Performance from "./AppViews/AllServices/performancereliability"
+import Cost from "./AppViews/AllServices/cost"
+import EC2cost from './AppViews/AllServices/EC2/index'
 
 // this are the WAFR routes 
 import Wafr from "./AppViews/Wafr";
@@ -163,15 +164,11 @@ export const Views = (props) => {
             element={<Navigate to={`${APP_PREFIX_PATH}/dashboard`} />}
           />
 
-
-          
           <Route
             path={`${APP_PREFIX_PATH}/assets/environments`}
             element={<Environments />}
           />
-
-
-<Route
+          <Route
             path={`${APP_PREFIX_PATH}/assets/AllServices`}
             element={<Dash />}
           />
@@ -179,17 +176,11 @@ export const Views = (props) => {
             path={`${APP_PREFIX_PATH}/assets/cost-optimization`}
             element={<CostOptimization />}
           />
-         <Route
+          <Route
             path={`${APP_PREFIX_PATH}/assets/AllServices/EC2`}
             element={<EC2DashboardHeader />}
           />
-
-
-          
           <Route
-
-
-
             path={`${APP_PREFIX_PATH}/wafr`}
             element={<Wafr />}
           />
@@ -231,8 +222,6 @@ export const Views = (props) => {
             element={<ASGPage />}
           />
 
-
-
           <Route
             path={`${APP_PREFIX_PATH}/assets/price-estimator`}
             element={<PriceEstimator />}
@@ -267,7 +256,7 @@ export const Views = (props) => {
           />
 
 
-<Route
+          <Route
             path={`${APP_PREFIX_PATH}/assets/AllServices/:instanceid?`}
             element={<EC2InstanceSummary />}
           />
@@ -283,7 +272,7 @@ export const Views = (props) => {
             path={`${APP_PREFIX_PATH}/assets/environments/kubernetes/newaccountsetup`}
             element={<NewAccountSetup />}
           />
-          
+
           <Route
             path={`${APP_PREFIX_PATH}/assets/environments/procurifylogisticstools`}
             element={<ProcurifyLogisticsTools />}
@@ -468,28 +457,28 @@ export const Views = (props) => {
             path={`${APP_PREFIX_PATH}/new-reports/central-dashboard/cost-central-top-internal/cost-central-services-internal/cost-central-services-internal-details`}
             element={<CostCentralServicesInternalDetails />}
           />
-                    <Route path={`${APP_PREFIX_PATH}/bim`} element={<Dash />} />
+          <Route path={`${APP_PREFIX_PATH}/bim`} element={<Dash />} />
           <Route
             path={`${APP_PREFIX_PATH}/assets/AllServices/performance`}
             element={<Performance />}
           />
 
-<Route
+          <Route
             path={`${APP_PREFIX_PATH}/assets/AllServices/cost`}
             element={<Cost />}
           />
 
 
-<Route
+          <Route
             path={`${APP_PREFIX_PATH}/assets/AllServices/autoscale`}
             element={<Autoscale />}
           />
-<Route path={`${APP_PREFIX_PATH}/assets/AllServices/availability`}
+          <Route path={`${APP_PREFIX_PATH}/assets/AllServices/availability`}
             element={<Availability />}
           />
 
-<Route path={`${APP_PREFIX_PATH}/CostOptimization/Ec2`} element={<EC2cost/>}/>
-<Route
+          <Route path={`${APP_PREFIX_PATH}/CostOptimization/Ec2`} element={<EC2cost />} />
+          <Route
             path={`${APP_PREFIX_PATH}/cost/autoscale`}
             element={<Autoscale />}
           />
