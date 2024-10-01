@@ -3,10 +3,10 @@ import React, { useState } from 'react';
 import { AppBar, Toolbar, Typography, Button } from '@mui/material';
 import Vector from "assets/img/allservices/Vector.png";
 import Filter from "assets/img/allservices/Filters.png";
-import Timerange from './components/tabs';
-import Developmentbuttons from './components/Developmentbuttons';
-import Visualizations from './components/visualizations';
-import FilterModal from './components/Filter';
+import Timerange from '../components/tabs';
+import Developmentbuttons from '../components/Developmentbuttons';
+import Visualizations from '../components/visualizations';
+import FilterModal from '../components/Filter';
 
 export default function EC2DashboardHeader() {
   const [selectedTab, setSelectedTab] = React.useState(0);
