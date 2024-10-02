@@ -8,7 +8,7 @@ const EBSRead = () => {
     datasets: [
       {
         label: 'Disk Read Bandwidth (MiB/second)',
-        data: [150, 160, 140, 145, 155, 150, 148, 145, 160, 150, 155, 150], // Sample data based on the chart
+        data: [150, 160, 140, 145, 155, 150, 148, 145, 160, 150, 155, 150],
         borderColor: 'blue',
         fill: false,
         pointBackgroundColor: 'purple',
@@ -22,25 +22,36 @@ const EBSRead = () => {
     responsive: true,
     maintainAspectRatio: false,
     scales: {
-      yAxes: [
-        {
-          ticks: {
-            beginAtZero: true,
-            max: 400, // Set max to match chart range
-          },
+      y: {
+        beginAtZero: true,
+        max: 400, // Set max to match chart range
+        title: {
+          display: false,
         },
-      ],
+      },
+      x: {
+        title: {
+          display: false,
+        },
+      },
     },
-    plugins:{
-        legend:{
-            display:false
-        }
-    }
+    plugins: {
+      legend: {
+        display: false, // Hide the legend
+      },
+      title: {
+        display: false, // Title is hidden; add if needed
+      },
+    },
   };
 
   return (
-    <div style={{  width: '100%' }}>
-      <Line data={data} options={options} />
+    <div style={{ width: '100%', height: '400px' }} aria-label="EBS Read Bandwidth Chart">
+      <Line 
+        data={data} 
+        options={options} 
+        aria-label="Line chart showing EBS read bandwidth over time"
+      />
     </div>
   );
 };

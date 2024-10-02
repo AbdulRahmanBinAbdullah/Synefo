@@ -15,6 +15,17 @@ export default function Component() {
       case `${APP_PREFIX_PATH}/CostOptimization/EC2`:
         setSelectedMenuItem('EC2 Instances');
         break;
+      case `${APP_PREFIX_PATH}/CostOptimization/EBS`:
+        setSelectedMenuItem('EBS Volumes');
+        break;
+      case `${APP_PREFIX_PATH}/CostOptimization/RDS`:
+        setSelectedMenuItem('RDS functions');
+        break;
+
+        case `${APP_PREFIX_PATH}/CostOptimization/lambda`:
+          setSelectedMenuItem('Lambda functions');
+          break;
+        
       default:
           setSelectedMenuItem('All Resources')
     }},[location.pathname]);
@@ -38,12 +49,18 @@ export default function Component() {
 
   };
 
-  const handleAvailability = () => {
-    // Implement availability logic here
-  };
+  const handleEBSVolumes = () => {
+    // Implement navigation logic here
+    navigate(`${APP_PREFIX_PATH}/CostOptimization/EBS`);
 
-  const handleAutoScaleNavigate = () => {
-    // Implement auto scaling navigation logic here
+  };
+  const handlelambda=()=>{
+    navigate(`${APP_PREFIX_PATH}/CostOptimization/lambda`)
+  }
+  
+  const handleRDS = () => {
+    navigate(`${APP_PREFIX_PATH}/CostOptimization/RDS`);
+
   };
 
   const handleCostNavigate = () => {
@@ -84,22 +101,22 @@ export default function Component() {
 
         <MenuItem
           onClick={() => {
-            handleAvailability();
-            handleMenuClose('Availability & End User');
+            handleEBSVolumes();
+            handleMenuClose('EBS Volumes');
           }}
         >
           <ListItemIcon>
             <img src={menuicon} alt="menu" />
           </ListItemIcon>
           <Typography variant="body1" sx={{ color: '#3730A3' }}>
-            EBS Voluems
+            EBS Volumes
           </Typography>
         </MenuItem>
 
         <MenuItem
           onClick={() => {
-            handleAutoScaleNavigate();
-            handleMenuClose('Auto Scaling & Security');
+            handlelambda();
+            handleMenuClose('Lambda functions');
           }}
         >
           <ListItemIcon>
@@ -112,8 +129,9 @@ Lambda functions
 
         <MenuItem
           onClick={() => {
-            handleCostNavigate();
-            handleMenuClose('Cost');
+            handleRDS();
+
+            handleMenuClose('RDS DB Instances');
           }}
         >
           <ListItemIcon>
@@ -128,7 +146,7 @@ Lambda functions
         <MenuItem
           onClick={() => {
             handleCostNavigate();
-            handleMenuClose('Cost');
+            handleMenuClose('Auto Scaling groups');
           }}
         >
           <ListItemIcon>

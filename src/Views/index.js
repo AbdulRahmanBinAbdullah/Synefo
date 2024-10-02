@@ -112,6 +112,9 @@ import Availability from "./AppViews/AllServices/availabilityandenduser"
 import AssetManagement from "./AppViews/AssetManagement";
 import Autoscale from "./AppViews/AllServices/autoscale"
 import EC2 from "./AppViews/CostOptimization/EC2"
+import EBS from "./AppViews/CostOptimization/EBS"
+import RDS from "./AppViews/CostOptimization/RDS"
+import Lambdafunction from "./AppViews/CostOptimization/Lambda";
 // import EC2cost from "./AppViews/CostOptimization/Ec2"
 import EC2DashboardHeader from "./AppViews/AllServices/EC2";
 export function withRouter(Component) {
@@ -478,6 +481,10 @@ export const Views = (props) => {
           />
 
 <Route path={`${APP_PREFIX_PATH}/CostOptimization/Ec2`} element={<EC2/>}/>
+<Route path={`${APP_PREFIX_PATH}/CostOptimization/EBS`} element={<EBS/>}/>
+<Route path={`${APP_PREFIX_PATH}/CostOptimization/RDS`} element={<RDS/>}/>
+<Route path={`${APP_PREFIX_PATH}/CostOptimization/Lambda`} element={<Lambdafunction/>}/>
+
 <Route
             path={`${APP_PREFIX_PATH}/cost/autoscale`}
             element={<Autoscale />}
