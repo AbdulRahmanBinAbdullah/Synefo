@@ -3,9 +3,9 @@ import { ChevronDown } from "lucide-react";
 
 const InstanceComparisonHeader = () => {
   return (
-    <div className="bg-white p-6 rounded-lg shadow-sm">
-      <h2 className="text-xl font-semibold mb-2">Compare t4g.micro (option 1) with t2.micro (current)</h2>
-      <p className="text-sm text-gray-600 mb-4">Use the graphed metrics below to determine which instance type is the optimal choice for your application.</p>
+    <div className="bg-white p-6 rounded-lg m-6">
+      <h2 className="text-xl font-semibold mb-2" style={{color:'#383874'}}>Compare t4g.micro (option 1) with t2.micro (current)</h2>
+      <p className="text-sm text-gray-600 mb-4" style={{color:'#383874'}}>Use the graphed metrics below to determine which instance type is the optimal choice for your application.</p>
       
       <div className="flex flex-col sm:flex-row gap-4">
         <div className="flex-1">

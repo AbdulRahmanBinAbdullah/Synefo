@@ -1,11 +1,10 @@
 import React from 'react';
 
-const InstanceBarComponent = ({ totalCost }) => {
+const VolumeBarComponent = ({ totalCost }) => {
   return (
     <div className="flex justify-start items-center bg-white rounded-lg shadow-sm p-4 mx-6">
-
-<div className="flex items-center space-x-4">
-        <span className="text-indigo-900 text-lg">Instance ID:</span>
+      <div className="flex items-center space-x-4">
+        <span className="text-indigo-900 text-lg">Volume ID:</span>
         <span className="text-indigo-900 text-lg" style={{ marginLeft: '12px' }}>
           {totalCost}
         </span>
@@ -14,8 +13,8 @@ const InstanceBarComponent = ({ totalCost }) => {
   );
 };
 
-export default function InstanceBar() {
+export default function VolumeBar() {
   return (
-    <InstanceBarComponent totalCost="I-00083Ab273BAD2" />
+    <VolumeBarComponent totalCost="vol-069160df434c07318" />
   );
 }

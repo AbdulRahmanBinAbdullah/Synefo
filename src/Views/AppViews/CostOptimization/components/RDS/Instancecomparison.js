@@ -1,63 +1,38 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from '@mui/material';
 import RemediatePopup from '../remediate';
 
-const instanceData = [
-  {
-    type: 't2.micro',
-    price: 0.0116,
-    onDemandPrice: 0.0116,
-    priceDifference: 0,
-    performanceRisk: 'Low',
-    vCPUs: 1,
-    memory: '1 GiB',
-    storage: 'EBS Only',
-    network: 'Low to Moderate',
-    current: true
-  },
-  {
-    type: 't4g.micro',
-    price: 0.0084,
-    onDemandPrice: 0.0084,
-    priceDifference: -0.0032,
-    performanceRisk: 'Medium',
-    vCPUs: 2,
-    memory: '1 GiB',
-    storage: 'EBS Only',
-    network: 'Up to 5 Gigabit',
-    current: false
-  },
-  {
-    type: 't3.micro',
-    price: 0.0104,
-    onDemandPrice: 0.0104,
-    priceDifference: -0.0012,
-    performanceRisk: 'Very low',
-    vCPUs: 2,
-    memory: '1 GiB',
-    storage: 'EBS Only',
-    network: 'Up to 5 Gigabit',
-    current: false
-  },
-  {
-    type: 't2.micro',
-    price: 0.0116,
-    onDemandPrice: 0.0116,
-    priceDifference: 0,
-    performanceRisk: 'Very low',
-    vCPUs: 1,
-    memory: '1 GiB',
-    storage: 'EBS Only',
-    network: 'Low to Moderate',
-    current: false
-  }
-];
-
-const EC2InstanceComparison = () => {
-  const [selectedInstances, setSelectedInstances] = useState(
-    instanceData.map(instance => instance.current)
-  );
+const InstanceComparison = () => {
+  const [instances, setInstances] = useState([]);
+  const [selectedInstances, setSelectedInstances] = useState([]);
   const [showRemediatePopup, setShowRemediatePopup] = useState(false);
+
+  useEffect(() => {
+    const requestOptions = {
+      method: "GET",
+      redirect: "follow",
+    };
+
+    fetch("http://localhost:3000/dev/recommendations/instances?accountId=657907747545&region=us-east-1", requestOptions) // Replace with your actual API endpoint
+      .then(response => response.json())
+      .then(result => {
+        const formattedInstances = result.map(instance => ({
+          type: instance.instanceType,
+          volumeType: instance.volumeType,
+          monthlySaving: instance.monthlySaving,
+          price: instance.price,
+          performanceRisk: instance.performanceRisk,
+          vCPUs: instance.vCPUs,
+          memory: instance.memory,
+          network: instance.network,
+          ebsBandwidth: instance.ebsBandwidth,
+          current: instance.current // Assuming the API returns a field indicating if it's current
+        }));
+        setInstances(formattedInstances);
+        setSelectedInstances(formattedInstances.map(instance => instance.current)); // Select current instances by default
+      })
+      .catch(error => console.error('Error fetching data:', error));
+  }, []);
 
   const handleRemediationClick = () => {
     setShowRemediatePopup(true);
@@ -79,8 +54,8 @@ const EC2InstanceComparison = () => {
     <div className="p-6">
       <div className="bg-white rounded-lg shadow overflow-hidden">
         <div className="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
-          <h2 className="text-lg font-semibold text-gray-800"  style={{color:'#383874'}}>
-            Compare Current Instance Type with Recommended Options ({instanceData.length})
+          <h2 className="text-lg font-semibold text-gray-800" style={{color:'#383874'}}>
+            Compare Current Instance Type with Recommended Options ({instances.length})
           </h2>
           <button
             className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
@@ -95,18 +70,18 @@ const EC2InstanceComparison = () => {
               <tr>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Options</th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Instance Type</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Price (per hour)</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">On-demand Price</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Price Difference</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Volume Type</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Estimated Monthly Saving</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Price (after discount)</th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Performance Risk</th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">vCPUs</th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Memory</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Storage</th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Network</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">EBS Bandwidth</th>
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
-              {instanceData.map((instance, index) => (
+              {instances.map((instance, index) => (
                 <tr key={index}>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                     <input
@@ -117,27 +92,23 @@ const EC2InstanceComparison = () => {
                     />
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{instance.type}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${instance.price.toFixed(4)}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${instance.onDemandPrice.toFixed(4)}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    {instance.priceDifference === 0 ? '-' : `$${instance.priceDifference.toFixed(4)}`}
-                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{instance.volumeType}</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{instance.monthlySaving}</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{instance.price}</td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{instance.performanceRisk}</td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{instance.vCPUs}</td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{instance.memory}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{instance.storage}</td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{instance.network}</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{instance.ebsBandwidth}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
       </div>
-      {showRemediatePopup && (
-        <RemediatePopup onClose={handleClosePopup} />
-      )}
+      {showRemediatePopup && <RemediatePopup onClose={handleClosePopup} />}
     </div>
   );
 };
 
-export default EC2InstanceComparison;
+export default InstanceComparison;
