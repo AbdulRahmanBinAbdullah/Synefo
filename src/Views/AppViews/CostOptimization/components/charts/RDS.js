@@ -1,35 +1,32 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import RemediatePopup from '../remediate'; // Adjust the import path as necessary
 
-const instances = [
-  {
-    identifier: 'postgresql-1',
-    engine: 'PostgreSQL',
-    finding: 'Optimized',
-    findingReasons: '-',
-    currentType: 'db.t4g.medium',
-    recommendedType: 'db.t4g.medium',
-  },
-  {
-    identifier: 'postgresql-2',
-    engine: 'PostgreSQL',
-    finding: 'Optimized',
-    findingReasons: '-',
-    currentType: 'db.t4g.medium',
-    recommendedType: 'db.t4g.medium',
-  },
-  {
-    identifier: 'postgresql-3',
-    engine: 'PostgreSQL',
-    finding: 'Optimized',
-    findingReasons: '-',
-    currentType: 'db.t4g.medium',
-    recommendedType: 'db.t4g.medium',
-  },
-];
-
-export default function Component() {
+export default function RdsRecommendations() {
+  const [instances, setInstances] = useState([]);
   const [showRemediatePopup, setShowRemediatePopup] = useState(false);
+
+  useEffect(() => {
+    const requestOptions = {
+      method: "GET",
+      redirect: "follow",
+    };
+
+    // Fetching data from the API (replace the URL with the actual endpoint)
+    fetch('http://localhost:3000/dev/recommendations/rds?accountId=657907747545&region=us-east-1', requestOptions)
+      .then(response => response.json())
+      .then(result => {
+        const formattedInstances = result.map(instance => ({
+          identifier: instance.dbIdentifier,
+          engine: instance.engine,
+          finding: instance.finding,
+          findingReasons: instance.findingReasons || '-',
+          currentType: instance.currentInstanceType,
+          recommendedType: instance.recommendedInstanceType,
+        }));
+        setInstances(formattedInstances);
+      })
+      .catch(error => console.error('Error fetching data:', error));
+  }, []);
 
   const handleRemediationClick = () => {
     setShowRemediatePopup(true);
@@ -44,7 +41,7 @@ export default function Component() {
       <div className="bg-white rounded-lg shadow overflow-hidden">
         <div className="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
           <h2 className="text-lg font-semibold text-gray-800">
-            Recommendations for RDS DB Instance (3)
+            Recommendations for RDS DB Instance ({instances.length})
           </h2>
           <div className="space-x-2">
             <button

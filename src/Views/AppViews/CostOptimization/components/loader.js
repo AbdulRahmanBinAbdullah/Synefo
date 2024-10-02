@@ -34,8 +34,8 @@ const Card = ({ title, percentage, total, change, color, resources }) => (
     <div className="flex items-center justify-between mb-4">
       <CircularProgress percentage={percentage} color={color} />
       <div>
-        <h2 className="text-lg font-semibold text-gray-700">{title}</h2>
-        <p className="text-xl sm:text-2xl font-bold">{total.toLocaleString()}</p>
+        <h2 className="text-lg font-semibold " style={{fontSize:"16px"}}>{title}</h2>
+        <p className="text-xl sm:text-2xl font-bold">{total}</p>
         <p className="text-sm text-green-500">▲ {change}%</p>
       </div>
     </div>

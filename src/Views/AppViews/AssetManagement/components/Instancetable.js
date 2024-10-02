@@ -8,7 +8,7 @@ const InstanceTable = ({ type, instances }) => (
     </Typography>
     <TableContainer>
       <Table stickyHeader>
-        <TableHead sx={{backgroundColor:'#F2F3F7','& th': { fontFamily: 'Poppins', color: '#383874' }}}>
+        <TableHead sx={{'& th': { fontFamily: 'Poppins', color: '#383874' ,backgroundColor:'#F2F3F7'}}}>
 
           <TableRow>
             <TableCell >Resource Name</TableCell>

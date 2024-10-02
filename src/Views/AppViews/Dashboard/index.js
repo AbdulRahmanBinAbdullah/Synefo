@@ -50,7 +50,19 @@ class Dashboard extends Component {
         </Box>
         <Box className="services-panel-tabs">
           <Box className="tabs-head">
-            <h2>Dashboard</h2>
+          <h2
+        style={{
+          fontFamily: 'Poppins',
+          fontSize: '34px',
+          fontWeight: 400,
+          lineHeight: '44px',
+          letterSpacing: '-0.44px',
+          textAlign: 'left',
+          color: '#383874' // You can adjust the color as needed
+        }}
+      >
+        Dashboard
+      </h2>
             <List >
               {this.tabMapping.map((tabData, index) => {
                 return (
