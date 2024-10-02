@@ -7,7 +7,7 @@ const EBSWriteBandwidth = () => {
     labels: ['26/8', '27/8', '28/8', '29/8', '30/8', '31/8', '01/9', '02/9', '03/9', '04/9', '05/9', '06/9'],
     datasets: [
       {
-        label: 'Disk Read Bandwidth (MiB/second)',
+        label: 'Disk Write Bandwidth (MiB/second)',
         data: [150, 160, 140, 145, 155, 150, 148, 145, 160, 150, 155, 150], // Sample data based on the chart
         borderColor: 'red',
         fill: false,
@@ -22,25 +22,36 @@ const EBSWriteBandwidth = () => {
     responsive: true,
     maintainAspectRatio: false,
     scales: {
-      yAxes: [
-        {
-          ticks: {
-            beginAtZero: true,
-            max: 400, // Set max to match chart range
-          },
+      y: {
+        beginAtZero: true,
+        max: 400, // Set max to match chart range
+        title: {
+          display: false,
         },
-      ],
-    },
-    plugins:{legend: {
-        display: false,
       },
-     },
-    
+      x: {
+        title: {
+          display: false,
+        },
+      },
+    },
+    plugins: {
+      legend: {
+        display: false, // This hides the legend
+      },
+      title: {
+        display: false, // Title is hidden; add if needed
+      },
+    },
   };
 
   return (
-    <div style={{  width: '100%' }}>
-      <Line data={data} options={options} />
+    <div style={{ width: '100%', height: '400px' }} aria-label="EBS Write Bandwidth Chart">
+      <Line 
+        data={data} 
+        options={options} 
+        aria-label="Line chart showing EBS write bandwidth over time"
+      />
     </div>
   );
 };

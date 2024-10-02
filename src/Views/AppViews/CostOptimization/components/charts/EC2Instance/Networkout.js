@@ -22,25 +22,36 @@ const Networkout = () => {
     responsive: true,
     maintainAspectRatio: false,
     scales: {
-      yAxes: [
-        {
-          ticks: {
-            beginAtZero: true,
-            max: 100,
-          },
+      y: {
+        beginAtZero: true,
+        max: 100,
+        title: {
+          display: false,
         },
-      ],
-    },
-    plugins:{legend: {
-        display: false,
       },
-     },
-    
+      x: {
+        title: {
+          display: false,
+        },
+      },
+    },
+    plugins: {
+      legend: {
+        display: false, // Hide the legend
+      },
+      title: {
+        display: false, // Title is hidden; add if needed
+      },
+    },
   };
 
   return (
-    <div style={{  width: '100%' }} >
-      <Line data={data} options={options} />
+    <div style={{ width: '100%', height: '400px' }} aria-label="Network Out Chart">
+      <Line 
+        data={data} 
+        options={options} 
+        aria-label="Line chart showing network output data over time"
+      />
     </div>
   );
 };

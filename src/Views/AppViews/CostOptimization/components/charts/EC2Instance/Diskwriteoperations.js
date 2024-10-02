@@ -7,8 +7,8 @@ const DiskWriteOperations = () => {
     labels: ['26/8', '27/8', '28/8', '29/8', '30/8', '31/8', '01/9', '02/9', '03/9', '04/9', '05/9', '06/9'],
     datasets: [
       {
-        label: 'Disk write Operations (per second)',
-        data: [50, 60, 45, 50, 55, 50, 52, 48, 65, 45, 55, 50], // Update data based on the graph
+        label: 'Disk Write Operations (per second)',
+        data: [50, 60, 45, 50, 55, 50, 52, 48, 65, 45, 55, 50],
         borderColor: 'yellow',
         fill: false,
         pointBackgroundColor: 'yellow',
@@ -22,24 +22,36 @@ const DiskWriteOperations = () => {
     responsive: true,
     maintainAspectRatio: false,
     scales: {
-      yAxes: [
-        {
-          ticks: {
-            beginAtZero: true,
-            max: 100, // Set max to match chart range
-          },
+      y: {
+        beginAtZero: true,
+        max: 100, // Set max to match chart range
+        title: {
+          display: false,
         },
-      ],
+      },
+      x: {
+        title: {
+          display: false,
+        },
+      },
     },
-    plugins:{legend: {
-      display: false,
+    plugins: {
+      legend: {
+        display: false, // Hide the legend
+      },
+      title: {
+        display: false, // Title is hidden; add if needed
+      },
     },
- }
   };
 
   return (
-    <div style={{  width: '100%' }}>
-      <Line data={data} options={options} />
+    <div style={{ width: '100%', height: '400px' }} aria-label="Disk Write Operations Chart">
+      <Line 
+        data={data} 
+        options={options} 
+        aria-label="Line chart showing disk write operations over time"
+      />
     </div>
   );
 };

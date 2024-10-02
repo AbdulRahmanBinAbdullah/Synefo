@@ -120,7 +120,6 @@ const LineChart = () => {
         data: [600, 500, 700, 600, 800, 900, 850, 700, 750, 950, 1000, 1100],
         borderColor: 'orange',
         backgroundColor: 'rgba(255, 165, 0, 0.2)',
-        fill: true,
         tension: 0.4,
       },
       {
@@ -128,7 +127,6 @@ const LineChart = () => {
         data: [400, 350, 500, 450, 600, 700, 650, 600, 750, 800, 850, 900],
         borderColor: 'blue',
         backgroundColor: 'rgba(0, 0, 255, 0.2)',
-        fill: true,
         tension: 0.4,
       },
       {
@@ -136,7 +134,6 @@ const LineChart = () => {
         data: [300, 250, 400, 350, 500, 550, 600, 500, 600, 700, 750, 800],
         borderColor: 'red',
         backgroundColor: 'rgba(255, 0, 0, 0.2)',
-        fill: true,
         tension: 0.4,
       },
     ],
