@@ -6,7 +6,7 @@ import Allresources from '../components/allresources';
 import InstanceBar	 from '../components/EC2Recommendations/InstanceSummary';
 import Instancetable from '../components/RDS/Instancecomparison';
 import InstanceComparisonHeader from '../components/EC2Recommendations/InstanceComparisonHeader';
-import EC2Dashboard from '../components/charts/EC2Instance/visualizations';
+import EC2Dashboard from '../components/charts/RDS/visualizations';
 const Ec2Recommendations = () => {
   return (
     <div>

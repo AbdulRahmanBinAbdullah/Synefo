@@ -8,7 +8,7 @@ const DiskReadOperations = () => {
     datasets: [
       {
         label: 'Disk Read Operations (per second)',
-        data: [50, 60, 45, 50, 55, 50, 52, 48, 65, 45, 55, 50], // Update data based on the graph
+        data: [50, 60, 45, 50, 55, 50, 52, 48, 65, 45, 55, 50],
         borderColor: 'yellow',
         fill: false,
         pointBackgroundColor: 'yellow',
@@ -22,24 +22,36 @@ const DiskReadOperations = () => {
     responsive: true,
     maintainAspectRatio: false,
     scales: {
-      yAxes: [
-        {
-          ticks: {
-            beginAtZero: true,
-            max: 100, // Set max to match chart range
-          },
+      y: {
+        beginAtZero: true,
+        max: 100, // Set max to match chart range
+        title: {
+          display: false,
         },
-      ],
+      },
+      x: {
+        title: {
+          display: false,
+        },
+      },
     },
-    plugins:{legend: {
-      display: false,
+    plugins: {
+      legend: {
+        display: false, // Hide the legend
+      },
+      title: {
+        display: false, // Title is hidden; add if needed
+      },
     },
-}
   };
 
   return (
-    <div style={{  width: '100%' }}>
-      <Line data={data} options={options} />
+    <div style={{ width: '100%', height: '400px' }} aria-label="Disk Read Operations Chart">
+      <Line 
+        data={data} 
+        options={options} 
+        aria-label="Line chart showing disk read operations over time"
+      />
     </div>
   );
 };
