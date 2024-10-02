@@ -4,6 +4,9 @@ import { AppBar, Toolbar, Typography, Button, Paper } from '@mui/material';
 // import Allresources from './path/to/Allresources'; 
 import Allresources from '../components/allresources';
 import InstanceBar	 from '../components/EC2Recommendations/InstanceSummary';
+import EC2InstanceComparison from '../components/EC2Recommendations/CurrantInstanceType';
+import InstanceComparisonHeader from '../components/EC2Recommendations/InstanceComparisonHeader';
+import EC2Dashboard from '../components/charts/EC2Instance/visualizations';
 const Ec2Recommendations = () => {
   return (
     <div>
@@ -25,6 +28,10 @@ const Ec2Recommendations = () => {
   </div>
         </Toolbar>
       </AppBar>
+      <InstanceBar/>
+      <EC2InstanceComparison/>
+<InstanceComparisonHeader/>
+<EC2Dashboard/>
     </div>
   );
 };

@@ -1,12 +1,23 @@
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import { Button, Menu, MenuItem, ListItemIcon, Typography } from '@mui/material';
 import { ChevronDown } from 'lucide-react'; // You can use this for an icon if needed
 import menuicon from 'assets/img/allservices/menuicon.png';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { APP_PREFIX_PATH } from 'Configs/AppConfig';
+import SettingsIcon from '@mui/icons-material/Settings';
 
 
 export default function Component() {
+  const location = useLocation();
+
+  useEffect(() => {
+    switch (location.pathname) {
+      case `${APP_PREFIX_PATH}/CostOptimization/EC2`:
+        setSelectedMenuItem('EC2 Instances');
+        break;
+      default:
+          setSelectedMenuItem('All Resources')
+    }},[location.pathname]);
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const [selectedMenuItem, setSelectedMenuItem] = useState('All Resources');
@@ -38,12 +49,13 @@ export default function Component() {
   const handleCostNavigate = () => {
     // Implement cost navigation logic here
   };
-
+  
   return (
     <>
       <Button
         className="sla"
         variant="contained"
+        startIcon={<SettingsIcon />}
         onClick={handleMenuClick}
         sx={{ backgroundColor: '#DDE1F8', color: '#383874', paddingLeft: '16px', paddingRight: '16px' }}
       >
