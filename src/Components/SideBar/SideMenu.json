@@ -28,10 +28,6 @@
           "name": "priceEstimator"
         },
         {
-          "link": "/assets/cost-optimization",
-          "name": "Cost Optimization"
-        },
-        {
           "link": "/assets/assetmanagement",
           "name": "Discovered Assets"
         }
