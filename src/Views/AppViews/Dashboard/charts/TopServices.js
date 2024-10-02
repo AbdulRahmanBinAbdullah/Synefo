@@ -43,7 +43,7 @@ class TopServicesTable extends React.Component {
             <TableBody>
               {this.state.services.map((service) => (
                 <TableRow key={service.name}>
-                  <TableCell component="th" scope="row" sx={cellStyle}>
+                  <TableCell  scope="row" sx={cellStyle}>
                     {service.name}
                   </TableCell>
                   <TableCell align="left" sx={cellStyle}>{`${service.cpuUtilization}%`}</TableCell>

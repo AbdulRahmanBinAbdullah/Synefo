@@ -23,6 +23,7 @@ import { connect } from "react-redux";
 import status from "Redux/Constants/CommonDS";
 import { ToastMessage } from "Toast/ToastMessage";
 import AuthenticationImg from "assets/img/login/authentication-img.png";
+import signIn from "assets/img/login/signin-banner.png"
 
 class Signin extends Component {
   constructor(props) {
@@ -207,12 +208,12 @@ class Signin extends Component {
           <Box className="sign-container">
             <Box className="sign-left">
               <Box className="sign-left-content">
-                <span className="d-flex width-100">Appkube</span>
+                <span className="d-flex width-100">Synefo</span>
                 <h1 className="d-flex width-100 m-t-0 m-b-0">
                   Manage your project and team in easy way
                 </h1>
                 <Box className="d-flex width-100 banner-image">
-                  <img src={SigninBanner2} alt="SigninBanner2" />
+                  <img src={signIn} alt="SigninBanner2" />
                 </Box>
               </Box>
             </Box>
@@ -289,11 +290,11 @@ class Signin extends Component {
                   ) : (
                     <>
                       <Box className="d-flex width-100 heading">
-                        Sign up to <strong>Appkube</strong>
+                        Sign in to <strong>Synefo</strong>
                       </Box>
                       <Box className="d-block width-100 google-btn">
                         <Button className="primary-btn" variant="contained">
-                          Sign up with google
+                          Sign in with google
                         </Button>
                       </Box>
                       <Box className="d-block width-100 or-contant text-center">

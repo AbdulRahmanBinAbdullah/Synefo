@@ -64,7 +64,7 @@ export default function Component() {
   }
 
   return (
-    <Container maxWidth="lg">
+    <Container maxWidth={false} >
       <AppBarComponent />
       <DiscoveredAssets/>
       <PlatformButtons

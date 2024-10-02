@@ -1,5 +1,4 @@
 import React from 'react';
-import { AlertTriangle, Database, Battery, RefreshCcw, BarChart } from 'lucide-react';
 import Security from "../../../../assets/img/wafr/security.png"
 import TotalCost from "../../../../assets/img/wafr/total-cost.png"
 import TotalReliability from "../../../../assets/img/wafr/total-reliability.png"
