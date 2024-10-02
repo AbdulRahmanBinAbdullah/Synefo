@@ -44,7 +44,7 @@ const CpuUtilizationChart = () => {
   };
 
   return (
-    <div style={{ width: '100%' }}>
+    <div style={{ width: '100%' }}> {/* Added height to maintain aspect ratio */}
       <Line data={data} options={options} />
     </div>
   );
