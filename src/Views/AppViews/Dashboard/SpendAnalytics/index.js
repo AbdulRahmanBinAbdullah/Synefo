@@ -435,7 +435,7 @@ class SpendAnalytics extends Component {
           </span> */}
         </Box>
         {/* {this.getTotalSpend()} */}
-        <Typography
+        <Typography className="font-bold"
               variant="h1" // Change to h1 for larger text
               sx={{
                 fontFamily: 'Poppins',
@@ -846,8 +846,21 @@ class SpendAnalytics extends Component {
             </Box>
 
                 <Box display="flex" alignItems="center">
-      <Typography  sx={{ marginRight: 1,fontSize:'34px' ,color:'#383874'
-}} >$150</Typography>
+                <Typography
+  className="font-bold"
+  variant="h4"
+  sx={{
+    marginRight: 1,
+    fontSize: '34px',
+    color: '#383874',
+    fontWeight: 'bold', // This makes the text bold
+  }}
+>
+  $150
+</Typography>
+
+
+
       <ArrowDropUpIcon color="success" />
       <Typography variant="h6" sx={{ marginRight: 1 ,}} style={{ fontSize: '0.75rem'}}>10%</Typography>
 
@@ -859,8 +872,21 @@ class SpendAnalytics extends Component {
               <label>Spends Yesterday</label>
             </Box>
                 <Box display="flex" alignItems="center">
-      <Typography variant="h4" sx={{ marginRight: 1 ,fontSize:'34px' ,color:'#383874'
-}}>$150</Typography>
+      
+                <Typography
+  className="font-bold"
+  variant="h4"
+  sx={{
+    marginRight: 1,
+    fontSize: '34px',
+    color: '#383874',
+    fontWeight: 'bold', // This makes the text bold
+  }}
+>
+  $150
+</Typography>
+
+
       <ArrowDropUpIcon color="success" />
       <Typography variant="h6" sx={{ marginRight: 1 ,}} style={{ fontSize: '0.75rem'}}>10%</Typography>
 

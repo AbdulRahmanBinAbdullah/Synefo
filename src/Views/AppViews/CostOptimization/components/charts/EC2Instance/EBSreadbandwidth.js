@@ -13,7 +13,7 @@ const EBSReadbandwidth = () => {
         fill: false,
         pointBackgroundColor: 'red',
         pointBorderColor: 'red',
-        tension: 0.2,
+        tension: 0.2, // Smoothens the line
       },
     ],
   };
@@ -25,18 +25,33 @@ const EBSReadbandwidth = () => {
       y: {
         beginAtZero: true,
         max: 400,
+        title: {
+          display: false,
+        },
+      },
+      x: {
+        title: {
+          display: false,
+        },
       },
     },
     plugins: {
       legend: {
         display: false, // This hides the legend
       },
+      title: {
+        display: false, // Title is hidden; add if needed
+      },
     },
   };
 
   return (
-    <div style={{ width: '100%' }}> {/* Set height for better visibility */}
-      <Line data={data} options={options} />
+    <div style={{ width: '100%', height: '400px' }} aria-label="EBS Read Bandwidth Chart">
+      <Line 
+        data={data} 
+        options={options} 
+        aria-label="Line chart showing EBS read bandwidth over time"
+      />
     </div>
   );
 };

@@ -79,12 +79,13 @@ const EC2InstanceComparison = () => {
     <div className="p-6">
       <div className="bg-white rounded-lg shadow overflow-hidden">
         <div className="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
-          <h2 className="text-lg font-semibold text-gray-800">
+          <h2 className="text-lg font-semibold text-gray-800"  style={{color:'#383874'}}>
             Compare Current Instance Type with Recommended Options ({instanceData.length})
           </h2>
           <button
             className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
             onClick={handleRemediationClick}
+            aria-label='optimization'
           >
             Optimize
           </button>
@@ -109,12 +110,22 @@ const EC2InstanceComparison = () => {
               {instanceData.map((instance, index) => (
                 <tr key={index}>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    <input
-                      type="checkbox"
-                      checked={selectedInstances[index]}
-                      onChange={() => handleCheckboxChange(index)}
-                      className="form-checkbox h-4 w-4 text-blue-600"
-                    />
+                  <div className="flex items-center">
+                      <input
+                        type="checkbox"
+                        id={`instance-${index}`}
+                        checked={selectedInstances[index]}
+                        onChange={() => handleCheckboxChange(index)}
+                        className="form-checkbox h-4 w-4 text-blue-600"
+                        aria-label={`Select ${instance.type} instance`}
+                      />
+                      <label 
+                        htmlFor={`instance-${index}`}
+                        className="sr-only"
+                      >
+                        Select {instance.type} instance
+                      </label>
+                    </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{instance.type}</td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${instance.price.toFixed(4)}</td>
