@@ -19,7 +19,7 @@ import Loader from "Components/Loader";
 import {
   API_ERROR_MESSAGE,
   SUMMARY_INSTANCE_TYPE,
-  TENURE_TYPE,
+  // TENURE_TYPE,
 } from "CommonData";
 import LineChart from "../../Components/LineChart";
 

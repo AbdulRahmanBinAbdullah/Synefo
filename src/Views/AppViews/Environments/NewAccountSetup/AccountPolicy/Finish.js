@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { APP_PREFIX_PATH } from "Configs/AppConfig";
-import { Link } from "react-router-dom";
+// import { APP_PREFIX_PATH } from "Configs/AppConfig";
+// import { Link } from "react-router-dom";
 import AccountAddedImage from "assets/img/assetmanager/account-added-image.png";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";

@@ -145,7 +145,8 @@ class Database extends Component {
     });
   };
   render() {
-    let { accounts, searchedKey, timerSpendData } = this.state;
+    // let { accounts, searchedKey, timerSpendData } = this.state;
+    let { accounts, timerSpendData } = this.state;
     let { spendOverviewComputeDetailsData } = this.props;
     const isError = spendOverviewComputeDetailsData.status === status.FAILURE;
     return (

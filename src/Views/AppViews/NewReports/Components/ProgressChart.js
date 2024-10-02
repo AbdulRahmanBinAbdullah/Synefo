@@ -42,7 +42,7 @@ function ProgressBar(props) {
       .attr("y2", 14)
       .attr("stroke", "#383874")
       .attr("stroke-width", 1);
-  }, []);
+  }, [props.color]);
 
   return <svg ref={ref} style={{ width: "100%", height: "10px" }} />;
 }

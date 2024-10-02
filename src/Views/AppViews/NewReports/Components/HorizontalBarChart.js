@@ -22,14 +22,14 @@ class HorizontalBarChart extends Component {
 
   renderChart = () => {
     let { data } = this.props;
-    const barHeight = 25;
+    // const barHeight = 25;
 
     const marginTop = 0;
     const marginRight = 10;
     const marginBottom = 0;
     const marginLeft = 150;
     const width = 1200;
-    let dataHeight = Math.ceil(data.length * barHeight);
+    // let dataHeight = Math.ceil(data.length * barHeight);
     const height = 280 + marginTop + marginBottom;
 
     // Create the SVG container.

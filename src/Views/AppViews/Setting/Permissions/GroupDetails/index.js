@@ -224,7 +224,8 @@ class GroupDetails extends Component {
       showAddRolePopup,
       showAddUserPopup,
     } = this.state;
-    let { groupDetailsById: groupDetailsById } = this.props;
+    // let { groupDetailsById: groupDetailsById } = this.props;
+    let { groupDetailsById } = this.props;
     let deleteGroupStatus =
       this.props.removeGroup?.status === status.IN_PROGRESS;
     return (

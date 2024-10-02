@@ -87,13 +87,13 @@ import CostOptimization from "./AppViews/CostOptimization";
 import Dash from "./AppViews/AllServices";
 import Performance from "./AppViews/AllServices/performancereliability"
 import Cost from "./AppViews/AllServices/cost"
-import EC2cost from './AppViews/AllServices/EC2';
+// import EC2cost from './AppViews/AllServices/EC2';
 // this are the WAFR routes 
 import Wafr from "./AppViews/Wafr";
 import CreateWorkloadForm from "./AppViews/Wafr/CreateWorkLoad";
 import WorkLoad from "./AppViews/Wafr/workLoad"
 import WafrAssesssment from "./AppViews/Wafr/WafrAssesssment"
-import EC2InstanceSummary from "./AppViews/AllServices/components/instancesummary";
+// import EC2InstanceSummary from "./AppViews/AllServices/components/instancesummary";
 
 //These are the Cost Optimization Routes
 import Costoptimization from './AppViews/CostOptimization/index';  // Main resource dashboard
@@ -107,10 +107,11 @@ import ASGPage from './AppViews/CostOptimization/Recommendations/ASGPage';
 // this are the routes of Price Estimator
 import PriceEstimator from "./AppViews/PriceEstimator";
 import ConfigureSetup from "./AppViews/PriceEstimator/configure-fields";
-import ConfigureAmazonEC2 from "./AppViews/PriceEstimator/Configure-Amazon-EC2";
+// import ConfigureAmazonEC2 from "./AppViews/PriceEstimator/Configure-Amazon-EC2";
 import Availability from "./AppViews/AllServices/availabilityandenduser"
 import AssetManagement from "./AppViews/AssetManagement";
 import Autoscale from "./AppViews/AllServices/autoscale"
+import SingleEc2 from "./AppViews/AllServices/components/SingleEc2Components";
 import EC2 from "./AppViews/CostOptimization/EC2"
 // import EC2cost from "./AppViews/CostOptimization/Ec2"
 import EC2DashboardHeader from "./AppViews/AllServices/EC2";
@@ -196,6 +197,10 @@ export const Views = (props) => {
             path={`${APP_PREFIX_PATH}/wafr/assignment/:workloadId`}
             element={<WafrAssesssment />}
           />
+          {/* <Route
+            path={`${APP_PREFIX_PATH}/wafr/assignment/:workloadId`}
+            element={<SingleEc2 />}
+          /> */}
 
           <Route
             path={`${APP_PREFIX_PATH}/assets/cost-optimization`}
@@ -254,11 +259,13 @@ export const Views = (props) => {
             path={`${APP_PREFIX_PATH}/assets/environments/aws/newaccountsetup/:departmentId?`}
             element={<NewAccountSetup />}
           />
-
-
-          <Route
+          {/* <Route
             path={`${APP_PREFIX_PATH}/assets/AllServices/:instanceid?`}
             element={<EC2InstanceSummary />}
+          /> */}
+          <Route
+            path={`${APP_PREFIX_PATH}/assets/AllServices/:instanceid?`}
+            element={<SingleEc2 />}
           />
           <Route
             path={`${APP_PREFIX_PATH}/assets/environments/azure/newaccountsetup`}

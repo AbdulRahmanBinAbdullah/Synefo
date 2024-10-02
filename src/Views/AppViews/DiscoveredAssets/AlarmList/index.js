@@ -8,8 +8,8 @@ import {
   TableRow,
   TableCell,
   TableBody,
-  Checkbox,
-  Grid,
+  // Checkbox,
+  // Grid,
 } from "@mui/material";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import { v4 } from "uuid";
@@ -20,7 +20,7 @@ import { API_ERROR_MESSAGE, NO_DATA_FOUND } from "CommonData";
 import Loader from "Components/Loader";
 import { navigateRouter } from "Utils/Navigate/navigateRouter";
 import { APP_PREFIX_PATH } from "Configs/AppConfig";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
 import { styled } from "@mui/material/styles";
 import CloudTrailEventPopup from "../Components/CloudTrailEventPopup";

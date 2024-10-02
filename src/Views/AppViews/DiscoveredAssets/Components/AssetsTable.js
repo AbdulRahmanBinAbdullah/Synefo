@@ -167,7 +167,8 @@ class AssetsTable extends Component {
 
   //  Render table body
   renderTableBody = () => {
-    const { isSelectStatusOpen, rpg, pg } = this.state;
+    // const { isSelectStatusOpen, rpg, pg } = this.state;
+    const { rpg, pg } = this.state;
 
     let { data = [], errorMessage } = this.props;
 
@@ -184,9 +185,9 @@ class AssetsTable extends Component {
                 productEnclave,
                 isLogEnabled,
                 isTagged,
-                instanceId,
-                landingZoneId,
-                cloud,
+                // instanceId,
+                // landingZoneId,
+                // cloud,
               } = environment;
               return (
                 <TableRow key={index}>

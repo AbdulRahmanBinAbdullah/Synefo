@@ -28,7 +28,8 @@ class LineChart extends Component {
   }
 
   renderChart = async () => {
-    let { data, labels, color } = this.props;
+    // let { data, labels, color } = this.props;
+    let { data, color } = this.props;
 
     let svg = d3
       .select(this.ref.current)
@@ -55,7 +56,7 @@ class LineChart extends Component {
       if (typeof d.date === "string") {
         d.date = parseTime(d.dateStr);
         d.value = +d.value;
-        d.dateStr = d.dateStr;
+        // d.dateStr = d.dateStr;
       }
       return d;
     });

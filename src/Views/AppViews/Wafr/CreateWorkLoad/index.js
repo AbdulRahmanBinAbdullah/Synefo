@@ -39,7 +39,7 @@ class CreateWorkloadForm extends Component {
     // Handle form submission
     handleSubmit = async (event) => {
         event.preventDefault(); // Prevent the form from reloading the page
-        const { workloadName, workloadOwner, lens, awsAccount, workloadType, environment, description, istoggle, tags } = this.state;
+        const { workloadName, workloadOwner, lens, awsAccount, environment, description, } = this.state;
         
         const payload = {
             workload_name: workloadName,
@@ -114,7 +114,7 @@ class CreateWorkloadForm extends Component {
         const workloadTypes = ['Type 1', 'Type 2', 'Type 3']; // Add your types
         const environments = ['PRODUCTION', 'PREPRODUCTION']; // Environments
 
-        const { workloadName, workloadOwner, lens, workloadType, environment, description, isWorkloadResources, istoggle, tags } = this.state;
+        const { workloadName, workloadOwner, description, isWorkloadResources, istoggle, tags } = this.state;
 
         return (
             <div className="px-8 py-6 bg-white shadow-md rounded-lg w-full">

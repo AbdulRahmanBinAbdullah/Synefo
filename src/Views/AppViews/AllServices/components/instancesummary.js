@@ -101,7 +101,7 @@
 
 
 import React, { useState } from 'react';
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import { styled } from '@mui/material/styles';
 import StopResourcesDialog from './performance-reliability/StopResource';
@@ -147,16 +147,16 @@ const EC2InstanceSummary = () => {
               <StyledTableCell sx={{ color: '#383874', fontFamily: 'Roboto', fontWeight: 500 }}>
                 Instance Name
               </StyledTableCell>
-              <StyledTableCell sx={{ color: '#383874', fontWeight: 'bold', fontFamily: 'Roboto', fontWeight: 500 }}>
+              <StyledTableCell sx={{ color: '#383874', fontWeight: 'bold', fontFamily: 'Roboto' }}>
                 Instance ID
               </StyledTableCell>
-              <StyledTableCell sx={{ color: '#383874', fontWeight: 'bold', fontFamily: 'Roboto', fontWeight: 500 }}>
+              <StyledTableCell sx={{ color: '#383874', fontWeight: 'bold', fontFamily: 'Roboto' }}>
                 Instance Type
               </StyledTableCell>
-              <StyledTableCell sx={{ color: '#383874', fontWeight: 'bold', fontFamily: 'Roboto', fontWeight: 500 }}>
+              <StyledTableCell sx={{ color: '#383874', fontWeight: 'bold', fontFamily: 'Roboto' }}>
                 Availability Zone
               </StyledTableCell>
-              <StyledTableCell sx={{ color: '#383874', fontWeight: 'bold', fontFamily: 'Roboto', fontWeight: 500 }}>
+              <StyledTableCell sx={{ color: '#383874', fontWeight: 'bold', fontFamily: 'Roboto' }}>
                 Status
               </StyledTableCell>
             </TableRow>
@@ -199,3 +199,4 @@ const EC2InstanceSummary = () => {
 };
 
 export default EC2InstanceSummary;
+

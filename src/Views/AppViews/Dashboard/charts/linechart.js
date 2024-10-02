@@ -91,7 +91,7 @@
 
 import React from 'react';
 import { Line } from 'react-chartjs-2';
-import { Card, CardContent } from '@mui/material';
+import { CardContent } from '@mui/material';
 import {
   Chart as ChartJS,
   LineElement,
