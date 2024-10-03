@@ -12,6 +12,9 @@ export default function Component() {
 
   useEffect(() => {
     switch (location.pathname) {
+      case `${APP_PREFIX_PATH}/CostOptimization`:
+        setSelectedMenuItem('All Resources');
+        break;
       case `${APP_PREFIX_PATH}/CostOptimization/EC2`:
         setSelectedMenuItem('EC2 Instances');
         break;
@@ -43,6 +46,12 @@ export default function Component() {
     setAnchorEl(null);
   };
 
+  const handleResources = () => {
+    // Implement navigation logic here
+    navigate(`${APP_PREFIX_PATH}/cost-optimization`);
+
+  };
+
   const handleEC2Instances = () => {
     // Implement navigation logic here
     navigate(`${APP_PREFIX_PATH}/CostOptimization/EC2`);
@@ -64,8 +73,11 @@ export default function Component() {
   };
 
   const handleCostNavigate = () => {
-    // Implement cost navigation logic here
+    navigate(`${APP_PREFIX_PATH}/CostOptimization/asg`);
+
   };
+
+  
   
   return (
     <>
@@ -96,6 +108,20 @@ export default function Component() {
           </ListItemIcon>
           <Typography variant="body1" sx={{ fontWeight: 'bold', color: '#3730A3' }}>
             EC2 Instances
+          </Typography>
+        </MenuItem>
+
+        <MenuItem
+          onClick={() => {
+            handleResources();
+            handleMenuClose('All Resources');
+          }}
+        >
+          <ListItemIcon>
+            <img src={menuicon} alt="menu" />
+          </ListItemIcon>
+          <Typography variant="body1" sx={{ color: '#3730A3' }}>
+            All Resources
           </Typography>
         </MenuItem>
 
