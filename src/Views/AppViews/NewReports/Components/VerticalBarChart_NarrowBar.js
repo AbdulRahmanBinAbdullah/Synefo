@@ -58,7 +58,7 @@ const VerticalBarChart_NarrowBar = () => {
 
     svg.append("g").call(yAxis);
     const narrowBarHeight = 1; // Height of each small rectangle
-    const narrowBarPadding = 0; // Padding between small rectangles
+    // const narrowBarPadding = 0; // Padding between small rectangles
 
     const barGroups = svg
       .append("g")
@@ -91,7 +91,7 @@ const VerticalBarChart_NarrowBar = () => {
       .attr("ry", 5)
       .style("fill", (d, i, nodes) => {
         // Get the parent group
-        const parentGroup = d3.select(nodes[i].parentNode);
+        // const parentGroup = d3.select(nodes[i].parentNode);
         return "#e9ebfb";
       });
 
@@ -104,7 +104,8 @@ const VerticalBarChart_NarrowBar = () => {
       .style("fill", this?.props?.color ? "yellow" : "#53CA43")
       .attr("rx", 3)
       .attr("ry", 3);
-  }, [data, height, width, margin]);
+  // }, [data, height, width, margin]);
+  }, [ height, width, margin]);
 
   return (
     <svg

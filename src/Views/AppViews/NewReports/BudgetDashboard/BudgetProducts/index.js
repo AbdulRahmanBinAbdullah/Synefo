@@ -228,7 +228,8 @@ class BudgetProducts extends Component {
     );
   };
   render() {
-    let { accounts, searchedKey, showSelectFilterModal } = this.state;
+    // let { accounts, searchedKey, showSelectFilterModal } = this.state;
+    let { searchedKey, showSelectFilterModal } = this.state;
     return (
       <>
         <Box className="new-reports-container">

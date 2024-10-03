@@ -251,7 +251,8 @@ class CostCentralServicesInternalDetails extends Component {
   //  Serach
   handleSearchChange = (e) => {
     let value = e.target.value;
-    let { costConsumptionData, searchedKey } = this.state;
+    // let { costConsumptionData, searchedKey } = this.state;
+    let { costConsumptionData } = this.state;
 
     if (data?.length) {
       if (value) {

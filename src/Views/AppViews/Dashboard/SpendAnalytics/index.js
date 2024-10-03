@@ -413,14 +413,42 @@ class SpendAnalytics extends Component {
       <Loader />
     ) : (
       <Box className="total-spend" >
-        <Box className="heading">
-          <label>Total Spend</label>
+        <Box className="heading ">
+        <label
+              style={{
+                fontFamily: 'Poppins',
+                fontSize: '18px',
+                lineHeight: '32px',
+                letterSpacing: '0.15px',
+                fontWeight: 450,
+
+                textAlign: 'left',
+                color: '#383874', // Customize color if needed
+                marginRight: '16px' // Optional margin for spacing
+              }}
+            >
+              Total Spend
+            </label>
+
           {/* <span>
             DETAIL <i className="fas fa-angle-right"></i>
           </span> */}
         </Box>
         {/* {this.getTotalSpend()} */}
-<Typography variant="h4">$150</Typography>
+        <Typography className="font-bold"
+              variant="h1" // Change to h1 for larger text
+              sx={{
+                fontFamily: 'Poppins',
+                fontSize: '30px',
+                fontWeight: 500,
+                letterSpacing: '-1.75px',
+                textAlign: 'left',
+                color: '#383874' ,
+                p:0// You can customize the color as needed
+              }}
+            >
+              $150
+            </Typography>
           
 
   
@@ -818,8 +846,21 @@ class SpendAnalytics extends Component {
             </Box>
 
                 <Box display="flex" alignItems="center">
-      <Typography  sx={{ marginRight: 1,fontSize:'34px' ,color:'#383874'
-}} >$150</Typography>
+                <Typography
+  className="font-bold"
+  variant="h4"
+  sx={{
+    marginRight: 1,
+    fontSize: '34px',
+    color: '#383874',
+    fontWeight: 'bold', // This makes the text bold
+  }}
+>
+  $150
+</Typography>
+
+
+
       <ArrowDropUpIcon color="success" />
       <Typography variant="h6" sx={{ marginRight: 1 ,}} style={{ fontSize: '0.75rem'}}>10%</Typography>
 
@@ -831,13 +872,25 @@ class SpendAnalytics extends Component {
               <label>Spends Yesterday</label>
             </Box>
                 <Box display="flex" alignItems="center">
-      <Typography variant="h4" sx={{ marginRight: 1 ,fontSize:'34px' ,color:'#383874'
-}}>$150</Typography>
+      
+                <Typography
+  className="font-bold"
+  variant="h4"
+  sx={{
+    marginRight: 1,
+    fontSize: '34px',
+    color: '#383874',
+    fontWeight: 'bold', // This makes the text bold
+  }}
+>
+  $150
+</Typography>
+
+
       <ArrowDropUpIcon color="success" />
       <Typography variant="h6" sx={{ marginRight: 1 ,}} style={{ fontSize: '0.75rem'}}>10%</Typography>
 
     </Box>
-    <ChatBotGreeting/>
               </Box>
             </Grid>
           </Box>

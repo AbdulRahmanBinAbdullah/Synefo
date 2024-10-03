@@ -1,10 +1,10 @@
 import LoadingButton from "@mui/lab/LoadingButton";
 import {
   Box,
-  Grid,
+  // Grid,
   List,
   ListItem,
-  Checkbox,
+  // Checkbox,
   IconButton,
 } from "@mui/material/";
 import { Component } from "react";
@@ -17,7 +17,7 @@ class AssetsSetUpSuccessModal extends Component {
   }
 
   render() {
-    const {} = this.state;
+    // const {} = this.state;
     return (
       <Modal
         isOpen={this.props.showModal}

@@ -122,7 +122,8 @@ class BudgetAccount extends Component {
   //  Serach
   handleSearchChange = (e) => {
     let value = e.target.value;
-    let { accounts, searchedKey } = this.state;
+    // let { accounts, searchedKey } = this.state;
+    let { accounts} = this.state;
     let data = dummyTableData || [];
     if (data?.length) {
       if (value) {

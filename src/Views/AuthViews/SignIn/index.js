@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import SigninBanner2 from "assets/img/login/signin-banner2.png";
+// import SigninBanner2 from "assets/img/login/signin-banner2.png";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import Box from "@mui/material/Box";

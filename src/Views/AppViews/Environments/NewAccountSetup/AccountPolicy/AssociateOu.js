@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { APP_PREFIX_PATH } from "Configs/AppConfig";
-import { Link } from "react-router-dom";
+// import { APP_PREFIX_PATH } from "Configs/AppConfig";
+// import { Link } from "react-router-dom";
 import SelectExisting from "assets/img/assetmanager/select-existing.png";
 import CreateFileIcon from "assets/img/assetmanager/create-file-icon.png";
 import AssociatedAccountPopup from "./AssociatedAccountPopup";

@@ -3,28 +3,28 @@ import { Box, IconButton } from "@mui/material";
 import { Modal, ModalHeader, ModalBody } from "reactstrap";
 import { v4 } from "uuid";
 import CloseIcon from "@mui/icons-material/Close";
-let filterData = [
-  {
-    name: "Region",
-    value: "US East 2",
-  },
-  {
-    name: "AWS Account",
-    value: "AWS (657",
-  },
-  {
-    name: "Product Enclave ",
-    value: "8 VPC",
-  },
-  {
-    name: "Element Type",
-    value: "EC2",
-  },
-  {
-    name: "App",
-    value: "Data",
-  },
-];
+// let filterData = [
+//   {
+//     name: "Region",
+//     value: "US East 2",
+//   },
+//   {
+//     name: "AWS Account",
+//     value: "AWS (657",
+//   },
+//   {
+//     name: "Product Enclave ",
+//     value: "8 VPC",
+//   },
+//   {
+//     name: "Element Type",
+//     value: "EC2",
+//   },
+//   {
+//     name: "App",
+//     value: "Data",
+//   },
+// ];
 export class Notification extends Component {
   constructor(props) {
     super(props);

@@ -60,7 +60,7 @@ export class SpendingTable extends Component {
           data.map((details) => {
             let {
               name,
-              icon,
+              // icon,
               last_month_spend,
               month_spend,
               variance,

@@ -143,7 +143,7 @@ const WAFRAssessment = () => {
   });
   
   const [recommendations, setRecommendations] = useState([]); // State for recommendations
-  const [error, setError] = useState(null); // State for error handling
+  // const [error, setError] = useState(null); // State for error handling
 
   // Dummy questions and answers data (replace with API data)
   const questions = [
@@ -177,7 +177,7 @@ const WAFRAssessment = () => {
       setRecommendations(response.data); // Update state with fetched data
       console.log("Fetched recommendations:", response.data);
     } catch (error) {
-      setError('Failed to fetch recommendations'); // Handle error
+      // setError('Failed to fetch recommendations'); // Handle error
       console.error('Error fetching:', error);
     }
   };

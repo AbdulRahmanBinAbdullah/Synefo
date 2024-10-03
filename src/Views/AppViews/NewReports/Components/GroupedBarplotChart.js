@@ -176,7 +176,7 @@ class GroupedBarplotChart extends Component {
       .attr("x", -60)
       .attr("y", 30)
       .text((d, index) => {
-        let name = restKey[index];
+        // let name = restKey[index];
         return `${restKey[index]} ${this.props.granularity}`;
       });
   };

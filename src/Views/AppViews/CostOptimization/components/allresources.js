@@ -1,12 +1,37 @@
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import { Button, Menu, MenuItem, ListItemIcon, Typography } from '@mui/material';
 import { ChevronDown } from 'lucide-react'; // You can use this for an icon if needed
 import menuicon from 'assets/img/allservices/menuicon.png';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { APP_PREFIX_PATH } from 'Configs/AppConfig';
+import SettingsIcon from '@mui/icons-material/Settings';
 
 
 export default function Component() {
+  const location = useLocation();
+
+  useEffect(() => {
+    switch (location.pathname) {
+      case `${APP_PREFIX_PATH}/CostOptimization`:
+        setSelectedMenuItem('All Resources');
+        break;
+      case `${APP_PREFIX_PATH}/CostOptimization/EC2`:
+        setSelectedMenuItem('EC2 Instances');
+        break;
+      case `${APP_PREFIX_PATH}/CostOptimization/EBS`:
+        setSelectedMenuItem('EBS Volumes');
+        break;
+      case `${APP_PREFIX_PATH}/CostOptimization/RDS`:
+        setSelectedMenuItem('RDS functions');
+        break;
+
+        case `${APP_PREFIX_PATH}/CostOptimization/lambda`:
+          setSelectedMenuItem('Lambda functions');
+          break;
+        
+      default:
+          setSelectedMenuItem('All Resources')
+    }},[location.pathname]);
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const [selectedMenuItem, setSelectedMenuItem] = useState('All Resources');
@@ -21,29 +46,45 @@ export default function Component() {
     setAnchorEl(null);
   };
 
+  const handleResources = () => {
+    // Implement navigation logic here
+    navigate(`${APP_PREFIX_PATH}/cost-optimization`);
+
+  };
+
   const handleEC2Instances = () => {
     // Implement navigation logic here
     navigate(`${APP_PREFIX_PATH}/CostOptimization/EC2`);
 
   };
 
-  const handleAvailability = () => {
-    // Implement availability logic here
-  };
+  const handleEBSVolumes = () => {
+    // Implement navigation logic here
+    navigate(`${APP_PREFIX_PATH}/CostOptimization/EBS`);
 
-  const handleAutoScaleNavigate = () => {
-    // Implement auto scaling navigation logic here
+  };
+  const handlelambda=()=>{
+    navigate(`${APP_PREFIX_PATH}/CostOptimization/lambda`)
+  }
+  
+  const handleRDS = () => {
+    navigate(`${APP_PREFIX_PATH}/CostOptimization/RDS`);
+
   };
 
   const handleCostNavigate = () => {
-    // Implement cost navigation logic here
+    navigate(`${APP_PREFIX_PATH}/CostOptimization/asg`);
+
   };
 
+  
+  
   return (
     <>
       <Button
         className="sla"
         variant="contained"
+        startIcon={<SettingsIcon />}
         onClick={handleMenuClick}
         sx={{ backgroundColor: '#DDE1F8', color: '#383874', paddingLeft: '16px', paddingRight: '16px' }}
       >
@@ -72,22 +113,36 @@ export default function Component() {
 
         <MenuItem
           onClick={() => {
-            handleAvailability();
-            handleMenuClose('Availability & End User');
+            handleResources();
+            handleMenuClose('All Resources');
           }}
         >
           <ListItemIcon>
             <img src={menuicon} alt="menu" />
           </ListItemIcon>
           <Typography variant="body1" sx={{ color: '#3730A3' }}>
-            EBS Voluems
+            All Resources
           </Typography>
         </MenuItem>
 
         <MenuItem
           onClick={() => {
-            handleAutoScaleNavigate();
-            handleMenuClose('Auto Scaling & Security');
+            handleEBSVolumes();
+            handleMenuClose('EBS Volumes');
+          }}
+        >
+          <ListItemIcon>
+            <img src={menuicon} alt="menu" />
+          </ListItemIcon>
+          <Typography variant="body1" sx={{ color: '#3730A3' }}>
+            EBS Volumes
+          </Typography>
+        </MenuItem>
+
+        <MenuItem
+          onClick={() => {
+            handlelambda();
+            handleMenuClose('Lambda functions');
           }}
         >
           <ListItemIcon>
@@ -100,8 +155,9 @@ Lambda functions
 
         <MenuItem
           onClick={() => {
-            handleCostNavigate();
-            handleMenuClose('Cost');
+            handleRDS();
+
+            handleMenuClose('RDS DB Instances');
           }}
         >
           <ListItemIcon>
@@ -116,7 +172,7 @@ Lambda functions
         <MenuItem
           onClick={() => {
             handleCostNavigate();
-            handleMenuClose('Cost');
+            handleMenuClose('Auto Scaling groups');
           }}
         >
           <ListItemIcon>

@@ -21,10 +21,10 @@ class AwsMonthlySpendRegionChart extends Component {
 
   renderChart = () => {
     const margin = { top: 20, right: 0, bottom: 30, left: 40 };
-    const extent = [
-      [margin.left, margin.top],
-      [width - margin.right, height - margin.top],
-    ];
+    // const extent = [
+    //   [margin.left, margin.top],
+    //   [width - margin.right, height - margin.top],
+    // ];
     const svg = d3.select(this.ref.current);
 
     const xScale = d3

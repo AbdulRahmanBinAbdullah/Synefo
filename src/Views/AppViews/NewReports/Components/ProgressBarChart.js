@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Box, Grid, Button } from "@mui/material";
+import { Box, Grid, } from "@mui/material";
 import ProgressChart from "./ProgressChart";
 
 class ProgressBarChart extends Component {

@@ -42,14 +42,14 @@ class GaugeChart extends Component {
       .attr("width", width)
       .attr("height", height);
     svg.selectAll("*").remove();
-    let tooltip = d3
-      .select("#root")
-      .data(data)
-      .append("div")
-      .attr("class", "chart-tooltip")
-      .style("position", "absolute")
-      .style("z-index", "10")
-      .style("visibility", "hidden");
+    // let tooltip = d3
+    //   .select("#root")
+    //   .data(data)
+    //   .append("div")
+    //   .attr("class", "chart-tooltip")
+    //   .style("position", "absolute")
+    //   .style("z-index", "10")
+    //   .style("visibility", "hidden");
     var arcs = data.map((v, i) => {
       return d3
         .arc()
@@ -102,79 +102,79 @@ class GaugeChart extends Component {
         return d.data.arc(d);
       })
       .attr("fill", (d, i) => {
-        return i == 0 ? "#DBDFF1" : d.data.color;
+        return i === 0 ? "#DBDFF1" : d.data.color;
       });
 
-    var gText = svg
-      .selectAll("g.textClass")
-      .data(data)
-      .enter()
-      .append("g")
-      .classed("textClass", true)
-      .attr(
-        "transform",
-        "translate(" + width / 2 + "," + width / 2 + ") rotate(180)"
-      );
+    // var gText = svg
+    //   .selectAll("g.textClass")
+    //   .data(data)
+    //   .enter()
+    //   .append("g")
+    //   .classed("textClass", true)
+    //   .attr(
+    //     "transform",
+    //     "translate(" + width / 2 + "," + width / 2 + ") rotate(180)"
+    //   );
 
     svg.selectAll("g").each(function (d, index) {
-      var el = d3.select(this);
-      var path = el.selectAll("path").each(function (r, i) {
-        if (i === 1) {
-          var centroidText = r.data.arc.centroid({
-            startAngle: 0,
-            endAngle: 0,
-          });
-          var lableObj = r.data;
+      // var el = d3.select(this);
+      // var path = el.selectAll("path").each(function (r, i) {
+      //   if (i === 1) {
+      //     var centroidText = r.data.arc.centroid({
+      //       startAngle: 0,
+      //       endAngle: 0,
+      //     });
+      //     var lableObj = r.data;
 
-          let label = `${lableObj.name} $${lableObj.value}`;
-          gText
-            .append("text")
-            .attr("font-size", 10)
-            .attr("fill", "#383874")
-            .text(label.length > 17 ? `${label?.slice(0, 14)}...` : label)
-            .attr(
-              "transform",
-              "translate(" +
-                (centroidText[0] - (7 * width) / 100) +
-                "," +
-                (centroidText[1] + 15 + ") rotate(" + 180 + ")")
-            )
-            .attr("dominant-baseline", "central")
-            .on("mouseover", function (d, data) {
-              tooltip.html(
-                `<div class="chart-tooltip-contents"><div class="value">${label}</div></div>`
-              );
-              return tooltip.style("visibility", "visible");
-            })
-            .on("mousemove", function (d) {
-              return tooltip
-                .style("top", d.pageY - 30 + "px")
-                .style("left", d.pageX - 60 + "px");
-            })
-            .on("mouseout", function () {
-              return tooltip.style("visibility", "hidden");
-            });
-          gText
-            .append("circle")
-            .attr("fill", (d) => {
-              return "none";
-            })
-            .attr("stroke", (d) => {
-              return lableObj.color;
-            })
-            .attr("cx", -10)
-            .attr("cy", 1)
-            .attr("r", 4)
-            .attr("stroke-width", -12)
-            .attr(
-              "transform",
-              "translate(" +
-                (centroidText[0] - (8 * width) / 100) +
-                "," +
-                (centroidText[1] + 15 + ") rotate(" + 180 + ")")
-            );
-        }
-      });
+      //     let label = `${lableObj.name} $${lableObj.value}`;
+      //     gText
+      //       .append("text")
+      //       .attr("font-size", 10)
+      //       .attr("fill", "#383874")
+      //       .text(label.length > 17 ? `${label?.slice(0, 14)}...` : label)
+      //       .attr(
+      //         "transform",
+      //         "translate(" +
+      //           (centroidText[0] - (7 * width) / 100) +
+      //           "," +
+      //           (centroidText[1] + 15 + ") rotate(" + 180 + ")")
+      //       )
+      //       .attr("dominant-baseline", "central")
+      //       .on("mouseover", function (d, data) {
+      //         tooltip.html(
+      //           `<div class="chart-tooltip-contents"><div class="value">${label}</div></div>`
+      //         );
+      //         return tooltip.style("visibility", "visible");
+      //       })
+      //       .on("mousemove", function (d) {
+      //         return tooltip
+      //           .style("top", d.pageY - 30 + "px")
+      //           .style("left", d.pageX - 60 + "px");
+      //       })
+      //       .on("mouseout", function () {
+      //         return tooltip.style("visibility", "hidden");
+      //       });
+      //     gText
+      //       .append("circle")
+      //       .attr("fill", (d) => {
+      //         return "none";
+      //       })
+      //       .attr("stroke", (d) => {
+      //         return lableObj.color;
+      //       })
+      //       .attr("cx", -10)
+      //       .attr("cy", 1)
+      //       .attr("r", 4)
+      //       .attr("stroke-width", -12)
+      //       .attr(
+      //         "transform",
+      //         "translate(" +
+      //           (centroidText[0] - (8 * width) / 100) +
+      //           "," +
+      //           (centroidText[1] + 15 + ") rotate(" + 180 + ")")
+      //       );
+      //   }
+      // });
     });
     d3.select(this.ref.current);
   };

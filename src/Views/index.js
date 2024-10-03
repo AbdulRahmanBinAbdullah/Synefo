@@ -87,14 +87,13 @@ import CostOptimization from "./AppViews/CostOptimization";
 import Dash from "./AppViews/AllServices";
 import Performance from "./AppViews/AllServices/performancereliability"
 import Cost from "./AppViews/AllServices/cost"
-import EC2cost from './AppViews/AllServices/EC2/index'
-
+// import EC2cost from './AppViews/AllServices/EC2';
 // this are the WAFR routes 
 import Wafr from "./AppViews/Wafr";
 import CreateWorkloadForm from "./AppViews/Wafr/CreateWorkLoad";
 import WorkLoad from "./AppViews/Wafr/workLoad"
 import WafrAssesssment from "./AppViews/Wafr/WafrAssesssment"
-import EC2InstanceSummary from "./AppViews/AllServices/components/instancesummary";
+// import EC2InstanceSummary from "./AppViews/AllServices/components/instancesummary";
 
 //These are the Cost Optimization Routes
 import Costoptimization from './AppViews/CostOptimization/index';  // Main resource dashboard
@@ -112,6 +111,11 @@ import ConfigureAmazonEC2 from "./AppViews/PriceEstimator/Configure-Amazon-EC2";
 import Availability from "./AppViews/AllServices/availabilityandenduser"
 import AssetManagement from "./AppViews/AssetManagement";
 import Autoscale from "./AppViews/AllServices/autoscale"
+import SingleEc2 from "./AppViews/AllServices/components/SingleEc2Components";
+import EC2 from "./AppViews/CostOptimization/EC2"
+import EBS from "./AppViews/CostOptimization/EBS"
+import RDS from "./AppViews/CostOptimization/RDS"
+import Lambdafunction from "./AppViews/CostOptimization/Lambda";
 // import EC2cost from "./AppViews/CostOptimization/Ec2"
 import EC2DashboardHeader from "./AppViews/AllServices/EC2";
 export function withRouter(Component) {
@@ -173,7 +177,7 @@ export const Views = (props) => {
             element={<Dash />}
           />
           <Route
-            path={`${APP_PREFIX_PATH}/assets/cost-optimization`}
+            path={`${APP_PREFIX_PATH}/cost-optimization`}
             element={<CostOptimization />}
           />
           <Route
@@ -196,6 +200,10 @@ export const Views = (props) => {
             path={`${APP_PREFIX_PATH}/wafr/assignment/:workloadId`}
             element={<WafrAssesssment />}
           />
+          {/* <Route
+            path={`${APP_PREFIX_PATH}/wafr/assignment/:workloadId`}
+            element={<SingleEc2 />}
+          /> */}
 
           <Route
             path={`${APP_PREFIX_PATH}/assets/cost-optimization`}
@@ -230,10 +238,10 @@ export const Views = (props) => {
             path={`${APP_PREFIX_PATH}/assets/price-estimator/configure-setup`}
             element={<ConfigureSetup />}
           />
-          {/* <Route
+          <Route
             path={`${APP_PREFIX_PATH}/assets/price-estimator/configure-amazon-ec2`}
             element={<ConfigureAmazonEC2 />}
-          /> */}
+          />
           <Route
             path={`${APP_PREFIX_PATH}/assets/environments/environmentlist`}
             element={<EnvironmentList />}
@@ -254,11 +262,13 @@ export const Views = (props) => {
             path={`${APP_PREFIX_PATH}/assets/environments/aws/newaccountsetup/:departmentId?`}
             element={<NewAccountSetup />}
           />
-
-
-          <Route
+          {/* <Route
             path={`${APP_PREFIX_PATH}/assets/AllServices/:instanceid?`}
             element={<EC2InstanceSummary />}
+          /> */}
+          <Route
+            path={`${APP_PREFIX_PATH}/assets/AllServices/:instanceid?`}
+            element={<SingleEc2 />}
           />
           <Route
             path={`${APP_PREFIX_PATH}/assets/environments/azure/newaccountsetup`}
@@ -477,12 +487,16 @@ export const Views = (props) => {
             element={<Availability />}
           />
 
-          <Route path={`${APP_PREFIX_PATH}/CostOptimization/Ec2`} element={<EC2cost />} />
-          <Route
+<Route path={`${APP_PREFIX_PATH}/CostOptimization/Ec2`} element={<EC2/>}/>
+<Route path={`${APP_PREFIX_PATH}/CostOptimization/EBS`} element={<EBS/>}/>
+<Route path={`${APP_PREFIX_PATH}/CostOptimization/RDS`} element={<RDS/>}/>
+<Route path={`${APP_PREFIX_PATH}/CostOptimization/Lambda`} element={<Lambdafunction/>}/>
+
+<Route
             path={`${APP_PREFIX_PATH}/cost/autoscale`}
             element={<Autoscale />}
           />
-          <Route path={`${APP_PREFIX_PATH}/bimapping`} element={<BIMapping />} />
+          <Route path={`${APP_PREFIX_PATH}/assets/bimapping`} element={<BIMapping />} />
           <Route
             path={`${APP_PREFIX_PATH}/bim/add-product/:name?/:id/:landingZoneId/:cloud/product-category`}
             element={<ProductCategory />}

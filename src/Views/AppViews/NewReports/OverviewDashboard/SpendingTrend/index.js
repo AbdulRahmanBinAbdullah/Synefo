@@ -19,28 +19,28 @@ import { getDateInWeek } from "Utils";
 import { navigateRouter } from "Utils/Navigate/navigateRouter";
 import { APP_PREFIX_PATH } from "Configs/AppConfig";
 
-let verticalBarChartData = [
-  {
-    label: "Compute Cost",
-    value: 110011100,
-  },
-  {
-    label: "Network ",
-    value: 40267984,
-  },
-  {
-    label: "Storage",
-    value: 30672088,
-  },
-  {
-    label: "Database",
-    value: 53980105,
-  },
-  {
-    label: "Others",
-    value: 81489445,
-  },
-];
+// let verticalBarChartData = [
+//   {
+//     label: "Compute Cost",
+//     value: 110011100,
+//   },
+//   {
+//     label: "Network ",
+//     value: 40267984,
+//   },
+//   {
+//     label: "Storage",
+//     value: 30672088,
+//   },
+//   {
+//     label: "Database",
+//     value: 53980105,
+//   },
+//   {
+//     label: "Others",
+//     value: 81489445,
+//   },
+// ];
 
 class SpendingTrend extends Component {
   constructor(props) {

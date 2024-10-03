@@ -194,7 +194,7 @@ class CreateInvoice extends Component {
   };
   // Render active step
   renderActiveStep = () => {
-    let { activeStep, isAddNewEnvironmentShown, formData, isSubmit } =
+    let { activeStep, formData, isSubmit } =
       this.state;
     let { errors } = this.validateSteps();
     return (

@@ -31,7 +31,7 @@ export class AccountTable extends Component {
 
   //  Render table head
   renderTableHead = () => {
-    let headers = this.props.headers || [];
+    // let headers = this.props.headers || [];
     return (
       <TableHead>
         <TableRow>

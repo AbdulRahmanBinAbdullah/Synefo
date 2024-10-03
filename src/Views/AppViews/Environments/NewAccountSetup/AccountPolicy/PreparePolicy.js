@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { APP_PREFIX_PATH } from "Configs/AppConfig";
+// import { APP_PREFIX_PATH } from "Configs/AppConfig";
 //import { Link } from "react-router-dom";
 import IamImg from "assets/img/login/iam-img.png";
 import PolicyImg from "assets/img/login/policy-img.png";

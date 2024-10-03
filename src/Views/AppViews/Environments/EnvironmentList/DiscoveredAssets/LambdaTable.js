@@ -15,7 +15,7 @@ import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
 import { styled } from "@mui/material/styles";
 import {
   APPKUBE_UI_ENDPOINT,
-  REGEX_TYPE,
+  // REGEX_TYPE,
   ELEMENT_EXPLORER_MAPPING,
 } from "CommonData";
 import { Link } from "react-router-dom";

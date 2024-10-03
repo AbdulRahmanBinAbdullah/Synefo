@@ -5,7 +5,7 @@ const EC2Dashboard = () => {
     <div className="p-2 bg-gray-100">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 m-4">
         <div className="bg-white p-4 rounded-lg shadow-md"> {/* Reduced card size */}
-          <h2 className="font-bold mb-4" sx={{fontFamily:'poppins'}} style={{color:'#383874'}}></h2>
+          
         </div>
         <div className="bg-white p-4 rounded-lg shadow-md" > {/* Reduced card size */}
        </div>

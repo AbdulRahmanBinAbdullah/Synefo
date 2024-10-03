@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import { Modal, ModalHeader, ModalBody } from "reactstrap";
 import { Box, IconButton } from "@mui/material";
-import Grid from "@mui/material/Grid";
+// import Grid from "@mui/material/Grid";
 import { connect } from "react-redux";
 import CloseIcon from "@mui/icons-material/Close";
 
@@ -57,7 +57,7 @@ class CloudTrailEventPopup extends Component {
 }
 
 const mapStateToProps = (state) => {
-  const {} = state.environments;
+  // const {} = state.environments;
   return {};
 };
 

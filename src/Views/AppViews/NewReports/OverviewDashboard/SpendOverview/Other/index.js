@@ -145,7 +145,7 @@ class Other extends Component {
   render() {
     let { accounts, searchedKey, timerSpendData } = this.state;
     let { spendOverviewComputeDetailsData } = this.props;
-    const isError = spendOverviewComputeDetailsData.status === status.FAILURE;
+    // const isError = spendOverviewComputeDetailsData.status === status.FAILURE;
     return (
       <>
         {spendOverviewComputeDetailsData.status === status.IN_PROGRESS ? (

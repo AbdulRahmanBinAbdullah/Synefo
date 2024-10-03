@@ -6,12 +6,13 @@ import clusterIcon from "assets/img/assetmanager/cluster-icon.png";
 import { v4 } from "uuid";
 import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
 import { styled } from "@mui/material/styles";
-import { PRODUCT_CATEGORY_ENUM, getCurrentUserRole } from "Utils";
+// import { PRODUCT_CATEGORY_ENUM, getCurrentUserRole } from "Utils";
+import { PRODUCT_CATEGORY_ENUM } from "Utils";
 import {
   APPKUBE_UI_ENDPOINT,
   REGEX_TYPE,
   ELEMENT_EXPLORER_MAPPING,
-  USER_RBAC_TYPE,
+  // USER_RBAC_TYPE,
 } from "CommonData";
 import RBAC_MAPPING from "Utils/RbacMapping";
 import Rbac from "Views/AppViews/Rbac";
