@@ -11,7 +11,7 @@ export default function Lambda() {
       redirect: "follow",
     };
 
-    fetch("http://localhost:3000/dev/recommendations/lambda?accountId=657907747545&region=us-east-1", requestOptions) // Replace with your actual API endpoint
+    fetch("https://b3mqipcan0.execute-api.us-east-1.amazonaws.com/dev/recommendations/lambda?accountId=657907747545&region=us-east-1", requestOptions) // Replace with your actual API endpoint
       .then(response => response.json())
       .then(result => {
         const formattedFunctions = result.map(func => ({
@@ -39,7 +39,7 @@ export default function Lambda() {
     <div className="p-6">
       <div className="bg-white rounded-lg shadow overflow-hidden">
         <div className="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
-          <h2 className="text-lg font-semibold text-gray-800" style={{color:'#383874'}}>
+          <h2 className="text-lg font-semibold text-gray-800">
             Recommendations for Lambda functions ({functions.length})
           </h2>
           <div className="space-x-2">

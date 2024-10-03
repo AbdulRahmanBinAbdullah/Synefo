@@ -107,7 +107,7 @@ import ASGPage from './AppViews/CostOptimization/Recommendations/ASGPage';
 // this are the routes of Price Estimator
 import PriceEstimator from "./AppViews/PriceEstimator";
 import ConfigureSetup from "./AppViews/PriceEstimator/configure-fields";
-// import ConfigureAmazonEC2 from "./AppViews/PriceEstimator/Configure-Amazon-EC2";
+import ConfigureAmazonEC2 from "./AppViews/PriceEstimator/Configure-Amazon-EC2";
 import Availability from "./AppViews/AllServices/availabilityandenduser"
 import AssetManagement from "./AppViews/AssetManagement";
 import Autoscale from "./AppViews/AllServices/autoscale"
@@ -238,10 +238,10 @@ export const Views = (props) => {
             path={`${APP_PREFIX_PATH}/assets/price-estimator/configure-setup`}
             element={<ConfigureSetup />}
           />
-          {/* <Route
+          <Route
             path={`${APP_PREFIX_PATH}/assets/price-estimator/configure-amazon-ec2`}
             element={<ConfigureAmazonEC2 />}
-          /> */}
+          />
           <Route
             path={`${APP_PREFIX_PATH}/assets/environments/environmentlist`}
             element={<EnvironmentList />}

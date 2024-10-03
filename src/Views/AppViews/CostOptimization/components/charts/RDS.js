@@ -12,7 +12,7 @@ export default function RdsRecommendations() {
     };
 
     // Fetching data from the API (replace the URL with the actual endpoint)
-    fetch('http://localhost:3000/dev/recommendations/rds?accountId=657907747545&region=us-east-1', requestOptions)
+    fetch('https://b3mqipcan0.execute-api.us-east-1.amazonaws.com/dev/recommendations/rds?accountId=657907747545&region=us-east-1', requestOptions)
       .then(response => response.json())
       .then(result => {
         const formattedInstances = result.map(instance => ({
@@ -40,7 +40,7 @@ export default function RdsRecommendations() {
     <div className="p-6 bg-gray-50">
       <div className="bg-white rounded-lg shadow overflow-hidden">
         <div className="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
-          <h2 className="text-lg font-semibold text-gray-800" style={{color:'#383874'}}>
+          <h2 className="text-lg font-semibold text-gray-800">
             Recommendations for RDS DB Instance ({instances.length})
           </h2>
           <div className="space-x-2">
